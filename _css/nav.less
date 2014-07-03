@@ -96,6 +96,34 @@
 		background:@charcoal;
 		position:absolute;
 	}
+
+	#loading {
+		width:100%;
+		height:100%;
+
+		@tile-one: @sapient-heat;
+		@tile-two: @electric-blue;
+		@tile-three: @piano;
+
+		.tile {
+			width:10%;
+			height:10%;
+			float: left;
+			opacity:0.1;
+
+			&:nth-of-type(3n-2){
+				background:@tile-one;
+			}
+
+			&:nth-of-type(3n-1){
+				background:@tile-two;
+			}
+
+			&:nth-of-type(3n){
+				background:@tile-three;
+			}
+		}
+	}
 }
 
 /*Landscape Mode*/
