@@ -30,7 +30,7 @@ function stackDeck(li) {
 
     $(li.currentTarget).addClass('active');
 
-    $('#apps li').each(function(){
+    $('#apps li.app').each(function(){
         var orderDelta = Math.abs($(this).data('order') - order);
         var delayDelta = delay * orderDelta;
         var appOffset = $(this).offset();
@@ -66,7 +66,7 @@ function unstackDeck() {
 
     TweenMax.to($('#apps ul'),0.25,{top:'0', onComplete:function(){
 
-        $('#apps li').each(function(){
+        $('#apps li.app').each(function(){
             var orderDelta = Math.abs($(this).data('order') - order);
             var delayDelta = delay * orderDelta;
             
