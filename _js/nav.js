@@ -23,12 +23,10 @@ $(window).load(function(){
 
             TweenMax.to($('.list-section li'), 0.1, {borderColor:'#DfE5E6'});
             TweenMax.to($('.list-section li a'), 0.5, {opacity:'1'});
-            
-                window.setTimeout(function(){$('#nav').removeClass('busy')}, 500);
 
-                loadTiles();
+            window.setTimeout(function(){$('#nav').removeClass('busy')}, 500);
 
-            }
+            loadTiles();
 
         }
         else {
