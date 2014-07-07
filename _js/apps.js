@@ -44,7 +44,6 @@ function stackDeck(li) {
         TweenMax.to($(this),0.2,{top:'-='+posYDelta+'px', opacity:'0', delay:delayDelta, ease:Back.easeIn});
     });
 
-    $('#apps .back').addClass('reveal');
     $('#apps ul').addClass('sticky');
 
     centerApp($(li.currentTarget), maxDelay);
@@ -63,6 +62,7 @@ function unstackDeck() {
     var delay = 0.03;
     
     $(target).removeClass('load-state');
+    TweenMax.to($('.description'), 0.5, {opacity: 0});
 
     TweenMax.to($('#apps ul'),0.25,{top:'0', onComplete:function(){
 
@@ -112,6 +112,8 @@ function centerApp(li, maxDelay) {
 
     TweenMax.to($('#apps ul'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
         $(li).addClass('load-state');
+        TweenMax.to($('.description'), 0.5, {opacity: 1});
+        $('#apps .back').addClass('reveal');
     }});
 }
 
