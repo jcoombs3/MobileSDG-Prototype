@@ -23,6 +23,8 @@
 			margin:0;
 			list-style-type:none;
 			background:@ice-white;
+			position:relative;
+			top:0;
 			.transition(all 300ms ease);
 
 			&:nth-of-type(3n-2){
@@ -39,8 +41,12 @@
 
 			&:hover {
 				background:@ice-white;
-
 				width:90%;
+			}
+
+			&.active {
+				z-index:100;
+				opacity:1 !important;
 			}
 		}
 
@@ -74,6 +80,14 @@
 				font-size:35px;
 				color:@charcoal;
 			}
+		}
+
+		.load-bar {
+			position:relative;
+			left:102%;
+			height:100%;
+			width:20%;
+			background:@sapient-heat;
 		}
 
 		table {
