@@ -46,6 +46,8 @@ function unstackDeck() {
     var target = $('#apps ul').find('.active');
     var order = $(target).data('order');
     var delay = 0.03;
+    
+    $(target).removeClass('load-state');
 
     TweenMax.to($('#apps ul'),0.25,{top:'0', onComplete:function(){
 
@@ -71,7 +73,9 @@ function centerApp(li, maxDelay) {
     var newTop = windowHeight - posY - liHeight;
     maxDelay+=0.5;
 
-    TweenMax.to($('#apps ul'),0.25,{top:newTop+'px', delay:maxDelay});
+    TweenMax.to($('#apps ul'),0.25,{top:newTop+'px', delay:maxDelay, onComplete:function(){
+        $(li).addClass('load-state');
+    }});
 }
 
 

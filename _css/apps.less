@@ -49,6 +49,27 @@
 			&.active {
 				z-index:100;
 				opacity:1 !important;
+
+				&:nth-of-type(3n-2){
+					background:@shade-3;
+				}
+
+				&:nth-of-type(3n-1){
+					background:@shade-6;
+				}
+
+				&:nth-of-type(3n){
+					background:@shade-9;
+				}
+
+				&:hover {
+					width:100%;
+				}
+
+				&.load-state {
+					background:@ice-white;
+					width:90%;
+				}
 			}
 		}
 
@@ -133,6 +154,17 @@
 			margin-left: 5%;
 			margin-top: 18.75%;
 			background: @ice-white;
+
+			.triangle {
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 200px 100px 0 0;
+				border-color: @sapient-heat transparent transparent transparent;
+				line-height: 0px;
+				_border-color: #000000 #000000 @sapient-heat #000000;
+				_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+			}
 		}
 	}
 
