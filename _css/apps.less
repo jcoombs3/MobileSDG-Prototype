@@ -13,6 +13,8 @@
 		margin:0;
 		overflow:hidden;
 		overflow-y:auto;
+		position: relative;
+		float: left;
 		
 
 		li {
@@ -100,6 +102,10 @@
 			}
 		}
 
+		&.sticky {
+			overflow:hidden;
+		}
+
 	}
 
 	.back {
@@ -116,7 +122,23 @@
 			opacity:1;
 		}
 	}
+	.description {
+		width: 60%;
+		height: 100%;
+		float: left;
+
+		.inside {
+			width: 90%;
+			height: 75%;
+			margin-left: 5%;
+			margin-top: 18.75%;
+			background: @ice-white;
+		}
+	}
+
 }
+
+
 
 
 /*Landscape Mode*/
