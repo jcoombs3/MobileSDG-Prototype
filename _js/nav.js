@@ -61,6 +61,9 @@ $(window).load(function(){
 
 });
 
+/**
+* This method loads tiles for the phone open nav 
+*/
 function loadTiles() {
     TweenMax.to($('.tile'),0,{rotationY:'180deg',left:'-100%'});
 
