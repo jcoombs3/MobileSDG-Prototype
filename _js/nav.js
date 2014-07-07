@@ -11,7 +11,7 @@ $(window).load(function(){
     $('#nav').on('click',function(e){
         if(!openNav){
             $('#nav').toggleClass('expanded');
-        }
+        
         if($('#nav').hasClass('expanded')){
             $('#nav').addClass('busy');
 
@@ -56,6 +56,7 @@ $(window).load(function(){
                 }
             }
         }
+    }
     });
 
 });
