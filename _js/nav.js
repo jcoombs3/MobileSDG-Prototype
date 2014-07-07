@@ -19,9 +19,9 @@ $(window).load(function(){
                 TweenMax.to($('.list-section li'), 0.1, {borderColor:'#DfE5E6'});
                 TweenMax.to($('.list-section li a'), 0.5, {opacity:'1'});
 
-                TweenMax.staggerFrom($('.tile'),0.2,{rotationY:'90deg'},0.005);
-
                 window.setTimeout(function(){$('#nav').removeClass('busy')}, 500);
+
+                loadTiles();
 
             }
         }
@@ -60,3 +60,13 @@ $(window).load(function(){
     });
 
 });
+
+function loadTiles() {
+    TweenMax.to($('.tile'),0,{rotationY:'180deg',left:'-100%'});
+
+    $('#loading .tile').each(function(){
+        TweenMax.to($(this),0.75,{rotationY:'0',left:'10%',delay:0.02*$(this).data('order'), ease:Back.easeOut});
+    });
+}
+
+

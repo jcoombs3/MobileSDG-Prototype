@@ -1,0 +1,102 @@
+#apps {
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	background:@charcoal;
+
+
+	ul {
+		width:40%;
+		max-width:333px;
+		height:100%;
+		padding:0;
+		margin:0;
+		overflow:hidden;
+		overflow-y:auto;
+		
+
+		li {
+			width:100%;
+			height:22%;
+			max-height:150px;
+			padding:0;
+			margin:0;
+			list-style-type:none;
+			background:@ice-white;
+
+			&:nth-of-type(3n-2){
+				background:@ice-white;
+			}
+
+			&:nth-of-type(3n-1){
+				background:@aluminum-gray;
+			}
+
+			&:nth-of-type(3n){
+				background:@electric-blue;
+			}
+		}
+
+		.icon {
+			width:33.333%;
+			height:100%;
+			float: left;
+
+			img {
+				width:50px;
+				height:50px;
+				background:@charcoal;
+			}
+
+			td {
+				text-align:center;
+			}
+		}
+
+		.title {
+			width:66.666%;
+			height:100%;
+			float: left;
+
+			td {
+				text-align: left;
+			}
+
+			h2 {
+				margin:0;
+				font-size:35px;
+				color:@charcoal;
+			}
+		}
+
+		table {
+			width:100%;
+			height:100%;
+
+			td {
+				width:100%;
+				height:100%;
+			}
+		}
+	}
+}
+
+
+/*Landscape Mode*/
+
+@media screen and (max-device-width: 480px) 
+{ 
+
+	#apps {
+		ul {
+			width:100%;
+		}
+	}
+
+}
+/* Portrait Mode */
+
+@media screen and (max-device-width: 320px) 
+{ 
+
+}
