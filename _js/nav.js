@@ -4,7 +4,7 @@ $(window).load(function(){
     var navWidthMedia = 50;
 
     var openNav = false;
-    if($('#nav').outerWidth() >= navWidth){
+    if($(window).outerWidth() >= 480){
         openNav = true;
     }
 
