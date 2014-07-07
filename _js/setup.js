@@ -1,6 +1,7 @@
 $(window).load(function(){
 
     setup('#loading');
+    setup('#apps');
 
 });
 
@@ -21,6 +22,16 @@ function setup(el){
 
                 order++;
             })
+            break;
+
+        case ('#apps'):
+            var order = 0;
+
+            $('#apps li').each(function(){
+                $(this).data('order',order);
+                order++;
+            });
+            
             break;
     }
 
