@@ -23,17 +23,24 @@
 			margin:0;
 			list-style-type:none;
 			background:@ice-white;
+			.transition(all 300ms ease);
 
 			&:nth-of-type(3n-2){
-				background:@ice-white;
+				background:@shade-3;
 			}
 
 			&:nth-of-type(3n-1){
-				background:@aluminum-gray;
+				background:@shade-6;
 			}
 
 			&:nth-of-type(3n){
-				background:@electric-blue;
+				background:@shade-9;
+			}
+
+			&:hover {
+				background:@ice-white;
+
+				width:90%;
 			}
 		}
 
