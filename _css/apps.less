@@ -12,6 +12,28 @@
 		margin:0;
 		position: relative;
 		float: left;
+		border-right:2px solid @sapient-heat;
+	}
+
+	.loading-anim {
+		width:100%;
+		height:100%;
+		background:transparent;
+		opacity:1;
+		position:absolute;
+		top:0;
+
+		.load-bar {
+			width:100%;
+			height:2px;
+			position:relative;
+			left:-100%;
+			background:@sapient-heat;
+		}
+
+		&.hidden {
+			display:none;
+		}
 	}
 
 	ul {
@@ -23,6 +45,7 @@
 		overflow:hidden;
 		overflow-y:auto;
 		position: relative;
+		top:-100%; // 0
 		float: left;
 		
 
@@ -138,6 +161,10 @@
 			overflow:hidden;
 		}
 
+		&.height-extra {
+			height:120%;
+		}
+
 	}
 
 	.back {
@@ -235,6 +262,10 @@
 	#apps {
 		.apps-container {
 			width:100%;
+		}
+
+		li {
+			max-height:125px !important;
 		}
 	}
 

@@ -33,6 +33,10 @@ function setup(el){
             });
 
             TweenMax.to($('#apps .back .button-container'),0,{height:'0px'});
+
+            // after ember 
+
+            apps_loadAnim();
             
             break;
     }

@@ -7,6 +7,10 @@ $(window).load(function(){
     $('#apps .back .button').on('click',function(){
         appBackToggle();
     });
+
+    $('#apps-anim').on('click',function(){
+        animApps();
+    });
     
 });
 
@@ -160,6 +164,41 @@ function appBackToggle(){
             }});
         }});
     }
+}
+
+/**
+* This method is the simulated animation for the sliding in app list
+*/
+function animApps(){
+    $('#apps ul').addClass('height-extra');
+    TweenMax.to($('#apps ul'),0,{top:'100%'});
+   
+    TweenMax.to($('#apps ul'),1,{top:'0', delay:'0.5', ease:Back.easeOut, onComplete:function(){
+        $('#apps ul').removeClass('height-extra');
+    }});
+}
+
+function apps_loadAnim() {
+    $('#apps .loading-anim .load-bar').each(function(){
+        var posY = Math.random() * $(window).outerHeight();
+
+        TweenMax.to($(this),0,{top:posY+'px'});
+
+    });
+
+    TweenMax.to($('#apps .loading-anim .load-bar'),0.5,{left:'-100%',delay:'1',onComplete:function(){
+        TweenMax.staggerTo($('#apps .loading-anim .load-bar'),0.5,{left:0},0.25);
+    }});
+
+    TweenMax.to($('#apps .loading-anim'),0,{opacity:'1',delay:'3.5',onComplete:function(){
+        TweenMax.staggerTo($('#apps .loading-anim .load-bar'),1,{top:'100%',ease:Back.easeIn},0.15);
+        TweenMax.to($('#apps .loading-anim'),2,{opacity:'0.5', onComplete:function(){
+            $('#apps .loading-anim').addClass('hidden');
+        }});
+
+        animApps();
+    }});
+
 }
 
 
