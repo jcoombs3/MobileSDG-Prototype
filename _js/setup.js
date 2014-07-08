@@ -34,6 +34,10 @@ function setup(el){
 
             TweenMax.to($('#apps .back .button-container'),0,{height:'0px'});
 
+            //node-tree setup
+            var branchHeight = $('.node-tree').outerHeight()/2 - $('.fruit').outerHeight()/2;
+            $('.branch').css('height', branchHeight);
+
             // after ember 
 
             apps_loadAnim();
