@@ -4,8 +4,8 @@ $(window).load(function(){
         stackDeck(e);
     });
 
-    $('#apps .back').on('click',function(){
-        unstackDeck();
+    $('#apps .back .button').on('click',function(){
+        appBackToggle();
     });
     
 });
@@ -22,31 +22,38 @@ $(window).load(function(){
 * @var maxDelay finding the farthest delay possible for the centerApps function, since we cannot use an OnComplete function on the staggered Tweens
 */
 function stackDeck(li) {
-    var order = $(li.currentTarget).data('order');
-    var delay = 0.03;
-    var offset = $(li.currentTarget).offset();
-    var posY = offset.top;
-    var maxDelay = 0;
 
-    $(li.currentTarget).addClass('active');
+    if(!$(li.currentTarget).hasClass('active')){
+        var order = $(li.currentTarget).data('order');
+        var delay = 0.03;
+        var offset = $(li.currentTarget).offset();
+        var posY = offset.top;
+        var maxDelay = 0;
 
-    $('#apps li.app').each(function(){
-        var orderDelta = Math.abs($(this).data('order') - order);
-        var delayDelta = delay * orderDelta;
-        var appOffset = $(this).offset();
-        var appPosY = appOffset.top;
-        var posYDelta = appPosY - posY;
+        $(li.currentTarget).addClass('active');
 
-        if(delayDelta > maxDelay){
-            maxDelay = delayDelta;
-        }
-        
-        TweenMax.to($(this),0.2,{top:'-='+posYDelta+'px', opacity:'0', delay:delayDelta, ease:Back.easeIn});
-    });
+        $('#apps li.app').each(function(){
+            var orderDelta = Math.abs($(this).data('order') - order);
+            var delayDelta = delay * orderDelta;
+            var appOffset = $(this).offset();
+            var appPosY = appOffset.top;
+            var posYDelta = appPosY - posY;
 
-    $('#apps ul').addClass('sticky');
+            if(delayDelta > maxDelay){
+                maxDelay = delayDelta;
+            }
+            
+            TweenMax.to($(this),0.2,{top:'-='+posYDelta+'px', opacity:'0', delay:delayDelta, ease:Back.easeIn});
+        });
 
-    centerApp($(li.currentTarget), maxDelay);
+        $('#apps ul').addClass('sticky');
+
+        centerApp($(li.currentTarget), maxDelay);
+    }
+    else {
+        // do nothing
+    }
+    
 }
 
 /**
@@ -76,7 +83,6 @@ function unstackDeck() {
         });
     }});
 
-    $('#apps .back').removeClass('reveal');
     $('#apps ul').removeClass('sticky');
 }
 
@@ -113,8 +119,47 @@ function centerApp(li, maxDelay) {
     TweenMax.to($('#apps ul'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
         $(li).addClass('load-state');
         TweenMax.to($('.description'), 0.5, {opacity: 1});
-        $('#apps .back').addClass('reveal');
+
+        appBackToggle();
     }});
+}
+
+/**
+* This method is the toggled animation for the back button and its collective children. 
+*
+* @var liHeight half of the selected app's height for centering purposes 
+* @var windowHeight half of the device's height for centering purposes
+* @var offset selected app's position in device (left and top)
+* @var posY selected app's y position
+* @var offKilter if the app selected is off the viewable area in any form, we use this variable to make sure when the ul is given overflow:hidden, the whole app is shown instead of cut off.
+*/
+function appBackToggle(){
+    $('#apps .back').toggleClass('anim');
+
+    if($('#apps .back').hasClass('anim')){
+        $('#apps .back').addClass('reveal');
+        TweenMax.to($('#apps .back .button-container'),0,{height:'auto'});
+
+        TweenMax.to($('#apps .back .load-bar'),0.2,{height:'100px', delay:'0.5', onComplete:function(){
+            TweenMax.to($('#apps .back .load-bar'),0.2,{height:'0px',top:'100px'});
+            TweenMax.to($('#apps .back .button'),0.5,{opacity:'1'});
+            TweenMax.to($('#apps .back .button'),1.5,{rotationZ:'1080deg', onComplete:function(){
+                TweenMax.to($('#apps .back .button'),0.5,{color:'#ffffff'});
+            }});
+        }});
+    }
+    else {
+        TweenMax.to($('#apps .back .button'),0.2,{color:'#1d1d1d'});
+        TweenMax.to($('#apps .back .load-bar'),0.5,{top:'0px'});
+        TweenMax.to($('#apps .back .button'),1.5,{rotationZ:'0deg'});
+        TweenMax.to($('#apps .back .button'),0.3,{opacity:'0', onComplete:function(){
+            TweenMax.to($('#apps .back .load-bar'),0.2,{height:'0px', onComplete:function(){
+                $('#apps .back').removeClass('reveal');
+                TweenMax.to($('#apps .back .button-container'),0,{height:'0px'});
+                unstackDeck();
+            }});
+        }});
+    }
 }
 
 

@@ -141,17 +141,59 @@
 	}
 
 	.back {
-		width:50px;
-		height:50px;
-		background:green;
+		width:0px;
+		height:0px;
 		position:relative;
-		opacity:0;
-		top: 65%;
-		left: 65%;
-		.transition(all 300ms ease);
+		top: 55%;
+		opacity:1;
+
+		.load-bar {
+			width:2px;
+			height:0px; // 100px
+			position:relative;
+			left:25px;
+			background:@ice-white;
+		}
+
+		.button-container {
+			width:100%;
+			background:@electric-blue;
+			position:relative;
+		}
+
+		.button {
+			width:50px;
+			height:50px;
+			position:relative;
+			opacity:0; // 1
+
+			border-radius:50%;
+			border:2px solid @ice-white;
+			border-bottom-color:transparent;
+			border-left-color:transparent;
+			
+			color:@charcoal;
+
+			.icon {
+				font-size:40px;
+				margin:0 auto;
+				position:relative;
+				left:-2px;
+				top:5px;
+			}
+		}
+
+		.notification-block {
+			width:100px;
+			height:100%;
+			color:@ice-white;
+			background:green;
+			position:absolute;
+		}
 
 		&.reveal {
-			opacity:1;
+			width:100%;
+			height:auto;
 		}
 	}
 	.description {
@@ -191,7 +233,7 @@
 { 
 
 	#apps {
-		ul {
+		.apps-container {
 			width:100%;
 		}
 	}
