@@ -141,11 +141,19 @@
 	}
 
 	.back {
-		width:0px;
-		height:0px;
+		width:100%;
 		position:relative;
 		top: 55%;
 		opacity:1;
+		left:-100%;
+
+		.back-text {
+			width: 100%;
+			font-size: 35px;
+			margin:0;
+			color: @ice-white;
+			overflow: hidden;
+		}
 
 		.load-bar {
 			width:2px;
@@ -192,8 +200,7 @@
 		}
 
 		&.reveal {
-			width:100%;
-			height:auto;
+			left:0;
 		}
 	}
 	.description {
