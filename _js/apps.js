@@ -186,8 +186,11 @@ function apps_loadAnim() {
 
     });
 
+    TweenMax.to($('#apps .loading-anim .loading-node'),5,{rotationZ:'2360deg'});
+
     TweenMax.to($('#apps .loading-anim .load-bar'),0.5,{left:'-100%',delay:'1',onComplete:function(){
         TweenMax.staggerTo($('#apps .loading-anim .load-bar'),0.5,{left:0},0.25);
+        TweenMax.to($('#apps .loading-anim .loading-node'),1,{opacity:'0',delay:'1'});
     }});
 
     TweenMax.to($('#apps .loading-anim'),0,{opacity:'1',delay:'3.5',onComplete:function(){
