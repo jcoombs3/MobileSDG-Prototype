@@ -14,6 +14,8 @@
 		float: left;
 		border-right:1px solid @sapient-heat;
 	}
+
+
 	.table{
 		width:100%;
 		position:absolute;
@@ -316,20 +318,25 @@
 				}
 			}
 		}
-
-		.branch-container {
+		.branch-container{
 			width:66.666%;
 			height:100%;
+			background:@sapient-heat;
+			overflow:hidden;
 			float: left;
-		}
 
-		.node {
-			width:30px;
-			height:30px;
-			border:2px solid @sapient-heat;
-			border-radius:50%;
-			position:absolute;
-			top:50%;
+			.branch{
+				width:100%;
+				float: left;
+			}
+
+			.fruit{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background: yellow;
+				float: left;
+			}
 		}
 	}
 
