@@ -293,13 +293,11 @@
 		width:60%;
 		height:100%;
 		float: left;
-		background:blue;
 		border-left:1px solid @sapient-heat;
 
 		.root {
 			width:33.333%;
 			height:100%;
-			background:@ice-white;
 			overflow:hidden;
 			float: left;
 
@@ -321,20 +319,68 @@
 		.branch-container{
 			width:66.666%;
 			height:100%;
-			background:@sapient-heat;
 			overflow:hidden;
 			float: left;
 
 			.branch{
 				width:100%;
 				float: left;
+
+				.vertical-stem {
+					width:100%;
+					height:33.333%;
+
+					table {
+						width:50px;
+						height:100%;
+						border-collapse: collapse;
+						border-spacing: 0;
+					}
+
+					.stem {
+						height:102%;
+						width:2px;
+						background:@sapient-heat;
+						margin:0 auto;
+						margin-top:-1px;
+					}
+				}
+
+				.bulk {
+					width:100%;
+					height:66.666%;
+
+					.node-container {
+						width:100%;
+						height:30px;
+
+						.container {
+							width:50px;
+							height:100%;
+						}
+
+						.node {
+							width:30px;
+							height:30px;
+							border-radius:35%;
+							border:2px solid @sapient-heat;
+							margin:0 auto;
+						}
+					}
+
+					.content-container {
+						width:100%;
+						height:100%;
+						background:magenta;
+					}
+				}
 			}
 
 			.fruit{
 				width: 50px;
 				height: 50px;
 				border-radius: 50%;
-				background: yellow;
+				border:2px solid @sapient-heat;
 				float: left;
 			}
 		}

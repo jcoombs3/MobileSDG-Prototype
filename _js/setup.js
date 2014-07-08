@@ -36,7 +36,9 @@ function setup(el){
 
             //node-tree setup
             var branchHeight = $('.node-tree').outerHeight()/2 - $('.fruit').outerHeight()/2;
-            $('.branch').css('height', branchHeight);
+            $('.branch').css('height', branchHeight + 'px');
+            var branchContent = $('.node-tree .bulk').outerHeight() - 30;
+            $('.branch .bulk .content-container').css('height', branchContent + 'px');
 
             // after ember 
 
