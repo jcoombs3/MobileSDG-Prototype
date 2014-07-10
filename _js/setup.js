@@ -34,11 +34,8 @@ function setup(el){
 
             TweenMax.to($('#apps .back .button-container'),0,{height:'0px'});
 
-            //node-tree setup
-            $('.stem-container').css('height', $('.app').outerHeight()*0.6666);
             var branchHeight = $('.node-tree').outerHeight()/2 - $('.fruit').outerHeight()/2;
-
-            $('.branch').css('height', branchHeight + 'px');
+            TweenMax.to($('.branch'), 0, {height: branchHeight+'px'});
 
             var branchContent = $('.node-tree .bulk').outerHeight() - 30;
             $('.branch .bulk .content-container').css('height', branchContent + 'px');
@@ -46,9 +43,6 @@ function setup(el){
             var nodeTreeWidthLeft = $('.node-tree .root').outerWidth();
             $('.branch .bulk .content-container').css('width', nodeTreeWidth + 'px');
             $('.branch .bulk .content-container').css('left', '-'+nodeTreeWidthLeft + 'px');
-
-            var divMarign =  $('.node-tree').outerHeight()/2 - $('.stem-container').outerHeight()/2;
-            TweenMax.to($('.stem-container'), 0, {top: divMarign});
 
             // after ember 
 
