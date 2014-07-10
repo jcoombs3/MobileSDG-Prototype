@@ -216,7 +216,9 @@ function toggleNodeTree() {
 
     if($('#apps .node-tree').hasClass('lala')){
         // calculate description box width and position it within the ul
-        $('.description-box').css('left', navWidth + 'px'); 
+        var dBHeight = $('ul.sticky').outerHeight()/2 - $('li.app').outerHeight()/2;
+        var dBWidth = $('ul.sticky').outerWidth();
+        TweenMax.to($('.description-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: dBHeight});
     }
     else {
 
