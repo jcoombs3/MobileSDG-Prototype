@@ -216,13 +216,21 @@ function toggleNodeTree() {
 
     if($('#apps .node-tree').hasClass('lala')){
         // calculate description box width and position it within the ul
-        $('.description-box').css('left', navWidth + 'px'); 
+        $('.description-box').css('left', $('#nav').outerWidth() + 'px'); 
+
+        resetNodeTree();
     }
     else {
 
     }
     
-    $('.node-tree .description-box').toggleClass('display-info');
+    $('#apps .node-tree .description-box').toggleClass('display-info');
+}
+
+function resetNodeTree() {
+    TweenMax.to($('.node-tree .root .stem'),0,{width:'0px'});
+    TweenMax.to($('.node-tree .fruit'),0,{borderTopColor:'transparent', borderRightColor:'transparent'});
+    TweenMax.to($('.node-tree .vertical-stem .stem'),0,{height:'0'});
 }
 
 
