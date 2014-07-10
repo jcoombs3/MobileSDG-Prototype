@@ -215,16 +215,24 @@ function toggleNodeTree() {
     $('#apps .node-tree').toggleClass('lala');
 
     if($('#apps .node-tree').hasClass('lala')){
-        // calculate description box width and position it within the ul
+        $('.description-box').css('left', $('#nav').outerWidth() + 'px'); 
         var dBHeight = $('ul.sticky').outerHeight()/2 - $('li.app').outerHeight()/2;
         var dBWidth = $('ul.sticky').outerWidth();
         TweenMax.to($('.description-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: dBHeight});
+
+        resetNodeTree();
     }
     else {
 
     }
     
-    $('.node-tree .description-box').toggleClass('display-info');
+    $('#apps .node-tree .description-box').toggleClass('display-info');
+}
+
+function resetNodeTree() {
+    TweenMax.to($('.node-tree .root .stem'),0,{width:'0px'});
+    TweenMax.to($('.node-tree .fruit'),0,{borderTopColor:'transparent', borderRightColor:'transparent'});
+    TweenMax.to($('.node-tree .vertical-stem .stem'),0,{height:'0'});
 }
 
 
