@@ -69,7 +69,7 @@
 		}
 	}
 
-	ul {
+	.apps-container ul {
 		width:100%;
 		max-width:333px;
 		height:100%;
@@ -93,8 +93,6 @@
 			position:relative;
 			top:0;
 			.transition(all 300ms ease);
-
-			.app{}
 
 			&:nth-of-type(3n-2){
 				background:@shade-3;
@@ -332,7 +330,7 @@
 		.branch-container{
 			width:66.666%;
 			height:100%;
-			overflow:hidden;
+			// overflow:hidden;
 			float: left;
 
 			.branch{
@@ -358,35 +356,6 @@
 						margin-top:-1px;
 					}
 				}
-
-				.bulk {
-					width:100%;
-					height:66.666%;
-
-					.node-container {
-						width:100%;
-						height:30px;
-
-						.container {
-							width:50px;
-							height:100%;
-						}
-
-						.node {
-							width:30px;
-							height:30px;
-							border-radius:35%;
-							border:2px solid @sapient-heat;
-							margin:0 auto;
-						}
-					}
-
-					.content-container {
-						width:100%;
-						height:100%;
-						background:magenta;
-					}
-				}
 			}
 
 			.fruit{
@@ -395,6 +364,99 @@
 				border-radius: 50%;
 				border:2px solid @sapient-heat;
 				float: left;
+			}
+
+			.bulk {
+				width:100%;
+				height:66.666%;
+
+				.node-container {
+					width:100%;
+					height:30px;
+
+					.container {
+						width:50px;
+						height:100%;
+					}
+
+					.node {
+						width:30px;
+						height:30px;
+						border-radius:35%;
+						border:2px solid @sapient-heat;
+						margin:0 auto;
+					}
+
+					.node-center {
+						width:1px;
+						height:1px;
+						background:@ice-white;
+					}
+				}
+
+				.content-container {
+					width:100%;
+					height:100%;
+					position:relative;
+				}
+			}
+
+			ul.app-store {
+				padding:0;
+				margin:0;
+				width:100%;
+				height:100%;
+				position:relative;
+				top:-100%;
+
+				li {
+					width:33.333%;
+					height:100%;
+					padding:0;
+					list-style-type:none;
+					float: left;
+					position:relative;
+
+					&:nth-of-type(3n-2){ 
+						top:100%;
+						left:7%;
+					}
+
+					&:nth-of-type(3n-1){ 
+						left:26.333%;
+						top:-10%;
+					}
+
+					&:nth-of-type(3n){ 
+						top:80%;
+						left:-23%;
+					}
+				}
+
+				table {
+					width:100%;
+					height:100%;
+				}
+
+				.app-store-link {
+					width:100px;
+					height:100px;
+					background:magenta;
+					margin:0 auto;
+				}
+			}
+
+			.app-summary {
+				width:80%;
+				margin:0% 10%;
+				padding-top:10%;
+				height:80%;
+
+				.load-container {
+					background:magenta;
+					width:100%;
+					height:100%;
+				}
 			}
 		}
 	}

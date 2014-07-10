@@ -39,9 +39,13 @@ function setup(el){
             var branchHeight = $('.node-tree').outerHeight()/2 - $('.fruit').outerHeight()/2;
 
             $('.branch').css('height', branchHeight + 'px');
-            
+
             var branchContent = $('.node-tree .bulk').outerHeight() - 30;
             $('.branch .bulk .content-container').css('height', branchContent + 'px');
+            var nodeTreeWidth = $('.node-tree').outerWidth();
+            var nodeTreeWidthLeft = $('.node-tree .root').outerWidth();
+            $('.branch .bulk .content-container').css('width', nodeTreeWidth + 'px');
+            $('.branch .bulk .content-container').css('left', '-'+nodeTreeWidthLeft + 'px');
 
             var divMarign =  $('.node-tree').outerHeight()/2 - $('.stem-container').outerHeight()/2;
             TweenMax.to($('.stem-container'), 0, {top: divMarign});

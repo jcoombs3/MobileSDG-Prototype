@@ -1,6 +1,6 @@
 $(window).load(function(){
 
-    $('#apps li').on('click',function(e){
+    $('#apps .apps-container li').on('click',function(e){
         stackDeck(e);
     });
 
@@ -50,7 +50,7 @@ function stackDeck(li) {
             TweenMax.to($(this),0.2,{top:'-='+posYDelta+'px', opacity:'0', delay:delayDelta, ease:Back.easeIn});
         });
 
-        $('#apps ul').addClass('sticky');
+        $('#apps .apps-container ul').addClass('sticky');
 
         centerApp($(li.currentTarget), maxDelay);
     }
@@ -68,14 +68,14 @@ function stackDeck(li) {
 * @var delay hard coded delay variable that stacks depending on how far each other app is away from the selected app 
 */
 function unstackDeck() {
-    var target = $('#apps ul').find('.active');
+    var target = $('#apps .apps-container ul').find('.active');
     var order = $(target).data('order');
     var delay = 0.03;
     
     $(target).removeClass('load-state');
     TweenMax.to($('.description'), 0.5, {opacity: 0});
 
-    TweenMax.to($('#apps ul'),0.25,{top:'0', onComplete:function(){
+    TweenMax.to($('#apps .apps-container ul'),0.25,{top:'0', onComplete:function(){
 
         $('#apps li.app').each(function(){
             var orderDelta = Math.abs($(this).data('order') - order);
@@ -87,7 +87,7 @@ function unstackDeck() {
         });
     }});
 
-    $('#apps ul').removeClass('sticky');
+    $('#apps .apps-container ul').removeClass('sticky');
 }
 
 /**
@@ -120,7 +120,7 @@ function centerApp(li, maxDelay) {
     var newTop = windowHeight - posY - liHeight;
     maxDelay+=0.5;
 
-    TweenMax.to($('#apps ul'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
+    TweenMax.to($('#apps .apps-container ul'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
         $(li).addClass('load-state');
         TweenMax.to($('.description'), 0.5, {opacity: 1});
 
@@ -170,17 +170,20 @@ function appBackToggle(){
 * This method is the simulated animation for the sliding in app list
 */
 function animApps(){
-    $('#apps ul').addClass('height-extra');
-    TweenMax.to($('#apps ul'),0,{top:'100%'});
+    $('#apps .apps-container ul').addClass('height-extra');
+    TweenMax.to($('#apps .apps-container ul'),0,{top:'100%'});
    
-    TweenMax.to($('#apps ul'),1,{top:'0', delay:'0.5', ease:Back.easeOut, onComplete:function(){
-        $('#apps ul').removeClass('height-extra');
+    TweenMax.to($('#apps .apps-container ul'),1,{top:'0', delay:'0.5', ease:Back.easeOut, onComplete:function(){
+        $('#apps .apps-container ul').removeClass('height-extra');
     }});
 }
 
 function apps_loadAnim() {
-    $('#apps .loading-anim .load-bar').each(function(){
-        var posY = Math.random() * $(window).outerHeight();
+    $('#apps .loading-anim .load-bar').each(function(i){
+
+        var posY = (Math.random() * $(window).outerHeight() * .16667) + (i*$(window).outerHeight()*.16667);
+
+        //var posY = (Math.random() * ($(window).outerHeight()*.16667*(i+1)));
 
         TweenMax.to($(this),0,{top:posY+'px'});
 
