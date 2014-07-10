@@ -125,6 +125,8 @@ function centerApp(li, maxDelay) {
         TweenMax.to($('.description'), 0.5, {opacity: 1});
 
         appBackToggle();
+
+        toggleNodeTree();
     }});
 }
 
@@ -163,6 +165,8 @@ function appBackToggle(){
                 unstackDeck();
             }});
         }});
+
+        toggleNodeTree();
     }
 }
 
@@ -205,6 +209,20 @@ function apps_loadAnim() {
         animApps();
     }});
 
+}
+
+function toggleNodeTree() {
+    $('#apps .node-tree').toggleClass('lala');
+
+    if($('#apps .node-tree').hasClass('lala')){
+        // calculate description box width and position it within the ul
+        $('.description-box').css('left', navWidth + 'px'); 
+    }
+    else {
+
+    }
+    
+    $('.node-tree .description-box').toggleClass('display-info');
 }
 
 
