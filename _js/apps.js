@@ -179,8 +179,11 @@ function animApps(){
 }
 
 function apps_loadAnim() {
-    $('#apps .loading-anim .load-bar').each(function(){
-        var posY = Math.random() * $(window).outerHeight();
+    $('#apps .loading-anim .load-bar').each(function(i){
+
+        var posY = (Math.random() * $(window).outerHeight() * .16667) + (i*$(window).outerHeight()*.16667);
+
+        //var posY = (Math.random() * ($(window).outerHeight()*.16667*(i+1)));
 
         TweenMax.to($(this),0,{top:posY+'px'});
 
