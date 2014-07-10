@@ -221,18 +221,24 @@ function toggleNodeTree() {
         TweenMax.to($('.description-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: dBHeight});
 
         resetNodeTree();
+    
+        $('#apps .node-tree .description-box').addClass('display-info');
     }
     else {
+        
+        $('#apps .node-tree .description-box').removeClass('display-info');
+        TweenMax.to($('.description-box'), 0, {width:'0px'});
 
     }
-    
-    $('#apps .node-tree .description-box').toggleClass('display-info');
 }
 
 function resetNodeTree() {
     TweenMax.to($('.node-tree .root .stem'),0,{width:'0px'});
-    TweenMax.to($('.node-tree .fruit'),0,{borderTopColor:'transparent', borderRightColor:'transparent'});
+    TweenMax.to($('.node-tree .fruit'),0,{borderTopColor:'transparent', borderRightColor:'transparent', opacity:'0'});
     TweenMax.to($('.node-tree .vertical-stem .stem'),0,{height:'0'});
+    TweenMax.to($('.node-tree .node'),0,{borderTopColor:'transparent', borderRightColor:'transparent', opacity:'0'});
+    TweenMax.to($('.node-tree .app-store-link'),0,{opacity:'0'});
+    TweenMax.to($('.node-tree .app-summary'),0,{opacity:'0'});
 }
 
 
