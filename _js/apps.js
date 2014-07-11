@@ -201,8 +201,8 @@ function apps_loadAnim() {
     }});
 
     TweenMax.to($('#apps .loading-anim'),0,{opacity:'1',delay:'3.5',onComplete:function(){
-        TweenMax.staggerTo($('#apps .loading-anim .load-bar'),1,{top:'100%',ease:Back.easeIn},0.15);
-        TweenMax.to($('#apps .loading-anim'),2,{opacity:'0.5', onComplete:function(){
+        TweenMax.staggerTo($('#apps .loading-anim .load-bar'),0.7,{top:'100%',ease:Back.easeIn},0.10);
+        TweenMax.to($('#apps .loading-anim'),1.3,{opacity:'0.5', onComplete:function(){
             $('#apps .loading-anim').addClass('hidden');
         }});
 
@@ -219,13 +219,19 @@ function toggleNodeTree() {
         var dBHeight = $('ul.sticky').outerHeight()/2 - $('li.app').outerHeight()/2;
         var dBWidth = $('ul.sticky').outerWidth();
         TweenMax.to($('.description-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: dBHeight});
-        TweenMax.to($('.devices-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: $('li.app').outerHeight()})
+        TweenMax.to($('.devices-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: $('li.app').outerHeight()});
+        TweenMax.to($('.devices-box ul'), 0, {width: dBWidth, height: $('li.app').outerHeight()});
 
         resetNodeTree();
     
         $('#apps .node-tree .description-box').addClass('display-info');
         $('#apps .node-tree .devices-box').addClass('display-info');
+        
         centerDevices();
+
+        setTimeout(function(){
+            nodeTreeAnim();
+        },1000);
     }
     else {
         
@@ -237,11 +243,15 @@ function toggleNodeTree() {
 
 function resetNodeTree() {
     TweenMax.to($('.node-tree .root .stem'),0,{width:'0px'});
-    TweenMax.to($('.node-tree .fruit'),0,{borderTopColor:'transparent', borderRightColor:'transparent', opacity:'0'});
+    TweenMax.to($('.node-tree .fruit'),0,{rotationZ:'0deg',borderLeftColor:'transparent', borderRightColor:'transparent', opacity:'0'});
     TweenMax.to($('.node-tree .vertical-stem .stem'),0,{height:'0'});
-    TweenMax.to($('.node-tree .node'),0,{borderTopColor:'transparent', borderRightColor:'transparent', opacity:'0'});
+    TweenMax.to($('.node-tree .node'),0,{rotationZ:'0deg',borderLeftColor:'transparent', borderRightColor:'transparent', opacity:'0'});
     TweenMax.to($('.node-tree .app-store-link'),0,{opacity:'0'});
     TweenMax.to($('.node-tree .app-summary'),0,{opacity:'0'});
+
+    //node center 
+
+    TweenMax.to($('.node-tree .node-center'),0,{left:($('.node-tree .node').outerWidth()/2)-3+'px', top:($('.node-tree .node').outerHeight()/2)-3+'px'})
 }
 
 function centerDevices(){
@@ -251,6 +261,17 @@ function centerDevices(){
         TweenMax.to($(this), 0, {top: topPad+'px', left: leftPad+'px'});
     });
     
+}
+
+
+function nodeTreeAnim(){
+    TweenMax.to($('.node-tree .root .stem'),0.5,{width:'100%'});
+    TweenMax.to($('.node-tree .fruit'),1.0,{delay:0.5,opacity:'1',rotationZ:'1080deg'});
+    TweenMax.to($('.node-tree .fruit'),0.5,{delay:0.7+0.5,borderLeftColor:'#D32728',borderRightColor:'#D32728'});
+    var verticalHeight = $('.node-tree .vertical-stem').outerHeight();
+    TweenMax.to($('.node-tree .vertical-stem .stem'),0.5,{delay:0.7,height:verticalHeight+'px'});
+    TweenMax.to($('.node-tree .node'),1.0,{delay:1.0,opacity:'1',rotationZ:'1080deg'});
+    // TweenMax.to($('.node-tree .node'),0,{delay:1.0+0.5,borderLeftColor:'#D32728', borderRightColor:'#D32728'});
 }
 
 
