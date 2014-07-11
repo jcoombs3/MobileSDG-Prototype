@@ -218,16 +218,16 @@ function toggleNodeTree() {
         $('.description-box').css('left', $('#nav').outerWidth() + 'px'); 
         var dBHeight = $('ul.sticky').outerHeight()/2 - $('li.app').outerHeight()/2;
         var dBWidth = $('ul.sticky').outerWidth();
+
         TweenMax.to($('.description-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: dBHeight});
         TweenMax.to($('.devices-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: $('li.app').outerHeight()});
         TweenMax.to($('.devices-box ul'), 0, {width: dBWidth, height: $('li.app').outerHeight()});
 
         resetNodeTree();
+        centerDevices();
     
         $('#apps .node-tree .description-box').addClass('display-info');
         $('#apps .node-tree .devices-box').addClass('display-info');
-        
-        centerDevices();
 
         setTimeout(function(){
             nodeTreeAnim();
@@ -258,7 +258,7 @@ function centerDevices(){
      $('.devices-box img').each(function(){
         var topPad = $('.devices-box ul li').outerHeight()/2 - $(this).outerHeight()/2;
         var leftPad = $('.devices-box ul li').outerWidth()/2 - $(this).outerWidth()/2;
-        TweenMax.to($(this), 0, {top: topPad+'px', left: leftPad+'px'});
+        TweenMax.to($(this), 0, {top: topPad+'px', left: leftPad+'px', delay:1});
     });
     
 }
