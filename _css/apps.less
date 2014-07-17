@@ -4,7 +4,7 @@
 	overflow:hidden;
 	background:@charcoal;
 
-	.apps-container{
+	.apps-container {
 		height:100%;
 		width:40%;
 		max-width:333px;
@@ -12,9 +12,9 @@
 		margin:0;
 		position: relative;
 		float: left;
-		border-right:1px solid @sapient-heat;
+		border-right:2px solid @sapient-heat;
+		z-index:10;
 	}
-
 
 	.table{
 		width:100%;
@@ -36,9 +36,10 @@
 	.loading-anim {
 		width:100%;
 		height:100%;
-		background:transparent;
+		background:@charcoal;
 		opacity:1;
 		position:absolute;
+		z-index:10;
 		top:0;
 
 		table {
@@ -80,6 +81,7 @@
 		position: relative;
 		top:-100%; // 0
 		float: left;
+		z-index:20;
 		
 
 		li {
@@ -114,26 +116,15 @@
 			&.active {
 				z-index:100;
 				opacity:1 !important;
-
-				&:nth-of-type(3n-2){
-					background:@shade-3;
-				}
-
-				&:nth-of-type(3n-1){
-					background:@shade-6;
-				}
-
-				&:nth-of-type(3n){
-					background:@shade-9;
-				}
+				background:@ice-white;
 
 				&:hover {
 					width:100%;
 				}
 
-				&.load-state {
-					background:@ice-white;
-					width:90%;
+				&.show-load {
+					width:90% !important;
+					margin-left:-25%;
 				}
 			}
 		}
@@ -174,7 +165,7 @@
 			position:relative;
 			left:102%;
 			height:100%;
-			width:20%;
+			width:50%;
 			background:@sapient-heat;
 		}
 
@@ -190,6 +181,7 @@
 
 		&.sticky {
 			overflow:hidden;
+			z-index:0;
 		}
 
 		&.height-extra {
@@ -204,6 +196,7 @@
 		top: 55%;
 		opacity:1;
 		left:-100%;
+		z-index:30;
 
 		.back-text {
 			width: 100%;
@@ -261,323 +254,82 @@
 			left:0;
 		}
 	}
-	// .description {
-	// 	width: 60%;
-	// 	height: 100%;
-	// 	float: left;
-	// 	opacity: 0;
 
-	// 	.inside {
-	// 		width: 90%;
-	// 		height: 75%;
-	// 		margin-left: 5%;
-	// 		margin-top: 18.75%;
-	// 		background: @ice-white;
+	.summary-container {
+		width:100%;
+		height:auto;
+		position:absolute;
+		top:0;
+		padding:5%;
+		color:@aluminum-gray;
+		z-index:0;
+		opacity:0;
+		font-size:18px;
+		overflow:hidden;
 
-	// 		.triangle {
-	// 			width: 0;
-	// 			height: 0;
-	// 			border-style: solid;
-	// 			border-width: 200px 100px 0 0;
-	// 			border-color: @sapient-heat transparent transparent transparent;
-	// 			line-height: 0px;
-	// 			_border-color: #000000 #000000 @sapient-heat #000000;
-	// 			_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
-	// 		}
-	// 	}
-	// }
-
-	.node-tree {
-		width:60%;
-		height:100%;
-		float: left;
-		border-left:1px solid @sapient-heat;
-
-		.description-box{
-			font-family: sapientSansL;
-			float:left;
-			position: fixed;
-			background: none;
-			height:100px;
-			width: 200px;
-			right:0;
-			z-index: -50;
-			opacity:0;
-			padding: 3%;
-			color: @aluminum-gray;
-			.transition(all 300ms ease);
-
-			&.display-info {
-				opacity:1;
-				z-index: 50;
-			}
-		}
-
-		.devices-box{
-			background: none;
-			width:100px;
-			height: 100px;
-			position: fixed;
-			right:0;
-			z-index: -50;
-			bottom:0;
-			opacity:0;
-			.transition(all 300ms ease);
-
-			&.display-info {
-				opacity:1;
-				z-index: 50;
-			}
-
-			ul{
-				list-style-type: none;
-				height:100%;
-				width: 100%;
-				float: left;
-				padding: 0;
-				margin: 0;
-
-				li{
-					height: 100%;
-					padding: inherit;
-					margin: inherit;
-					width:25%;
-					float: left;
-
-				}
-			}
-
-			img{
-				height:55%;
-				position: relative;
-				max-width: 100%;
-			}
-			.ipad img{
-				height:75%;
-			}
-			.kiosk img{
-				height:90%;
-			}
-		}
-
-		.root {
-			width:33.333%;
+		.summary {
+			width:100%;
 			height:100%;
 			overflow:hidden;
-			float: left;
-
-			table {
-				width:100%;
-				height:100%;
-				border-collapse: collapse;
-				border-spacing: 0;
-				float:left;
-
-				.stem {
-					width:102%;
-					height:2px;
-					background:@sapient-heat;
-					position:relative;
-					left:-1px;
-				}
-			}
-
 		}
-	
-		.branch-container{
-			width:66.666%;
+
+		p {
+			margin:0;
+			padding:0;
+		}
+	}
+
+	.devices-container {
+		width:100%;
+		height:100px;
+		position:absolute;
+		bottom:0;
+		z-index:0;
+		opacity:0;
+
+		.device {
+			width:25%;
 			height:100%;
+			background:@charcoal;
 			float: left;
 
-			.branch{
-				width:100%;
-				float: left;
-
-				.vertical-stem {
-					width:100%;
-					height:33.333%;
-
-					&.above {
-						td {
-							vertical-align:bottom;
-						}
-					}
-
-					&.below {
-						td {
-							vertical-align:top;
-						}
-					}
-
-					table {
-						width:50px;
-						height:100%;
-						border-collapse: collapse;
-						border-spacing: 0;
-					}
-
-					.stem {
-						height:102%;
-						width:2px;
-						background:@sapient-heat;
-						margin:0 auto;
-						margin-top:-1px;
-					}
-				}
+			&.android {
+				background:url('../_img/devices/android_fill.png') 55% 50% no-repeat;
+				background-size:55%;
+			}
+			&.ipad {
+				background:url('../_img/devices/ipad_fill.png') 15% 45% no-repeat;
+				background-size:85%;
+			}
+			&.iphone {
+				background:url('../_img/devices/iphone_fill.png') 55% 50% no-repeat;
+				background-size:55%;
+			}
+			&.kiosk {
+				background:url('../_img/devices/kiosk_fill.png') 15% 45% no-repeat;
+				background-size:80%;
 			}
 
-			.fruit{
-				width: 50px;
-				height: 50px;
-				border-radius: 50%;
-				border:2px solid @sapient-heat;
-				float: left;
-			}
-
-			.bulk {
+			.notification {
 				width:100%;
-				height:66.666%;
-
-				.node-container {
-					width:100%;
-					height:30px;
-
-					.container {
-						width:50px;
-						height:100%;
-					}
-
-					.node {
-						width:30px;
-						height:30px;
-						border-radius:50%;
-						border:2px solid @sapient-heat;
-						margin:0 auto;
-					}
-
-					.node-center {
-						width:1px;
-						height:1px;
-						background:@ice-white;
-						position:relative;
-					}
-				}
-
-				.content-container {
-					width:100%;
-					height:100%;
-					position:relative;
-				}
-			}
-
-			ul.app-store {
-				padding:0;
-				margin:0;
-				width:100%;
-				height:100%;
+				height:auto;
+				text-align:center;
+				color:@aluminum-gray;
 				position:relative;
-				top:-100%;
-
-				li {
-					width:33.333%;
-					height:100%;
-					padding:0;
-					list-style-type:none;
-					float: left;
-					position:relative;
-
-					&:nth-of-type(3n-2){ 
-						top:100%;
-						left:7%;
-					}
-
-					&:nth-of-type(3n-1){ 
-						left:26.333%;
-						top:-10%;
-					}
-
-					&:nth-of-type(3n){ 
-						top:80%;
-						left:-23%;
-					}
-				}
-
-				table {
-					width:100%;
-					height:100%;
-				}
-
-				.app-store-link {
-					width:100px;
-					height:100px;
-					background:magenta;
-					margin:0 auto;
-				}
+				top:-20%;
+				opacity:0;
+				.transition(all 300ms ease);
 			}
 
-			.app-summary {
-				width:80%;
-				margin:0% 10%;
-				padding-top:10%;
-				height:80%;
-
-				.load-container {
-					background:magenta;
-					width:100%;
-					height:100%;
-				}
+			&:hover .notification {
+				opacity:1;
 			}
 		}
 	}
 
-} /*end of apps*/
-
-#appFocus{
-	height: 100%;
-	width:100%;
-	padding-left: 192px;
-	float: left;
-	position: fixed;
-	top:0;
-	overflow: auto;
-	overflow-x: hidden; 
-
-	.block{
-		width: 100%;
-		height:300px;
-		position: relative;
-		background: @aluminum-gray;
-	}
-
-	.title{
-		height: 100%;
-
-		.logo{
-			background: black;
-			height: 200px;
-			width: 200px;
-			position: relative;
-		}
-
-		.brandName{
-			position: relative;
-			font-size: 40px;
-			text-align: center;
-		}
-
-		.dropArrow{
-			width: 50px;
-			height: 50px;
-			background: black;
-			position: relative;
-			float: left;
-		}
-	}
-
-	.powerPoint{
-		background: @electric-blue;
-	}
 }
+
+
 
 
 /*Landscape Mode*/
@@ -595,8 +347,15 @@
 			max-height:125px !important;
 		}
 
-		.node-tree {
-			display:none;
+		.back .button-container {
+			margin-top:-14%;
+		}
+
+		.devices-container {
+			.notification {
+				opacity:1 !important;
+				top:-30% !important;
+			}
 		}
 	}
 

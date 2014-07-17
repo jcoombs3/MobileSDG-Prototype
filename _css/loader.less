@@ -1,0 +1,56 @@
+#loader {
+	width:100%;
+	height:100%;
+	background:@sapient-heat;
+	position:absolute;
+	z-index:200;
+
+	.anim-balls {
+		width:100px;
+		height:100px;
+		background:url('../_img/logo/SN_Stamp.jpg')0px 0px no-repeat;
+		background-size:100%;
+		position:relative;
+		top:50%;
+		left:50%; 
+	}
+
+	.ball {
+		width:85%;
+		height:85%;
+		background:@ice-white;
+		.border-radius(25%);
+
+		&.top-left {
+			position:relative;
+			top:100%;
+			left:100%;
+		}
+	}
+
+	table {
+		width:70%;
+		height:70%;
+		position:relative;
+		top:15%;
+		left:15%;
+
+	}
+}
+
+/*Landscape Mode*/
+
+@media screen and (max-device-width: 480px) 
+{ 
+
+	#loader {
+		padding-left:@navWidthMedia;
+	}
+
+}
+/* Portrait Mode */
+
+@media screen and (max-device-width: 320px) 
+{ 
+
+}

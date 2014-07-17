@@ -50,7 +50,7 @@ function stackDeck(li) {
             TweenMax.to($(this),0.2,{top:'-='+posYDelta+'px', opacity:'0', delay:delayDelta, ease:Back.easeIn});
         });
 
-        $('#apps .apps-container ul').addClass('sticky');
+        $('#apps .apps-container ul.apps').addClass('sticky');
 
         centerApp($(li.currentTarget), maxDelay);
     }
@@ -68,14 +68,14 @@ function stackDeck(li) {
 * @var delay hard coded delay variable that stacks depending on how far each other app is away from the selected app 
 */
 function unstackDeck() {
-    var target = $('#apps .apps-container ul').find('.active');
+    var target = $('#apps .apps-container ul.apps').find('.active');
     var order = $(target).data('order');
     var delay = 0.03;
     
     $(target).removeClass('load-state');
     TweenMax.to($('.description'), 0.5, {opacity: 0});
 
-    TweenMax.to($('#apps .apps-container ul'),0.25,{top:'0', onComplete:function(){
+    TweenMax.to($('#apps .apps-container ul.apps'),0.25,{top:'0', onComplete:function(){
 
         $('#apps li.app').each(function(){
             var orderDelta = Math.abs($(this).data('order') - order);
@@ -87,7 +87,7 @@ function unstackDeck() {
         });
     }});
 
-    $('#apps .apps-container ul').removeClass('sticky');
+    $('#apps .apps-container ul.apps').removeClass('sticky');
 }
 
 /**
@@ -120,13 +120,8 @@ function centerApp(li, maxDelay) {
     var newTop = windowHeight - posY - liHeight;
     maxDelay+=0.5;
 
-    TweenMax.to($('#apps .apps-container ul'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
-        $(li).addClass('load-state');
-        TweenMax.to($('.description'), 0.5, {opacity: 1});
-
-        appBackToggle();
-
-        toggleNodeTree();
+    TweenMax.to($('#apps .apps-container ul.apps'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
+        setup('#node-tree .tiles');
     }});
 }
 
@@ -139,22 +134,36 @@ function centerApp(li, maxDelay) {
 * @var posY selected app's y position
 * @var offKilter if the app selected is off the viewable area in any form, we use this variable to make sure when the ul is given overflow:hidden, the whole app is shown instead of cut off.
 */
-function appBackToggle(){
+function appBackToggle(li){
     $('#apps .back').toggleClass('anim');
 
-    if($('#apps .back').hasClass('anim')){
+    if($('#apps .back').hasClass('anim')){        
+
+        $('#apps li.app.active').addClass('load-state');
         $('#apps .back').addClass('reveal');
         TweenMax.to($('#apps .back .button-container'),0,{height:'auto'});
 
         TweenMax.to($('#apps .back .load-bar'),0.2,{height:'100px', delay:'0.5', onComplete:function(){
             TweenMax.to($('#apps .back .load-bar'),0.2,{height:'0px',top:'100px'});
             TweenMax.to($('#apps .back .button'),0.5,{opacity:'1'});
+
+            setTimeout(function(){
+                $('#apps li.app.active').addClass('show-load');
+            },1000);
+
             TweenMax.to($('#apps .back .button'),1.5,{rotationZ:'1080deg', onComplete:function(){
-                TweenMax.to($('#apps .back .button'),0.5,{color:'#ffffff'});
+                TweenMax.to($('#apps .back .button'),0.5,{color:'#ffffff', onComplete:function(){
+                    animTilesYo();
+                }});
             }});
         }});
+
+        nodeTreeToggle();
     }
     else {
+
+        $('#apps li.app.active').removeClass('show-load');
+
         TweenMax.to($('#apps .back .button'),0.2,{color:'#1d1d1d'});
         TweenMax.to($('#apps .back .load-bar'),0.5,{top:'0px'});
         TweenMax.to($('#apps .back .button'),1.5,{rotationZ:'0deg'});
@@ -166,7 +175,7 @@ function appBackToggle(){
             }});
         }});
 
-        toggleNodeTree();
+        nodeTreeToggle();
     }
 }
 
@@ -174,11 +183,11 @@ function appBackToggle(){
 * This method is the simulated animation for the sliding in app list
 */
 function animApps(){
-    $('#apps .apps-container ul').addClass('height-extra');
-    TweenMax.to($('#apps .apps-container ul'),0,{top:'100%'});
+    $('#apps .apps-container ul.apps').addClass('height-extra');
+    TweenMax.to($('#apps .apps-container ul.apps'),0,{top:'100%'});
    
-    TweenMax.to($('#apps .apps-container ul'),1,{top:'0', delay:'0.5', ease:Back.easeOut, onComplete:function(){
-        $('#apps .apps-container ul').removeClass('height-extra');
+    TweenMax.to($('#apps .apps-container ul.apps'),1,{top:'0', delay:'0.5', ease:Back.easeOut, onComplete:function(){
+        $('#apps .apps-container ul.apps').removeClass('height-extra');
     }});
 }
 
@@ -202,7 +211,7 @@ function apps_loadAnim() {
 
     TweenMax.to($('#apps .loading-anim'),0,{opacity:'1',delay:'3.5',onComplete:function(){
         TweenMax.staggerTo($('#apps .loading-anim .load-bar'),0.7,{top:'100%',ease:Back.easeIn},0.10);
-        TweenMax.to($('#apps .loading-anim'),1.3,{opacity:'0.5', onComplete:function(){
+        TweenMax.to($('#apps .loading-anim'),1.3,{background:'transparent', opacity:'0.5', onComplete:function(){
             $('#apps .loading-anim').addClass('hidden');
         }});
 
@@ -210,68 +219,3 @@ function apps_loadAnim() {
     }});
 
 }
-
-function toggleNodeTree() {
-    $('#apps .node-tree').toggleClass('lala');
-
-    if($('#apps .node-tree').hasClass('lala')){
-        $('.description-box').css('left', $('#nav').outerWidth() + 'px'); 
-        var dBHeight = $('ul.sticky').outerHeight()/2 - $('li.app').outerHeight()/2;
-        var dBWidth = $('ul.sticky').outerWidth();
-
-        TweenMax.to($('.description-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: dBHeight});
-        TweenMax.to($('.devices-box'), 0, {left: $('#nav').outerWidth() + 'px', width: dBWidth, height: $('li.app').outerHeight()});
-        TweenMax.to($('.devices-box ul'), 0, {width: dBWidth, height: $('li.app').outerHeight()});
-
-        resetNodeTree();
-        centerDevices();
-    
-        $('#apps .node-tree .description-box').addClass('display-info');
-        $('#apps .node-tree .devices-box').addClass('display-info');
-
-        setTimeout(function(){
-            nodeTreeAnim();
-        },1000);
-    }
-    else {
-        
-        $('#apps .node-tree .description-box').removeClass('display-info');
-        $('#apps .node-tree .devices-box').removeClass('display-info');
-
-    }
-}
-
-function resetNodeTree() {
-    TweenMax.to($('.node-tree .root .stem'),0,{width:'0px'});
-    TweenMax.to($('.node-tree .fruit'),0,{rotationZ:'0deg',borderLeftColor:'transparent', borderRightColor:'transparent', opacity:'0'});
-    TweenMax.to($('.node-tree .vertical-stem .stem'),0,{height:'0'});
-    TweenMax.to($('.node-tree .node'),0,{rotationZ:'0deg',borderLeftColor:'transparent', borderRightColor:'transparent', opacity:'0'});
-    TweenMax.to($('.node-tree .app-store-link'),0,{opacity:'0'});
-    TweenMax.to($('.node-tree .app-summary'),0,{opacity:'0'});
-
-    //node center 
-
-    TweenMax.to($('.node-tree .node-center'),0,{left:($('.node-tree .node').outerWidth()/2)-3+'px', top:($('.node-tree .node').outerHeight()/2)-3+'px'})
-}
-
-function centerDevices(){
-     $('.devices-box img').each(function(){
-        var topPad = $('.devices-box ul li').outerHeight()/2 - $(this).outerHeight()/2;
-        var leftPad = $('.devices-box ul li').outerWidth()/2 - $(this).outerWidth()/2;
-        TweenMax.to($(this), 0, {top: topPad+'px', left: leftPad+'px', delay:1});
-    });
-    
-}
-
-
-function nodeTreeAnim(){
-    TweenMax.to($('.node-tree .root .stem'),0.5,{width:'100%'});
-    TweenMax.to($('.node-tree .fruit'),1.0,{delay:0.5,opacity:'1',rotationZ:'1080deg'});
-    TweenMax.to($('.node-tree .fruit'),0.5,{delay:0.7+0.5,borderLeftColor:'#D32728',borderRightColor:'#D32728'});
-    var verticalHeight = $('.node-tree .vertical-stem').outerHeight();
-    TweenMax.to($('.node-tree .vertical-stem .stem'),0.5,{delay:0.7,height:verticalHeight+'px'});
-    TweenMax.to($('.node-tree .node'),1.0,{delay:1.0,opacity:'1',rotationZ:'1080deg'});
-    // TweenMax.to($('.node-tree .node'),0,{delay:1.0+0.5,borderLeftColor:'#D32728', borderRightColor:'#D32728'});
-}
-
-
