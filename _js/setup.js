@@ -43,6 +43,10 @@ function setup(el){
 
             TweenMax.to($('#apps .back .button-container'),0,{height:'0px'});
 
+            var loadBtnTop = $('#apps li').outerHeight()/2 - $('#apps .app-load-btn').outerHeight()/2;
+            var loadBtnLeft = $('#apps li .load-bar').outerWidth()/2 - $('#apps .app-load-btn').outerWidth()/2 - $('#apps ul').outerWidth*0.02;
+            TweenMax.to($('#apps .app-load-btn'),0,{top: loadBtnTop + 'px', left: loadBtnLeft + 'px'});
+
             // after ember 
             apps_loadAnim();
             
@@ -102,5 +106,4 @@ function setup(el){
 
             break;
     }
-
 }

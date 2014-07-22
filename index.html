@@ -283,12 +283,12 @@
         {{#if apps}}
             <ul class="apps">
                 {{#each apps}}
-                    <li class='app' data-summary={{appSummary}}>
+                    <li class='app'>
                         <div class='app-icon'>
                             <table>
                                 <tr>
                                     <td>
-                                        <img>
+                                        <img src="_img/icon/{{icon}}">
                                     </td>
                                 </tr>
                             </table>
@@ -303,7 +303,9 @@
                             </table>
                         </div>
 
-                        <div class='load-bar'></div>
+                        <div class='load-bar'>
+                            <div class='app-load-btn'></div>
+                        </div>
                     </li>
                 {{/each}}
             </ul>
@@ -363,15 +365,15 @@
         </div>
 
         <div class="devices-container">
-            <div class="device ipad">
-                <div class="notification">iPad</div>
-            </div>
-            <div class="device iphone">
-                <div class="notification">iPhone</div>
-            </div>
-            <div class="device kiosk">
-                <div class="notification">Kiosk</div>
-            </div>
+            {{#if devices}}
+                {{#each devices}}
+                    <div class="device {{device}}">
+                        <div class="notification">
+                            {{device}}
+                        </div>
+                    </div>
+                {{/each}}
+            {{/if}}
         </div>
     </script>
 
