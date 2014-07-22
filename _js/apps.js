@@ -1,6 +1,7 @@
 $(window).load(function(){
 
     $('#apps .apps-container li').on('click',function(e){
+        loadAppSummary(e);
         stackDeck(e);
     });
 
@@ -218,4 +219,17 @@ function apps_loadAnim() {
         animApps();
     }});
 
+}
+
+function centerDevices() {
+    var divCounter = 0; // only counting inside of divs (-1)
+    var width = 0;
+    $('#app-summary .devices-container .device').each(function(){
+        width += $(this).outerWidth();
+        divCounter++;
+    });
+
+    var delta = ($('#app-summary .devices-container').outerWidth() - width)/(divCounter+1);
+
+    TweenMax.to($('#app-summary .device'),0,{marginLeft:delta+'px'});
 }

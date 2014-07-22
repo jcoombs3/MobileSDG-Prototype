@@ -38,9 +38,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-mail:before {
-  content: "a";
+.icon-triangle-right:before {
+  content: "b";
 }
-.icon-left-open-mini:before {
-  content: "c";
+.icon-left-open:before {
+  content: "a";
 }
