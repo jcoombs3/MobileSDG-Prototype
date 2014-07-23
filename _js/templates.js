@@ -1,8 +1,15 @@
-Handlebars.registerHelper("xif", function (type) {
+var selectedBlock = {
+};
 
-    var xtype = type; // title
+Handlebars.registerHelper("xif", function (type, block) {
+    selectedBlock = block;
 
-    return blocksData.intThumbnailX00;
+    document.getElementById('block-template').innerHTML = blocksData[type];
+    var blockDetail = document.getElementById('block-template').innerHTML;
+    var blockDetailTemplate = Handlebars.compile(blockDetail);
+    var txt = blockDetailTemplate(selectedBlock);
+    
+    return txt;
 });
 
 
@@ -35,9 +42,20 @@ var appData = {
             }],
             blocks: [
                 {
-                    type: 'title',
-                    name: 'name'
-                }
+                    type: 'intGridSB',
+                    gridB: 'int-grid-container',
+                    gridS: 'int-grid-container'
+                },
+                {
+                    type: 'intGrid',
+                    grid: 'int-grid-container',
+                },
+                {
+                    type: 'intThumbnail',
+                    thumbnail1: 'int-grid-container',
+                    thumbnail2: 'text',
+                    thumbnail3: 'int-grid-container'
+                },
             ]
         }
     ]
@@ -45,19 +63,11 @@ var appData = {
 
 var blocksData = {
     title: "<div class='block title'></div>",
-    intBS: "<div class='block grid-block'><ul><li class='single'><div class='sec big'><div class='int-grid-container'></div></div><div class='sec small'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
-    intSB: "<div class='block grid-block'><ul><li class='single'><div class='sec small'><div class='int-grid-container'></div></div><div class='sec big'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
-    intLeftB: "<div class='block grid-block'><ul><li class='single'><div class='sec big'><div class='int-grid-container'></div></div><div class='sec small'></div><div class='clearfix'></div></li></ul></div>",
-    intLeftS: "<div class='block grid-block'><ul><li class='single'><div class='sec small'><div class='int-grid-container'></div></div><div class='sec big'></div><div class='clearfix'></div></li></ul></div>",
-    intRightB: "<div class='block grid-block'><ul><li class='single'><div class='sec small'></div><div class='sec big'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
-    intRightS: "<div class='block grid-block'><ul><li class='single'><div class='sec big'></div><div class='sec small'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
-    intThumbnail: "<div class='block grid-block'><ul><li class='thumbnail'><div class='sec'><div class='int-grid-container'></div></div><div class='sec'><div class='int-grid-container'></div></div><div class='sec'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
-    intThumbnail0XX: "<div class='block grid-block'><ul><li class='thumbnail'><div class='sec'></div><div class='sec'><div class='int-grid-container'></div></div><div class='sec'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
-    intThumbnailX0X: "<div class='block grid-block'><ul><li class='thumbnail'><div class='sec'><div class='int-grid-container'></div></div><div class='sec'></div><div class='sec'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
-    intThumbnailXX0: "<div class='block grid-block'><ul><li class='thumbnail'><div class='sec'><div class='int-grid-container'></div></div><div class='sec'><div class='int-grid-container'></div></div><div class='sec'></div><div class='clearfix'></div></li></ul></div>",
-    intThumbnailX00: "<div class='block grid-block'><ul><li class='thumbnail'><div class='sec'><div class='int-grid-container'></div></div><div class='sec'></div><div class='sec'></div><div class='clearfix'></div></li></ul></div>",
-    intThumbnailX00: "<div class='block grid-block'><ul><li class='thumbnail'><div class='sec'><div class='int-grid-container'></div></div><div class='sec'></div><div class='sec'></div><div class='clearfix'></div></li></ul></div>",
-    intThumbnailX00: "<div class='block grid-block'><ul><li class='thumbnail'><div class='sec'></div><div class='sec'></div><div class='sec'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
+    intGrid: "<div class='block grid-block'><ul><li class='double'><div class='sec'><div class='{{grid}}'></div></div><div class='clearfix'></div></li></ul></div>",
+    intGridBS: "<div class='block grid-block'><ul><li class='single'><div class='sec big'><div class='{{gridB}}'></div></div><div class='sec small'><div class='{{gridS}}''></div></div><div class='clearfix'></div></li></ul></div>",
+    intGridSB: "<div class='block grid-block'><ul><li class='single'><div class='sec small'><div class='int-grid-container'></div></div><div class='sec big'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
+    intThumbnail: "<div class='block grid-block'><ul><li class='thumbnail'><div class='sec'><div class='{{thumbnail1}}'></div></div><div class='sec'><div class='{{thumbnail2}}'></div></div><div class='sec'><div class='{{thumbnail3}}'></div></div><div class='clearfix'></div></li></ul></div>",
+    powerpoint: "<div class='block powerpoint'></div>",
 };
 
 var selectedApp = {
@@ -79,8 +89,20 @@ var selectedApp = {
             }],
             blocks: [
                 {
-                    type: 'picBlock'
-                }
+                    type: 'intGridSB',
+                    gridB: 'int-grid-container',
+                    gridS: 'int-grid-container'
+                },
+                {
+                    type: 'intGrid',
+                    grid: 'int-grid-container',
+                },
+                {
+                    type: 'intThumbnail',
+                    thumbnail1: 'int-grid-container',
+                    thumbnail2: 'text',
+                    thumbnail3: 'int-grid-container'
+                },
             ]
 };
 
@@ -97,15 +119,18 @@ function loadAppSummary(li) {
 
     centerDevices();
 
-    // code goes here
-
-}
-
-
-
     var appDetail = document.getElementById('app-detail-template').innerHTML;
     var appDetailTemplate = Handlebars.compile(appDetail);
     document.getElementById('app-detail').innerHTML = appDetailTemplate(selectedApp);
+
+    TweenMax.to($('#app-detail'),0,{top:'-200%'});
+
+}
+    // code goes above in loadAppSummary !!!
+    // var appDetail = document.getElementById('app-detail-template').innerHTML;
+    // var appDetailTemplate = Handlebars.compile(appDetail);
+    // document.getElementById('app-detail').innerHTML = appDetailTemplate(selectedApp);
+    // TweenMax.to($('#app-detail'),1,{top:'-200%'});
 
 
 

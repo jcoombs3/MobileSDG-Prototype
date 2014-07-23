@@ -383,13 +383,12 @@
 
     <script id="app-detail-template" type="text/x-handlebars-template">
         {{#each blocks}}
-            {{#xif this.type }}
-                BOOM
-                
-                {{else}}
-                    BAMM
+            {{#xif this.type this}}
             {{/xif}}
         {{/each}}
+    </script>
+
+    <script id="block-template" type="text/x-handlebars-template">
     </script>
 
     <script type="text/javascript" src="_js/templates.js"></script>
