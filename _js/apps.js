@@ -158,7 +158,7 @@ function appBackToggle(li){
             
         $('#apps li.app.active').addClass('show-load');
 
-        TweenMax.to($('#apps .apps-container'),0.4,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', delay:'1', ease:Back.easeOut, onComplete:function(){
+        TweenMax.to($('#apps .apps-container'),0.5,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', delay:'0.5', ease:Back.easeOut, onComplete:function(){
             TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'1'});
         }});
 
