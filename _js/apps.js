@@ -1,8 +1,11 @@
 $(window).load(function(){
 
-    $('#apps .apps-container li').on('click',function(e){
-        loadAppSummary(e);
-        stackDeck(e);
+    $('#apps .apps-container .app-front').on('click',function(e){
+        var parent = $(e.currentTarget).parent();
+        if(!$('#apps ul').hasClass('sticky')){
+            loadAppSummary(parent);
+            stackDeck(parent);
+        }
     });
 
     $('#apps .back .button').on('click',function(){
@@ -11,6 +14,10 @@ $(window).load(function(){
 
     $('#apps-anim').on('click',function(){
         animApps();
+    });
+
+    $('#apps li .app-load-btn').on('click',function(){
+        console.log('yay');
     });
     
 });
@@ -28,14 +35,14 @@ $(window).load(function(){
 */
 function stackDeck(li) {
 
-    if(!$(li.currentTarget).hasClass('active')){
-        var order = $(li.currentTarget).data('order');
+    if(!$(li).hasClass('active')){
+        var order = $(li).data('order');
         var delay = 0.03;
-        var offset = $(li.currentTarget).offset();
+        var offset = $(li).offset();
         var posY = offset.top;
         var maxDelay = 0;
 
-        $(li.currentTarget).addClass('active');
+        $(li).addClass('active');
 
         $('#apps li.app').each(function(){
             var orderDelta = Math.abs($(this).data('order') - order);
@@ -53,7 +60,7 @@ function stackDeck(li) {
 
         $('#apps .apps-container ul.apps').addClass('sticky');
 
-        centerApp($(li.currentTarget), maxDelay);
+        centerApp($(li), maxDelay);
     }
     else {
         // do nothing
@@ -150,6 +157,7 @@ function appBackToggle(li){
 
             setTimeout(function(){
                 $('#apps li.app.active').addClass('show-load');
+                TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'1', delay:'1'});
             },1000);
 
             TweenMax.to($('#apps .back .button'),1.5,{rotationZ:'1080deg', onComplete:function(){
@@ -164,6 +172,7 @@ function appBackToggle(li){
     else {
 
         $('#apps li.app.active').removeClass('show-load');
+        TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'0'});
 
         TweenMax.to($('#apps .back .button'),0.2,{color:'#1d1d1d'});
         TweenMax.to($('#apps .back .load-bar'),0.5,{top:'0px'});

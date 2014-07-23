@@ -66,17 +66,24 @@ function setup(el){
         case ('#node-tree .tiles'):
             var containerWidth = $('#node-tree .container').outerWidth();
             var containerHeight = $('#node-tree .container').outerHeight();
-            var tileWidth = containerWidth/8;
+            var tileNum = 10;
+            var tileWidth = containerWidth/tileNum;
 
             var layers = Math.ceil(containerHeight/tileWidth);
+            var el = "";
+
+            for(var x=0;x<tileNum;x++){
+                el += "<div class='tile'></div>";
+            }
 
             for(var i=0;i<layers;i++){ 
                 $('#node-tree .container').append(
-                    "<div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div><div class='tile'></div>"
+                    el    
                 );
             }
 
             $('#node-tree .container .tile').each(function(){
+                TweenMax.to($(this),0,{width:tileWidth+'px'})
                 var i = Math.random() * 100;
                 var delay = Math.random() * 5;
                 var animNum = 1; 

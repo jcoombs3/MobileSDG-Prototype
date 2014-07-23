@@ -275,6 +275,8 @@
 	                    <div class="container regular">
 	                    </div>
 	                </div>
+
+                    <div id='app-detail'></div>
             </div>
         </div>
     </div>
@@ -284,23 +286,25 @@
             <ul class="apps">
                 {{#each apps}}
                     <li class='app'>
-                        <div class='app-icon'>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <img src="_img/icon/{{icon}}">
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class='title'>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <h2>{{name}}</h2>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div class='app-front'>
+                            <div class='app-icon'>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <img src="_img/icon/{{icon}}">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class='title'>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <h2>{{name}}</h2>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
 
                         <div class='load-bar'>
@@ -375,6 +379,17 @@
                 {{/each}}
             {{/if}}
         </div>
+    </script>
+
+    <script id="app-detail-template" type="text/x-handlebars-template">
+        {{#each blocks}}
+            {{#xif this.type }}
+                BOOM
+                
+                {{else}}
+                    BAMM
+            {{/xif}}
+        {{/each}}
     </script>
 
     <script type="text/javascript" src="_js/templates.js"></script>
