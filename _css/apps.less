@@ -12,6 +12,7 @@
 		margin:0;
 		position: relative;
 		float: left;
+		background:@charcoal;
 		border-right:2px solid @sapient-heat;
 		z-index:10;
 	}
@@ -140,8 +141,22 @@
 			position:absolute;
 			top:50%;
 			left:25px;
-			background:yellow;
-			opacity:0;
+			opacity:0; // 1
+
+			border-radius:50%;
+			border:2px solid @ice-white;
+			border-bottom-color:transparent;
+			border-left-color:transparent;
+			
+			color:@ice-white; // sapient-heat
+
+			.icon {
+				font-size:40px;
+				margin:0 auto;
+				position:relative;
+				left:2px;
+				top:5px;
+			}
 		}
 
 		.app-icon {

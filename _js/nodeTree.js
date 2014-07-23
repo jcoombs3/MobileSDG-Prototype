@@ -42,7 +42,7 @@ function toggleDevices() {
 }
 
 function removeTiles() {
-    TweenMax.to($('#node-tree'),1,{opacity:'1',onComplete:function(){
+    TweenMax.to($('#node-tree'),1,{opacity:'0.5',onComplete:function(){
         $('#node-tree .container .tile').remove();
     }});
 }

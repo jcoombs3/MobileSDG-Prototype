@@ -12,12 +12,16 @@ $(window).load(function(){
         appBackToggle();
     });
 
+    $('#apps .apps-container li').hover(function(e){
+        peekApp($(e.currentTarget));
+    });
+
     $('#apps-anim').on('click',function(){
         animApps();
     });
 
     $('#apps li .app-load-btn').on('click',function(){
-        console.log('yay');
+        appBackToggle();
     });
     
 });
@@ -114,6 +118,9 @@ function centerApp(li, maxDelay) {
     var posY = offset.top;
     var offKilter = 0;
 
+    var loadBarWidth = 100 - ($(li).find('.app-front').outerWidth()*0.02); // thinking that this wont change
+    TweenMax.to($('#apps .apps-container li.app.active .load-bar'),0,{width:loadBarWidth+'px'});
+
     if(posY < 0) {
         TweenMax.to($(li),0.1,{top:-1*posY});
         offKilter = posY;
@@ -129,7 +136,7 @@ function centerApp(li, maxDelay) {
     maxDelay+=0.5;
 
     TweenMax.to($('#apps .apps-container ul.apps'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
-        setup('#node-tree .tiles');
+        appBackToggle();
     }});
 }
 
@@ -143,46 +150,20 @@ function centerApp(li, maxDelay) {
 * @var offKilter if the app selected is off the viewable area in any form, we use this variable to make sure when the ul is given overflow:hidden, the whole app is shown instead of cut off.
 */
 function appBackToggle(li){
-    $('#apps .back').toggleClass('anim');
+    $('#apps li.app.active').toggleClass('load-state');
 
-    if($('#apps .back').hasClass('anim')){        
+    if($('#apps li.app.active').hasClass('load-state')){      
 
-        $('#apps li.app.active').addClass('load-state');
-        $('#apps .back').addClass('reveal');
-        TweenMax.to($('#apps .back .button-container'),0,{height:'auto'});
-
-        TweenMax.to($('#apps .back .load-bar'),0.2,{height:'100px', delay:'0.5', onComplete:function(){
-            TweenMax.to($('#apps .back .load-bar'),0.2,{height:'0px',top:'100px'});
-            TweenMax.to($('#apps .back .button'),0.5,{opacity:'1'});
-
-            setTimeout(function(){
-                $('#apps li.app.active').addClass('show-load');
-                TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'1', delay:'1'});
-            },1000);
-
-            TweenMax.to($('#apps .back .button'),1.5,{rotationZ:'1080deg', onComplete:function(){
-                TweenMax.to($('#apps .back .button'),0.5,{color:'#ffffff', onComplete:function(){
-                    animTilesYo();
-                }});
-            }});
-        }});
+        $('#apps li.app.active').addClass('show-load');
+        TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'1', delay:'1'});
 
         nodeTreeToggle();
     }
     else {
 
         $('#apps li.app.active').removeClass('show-load');
-        TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'0'});
-
-        TweenMax.to($('#apps .back .button'),0.2,{color:'#1d1d1d'});
-        TweenMax.to($('#apps .back .load-bar'),0.5,{top:'0px'});
-        TweenMax.to($('#apps .back .button'),1.5,{rotationZ:'0deg'});
-        TweenMax.to($('#apps .back .button'),0.3,{opacity:'0', onComplete:function(){
-            TweenMax.to($('#apps .back .load-bar'),0.2,{height:'0px', onComplete:function(){
-                $('#apps .back').removeClass('reveal');
-                TweenMax.to($('#apps .back .button-container'),0,{height:'0px'});
-                unstackDeck();
-            }});
+        TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'0', onComplete:function(){
+            unstackDeck();
         }});
 
         nodeTreeToggle();

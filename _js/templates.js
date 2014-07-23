@@ -47,27 +47,55 @@ var appData = {
                     gridS: 'int-grid-container'
                 },
                 {
-                    type: 'intGrid',
-                    grid: 'int-grid-container',
-                },
-                {
                     type: 'intThumbnail',
                     thumbnail1: 'int-grid-container',
                     thumbnail2: 'text',
                     thumbnail3: 'int-grid-container'
                 },
+                {
+                    type: 'intGrid',
+                    grid: 'int-grid-container',
+                },
             ]
-        }
+        },
+        {
+            name: "Ganassi Timeline",
+            icon: "icon-ganassi.jpg",
+            appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            devices: [
+                {
+                    device: 'Android'
+                }, 
+                {
+                    device: 'iPad'
+                }, 
+                {
+                    device: 'iPhone'
+                }, 
+                {
+                device: 'Kiosk'
+            }],
+            blocks: [
+                {
+                    type: 'intGrid',
+                    grid: 'int-grid-container',
+                },
+                {
+                    type: 'intThumbnail',
+                    thumbnail1: 'text',
+                    thumbnail2: 'text',
+                    thumbnail3: 'int-grid-container'
+                }
+            ]
+        },
     ]
 };
 
 var blocksData = {
-    title: "<div class='block title'></div>",
     intGrid: "<div class='block grid-block'><ul><li class='double'><div class='sec'><div class='{{grid}}'></div></div><div class='clearfix'></div></li></ul></div>",
     intGridBS: "<div class='block grid-block'><ul><li class='single'><div class='sec big'><div class='{{gridB}}'></div></div><div class='sec small'><div class='{{gridS}}''></div></div><div class='clearfix'></div></li></ul></div>",
     intGridSB: "<div class='block grid-block'><ul><li class='single'><div class='sec small'><div class='int-grid-container'></div></div><div class='sec big'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
     intThumbnail: "<div class='block grid-block'><ul><li class='thumbnail'><div class='sec'><div class='{{thumbnail1}}'></div></div><div class='sec'><div class='{{thumbnail2}}'></div></div><div class='sec'><div class='{{thumbnail3}}'></div></div><div class='clearfix'></div></li></ul></div>",
-    powerpoint: "<div class='block powerpoint'></div>",
 };
 
 var selectedApp = {
@@ -88,20 +116,22 @@ var selectedApp = {
                 device: 'Kiosk'
             }],
             blocks: [
-                {
-                    type: 'intGridSB',
-                    gridB: 'int-grid-container',
-                    gridS: 'int-grid-container'
-                },
-                {
-                    type: 'intGrid',
-                    grid: 'int-grid-container',
-                },
+
+            // intGrid BS SB
+            // grid gridB gridS
+
+            // intThumbnail 
+            // thumbnail1 2 3
+
                 {
                     type: 'intThumbnail',
                     thumbnail1: 'int-grid-container',
                     thumbnail2: 'text',
                     thumbnail3: 'int-grid-container'
+                },
+                {
+                    type: 'intGrid',
+                    grid: 'int-grid-container',
                 },
             ]
 };
@@ -119,18 +149,21 @@ function loadAppSummary(li) {
 
     centerDevices();
 
-    var appDetail = document.getElementById('app-detail-template').innerHTML;
-    var appDetailTemplate = Handlebars.compile(appDetail);
-    document.getElementById('app-detail').innerHTML = appDetailTemplate(selectedApp);
-
-    TweenMax.to($('#app-detail'),0,{top:'-200%'});
-
-}
-    // code goes above in loadAppSummary !!!
     // var appDetail = document.getElementById('app-detail-template').innerHTML;
     // var appDetailTemplate = Handlebars.compile(appDetail);
     // document.getElementById('app-detail').innerHTML = appDetailTemplate(selectedApp);
-    // TweenMax.to($('#app-detail'),1,{top:'-200%'});
+
+}
+
+function peekApp(li) {
+    var num = $(li).index();
+    selectedApp = appData.apps[num];
+
+    var appDetail = document.getElementById('app-detail-template').innerHTML;
+    var appDetailTemplate = Handlebars.compile(appDetail);
+    document.getElementById('app-detail').innerHTML = appDetailTemplate(selectedApp);
+}
+
 
 
 

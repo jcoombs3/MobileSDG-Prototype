@@ -109,8 +109,6 @@ function setup(el){
                 $(this).data('delay',delay);
             });
 
-            appBackToggle();
-
             break;
     }
 }
