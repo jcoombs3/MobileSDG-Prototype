@@ -136,7 +136,7 @@ function centerApp(li, maxDelay) {
     maxDelay+=0.5;
 
     TweenMax.to($('#apps .apps-container ul.apps'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
-        appBackToggle();
+        appBackToggle(li);
     }});
 }
 
@@ -150,16 +150,22 @@ function centerApp(li, maxDelay) {
 * @var offKilter if the app selected is off the viewable area in any form, we use this variable to make sure when the ul is given overflow:hidden, the whole app is shown instead of cut off.
 */
 function appBackToggle(li){
+    console.log($(li).outerWidth());
+    console.log($(li).find('.load-bar').outerWidth());
     $('#apps li.app.active').toggleClass('load-state');
 
-    if($('#apps li.app.active').hasClass('load-state')){      
-
+    if($('#apps li.app.active').hasClass('load-state')){    
+            
         $('#apps li.app.active').addClass('show-load');
-        TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'1', delay:'1'});
+
+        TweenMax.to($('#apps .apps-container'),0.4,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', delay:'1', ease:Back.easeOut, onComplete:function(){
+            TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'1'});
+        }});
 
         nodeTreeToggle();
     }
     else {
+        TweenMax.to($('#apps .apps-container'),0.2,{left:'0px'});
 
         $('#apps li.app.active').removeClass('show-load');
         TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'0', onComplete:function(){

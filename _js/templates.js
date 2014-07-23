@@ -143,9 +143,9 @@ function loadAppSummary(li) {
     var num = $(li).index();
     selectedApp = appData.apps[num];
 
-    var newAppSummary = document.getElementById('app-summary-template').innerHTML;
-    var newAppSummaryTemplate = Handlebars.compile(newAppSummary);
-    document.getElementById('app-summary').innerHTML = newAppSummaryTemplate(selectedApp);
+    // var newAppSummary = document.getElementById('app-summary-template').innerHTML;
+    // var newAppSummaryTemplate = Handlebars.compile(newAppSummary);
+    // document.getElementById('app-summary').innerHTML = newAppSummaryTemplate(selectedApp);
 
     centerDevices();
 
