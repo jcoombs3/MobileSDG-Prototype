@@ -160,9 +160,12 @@ function peekApp(li) {
     selectedApp = appData.apps[num];
 
     var pad = 100 - ($('#apps ul').outerWidth()*0.02); // thinking that this wont change
-    var width = $(window).outerWidth() - $('#nav').outerWidth() - pad; 
-    
+    var width = $(window).outerWidth() - $('#nav').outerWidth() - pad;
+
     TweenMax.to($('#app-detail'),0,{marginLeft:$('#apps ul').outerWidth()+'px',width:width+'px'});
+    TweenMax.to($('.working-title'), 1, {delay: 0.05, left:'-70%'});
+    TweenMax.to($('#app-detail'), 0.5, {left: 0}); 
+    
 
     var appDetail = document.getElementById('app-detail-template').innerHTML;
     var appDetailTemplate = Handlebars.compile(appDetail);
