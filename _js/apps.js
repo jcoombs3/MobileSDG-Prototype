@@ -1,6 +1,6 @@
 $(window).load(function(){
 
-    $('#apps .apps-container .app-front').on('click',function(e){
+    $('#apps .app-list .app-front').on('click',function(e){
         var parent = $(e.currentTarget).parent();
         if(!$('#apps ul').hasClass('sticky')){
             loadAppSummary(parent);
@@ -12,7 +12,7 @@ $(window).load(function(){
         appBackToggle();
     });
 
-    $('#apps .apps-container li').hover(function(e){
+    $('#apps .app-list li').hover(function(e){
         peekApp($(e.currentTarget));
     });
 
@@ -62,7 +62,7 @@ function stackDeck(li) {
             TweenMax.to($(this),0.2,{top:'-='+posYDelta+'px', opacity:'0', delay:delayDelta, ease:Back.easeIn});
         });
 
-        $('#apps .apps-container ul.apps').addClass('sticky');
+        $('#apps .app-list ul.apps').addClass('sticky');
 
         centerApp($(li), maxDelay);
     }
@@ -80,14 +80,14 @@ function stackDeck(li) {
 * @var delay hard coded delay variable that stacks depending on how far each other app is away from the selected app 
 */
 function unstackDeck() {
-    var target = $('#apps .apps-container ul.apps').find('.active');
+    var target = $('#apps .app-list ul.apps').find('.active');
     var order = $(target).data('order');
     var delay = 0.03;
     
     $(target).removeClass('load-state');
     TweenMax.to($('.description'), 0.5, {opacity: 0});
 
-    TweenMax.to($('#apps .apps-container ul.apps'),0.25,{top:'0', onComplete:function(){
+    TweenMax.to($('#apps .app-list ul.apps'),0.25,{top:'0', onComplete:function(){
 
         $('#apps li.app').each(function(){
             var orderDelta = Math.abs($(this).data('order') - order);
@@ -99,7 +99,7 @@ function unstackDeck() {
         });
     }});
 
-    $('#apps .apps-container ul.apps').removeClass('sticky');
+    $('#apps .app-list ul.apps').removeClass('sticky');
 }
 
 /**
@@ -119,7 +119,7 @@ function centerApp(li, maxDelay) {
     var offKilter = 0;
 
     var loadBarWidth = 100 - ($(li).find('.app-front').outerWidth()*0.02); // thinking that this wont change
-    TweenMax.to($('#apps .apps-container li.app.active .load-bar'),0,{width:loadBarWidth+'px'});
+    TweenMax.to($('#apps .app-list li.app.active .load-bar'),0,{width:loadBarWidth+'px'});
 
     if(posY < 0) {
         TweenMax.to($(li),0.1,{top:-1*posY});
@@ -135,7 +135,7 @@ function centerApp(li, maxDelay) {
     var newTop = windowHeight - posY - liHeight;
     maxDelay+=0.5;
 
-    TweenMax.to($('#apps .apps-container ul.apps'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
+    TweenMax.to($('#apps .app-list ul.apps'),0.25,{top:newTop+offKilter+'px', delay:maxDelay, onComplete:function(){
         appBackToggle(li);
     }});
 }
@@ -150,22 +150,20 @@ function centerApp(li, maxDelay) {
 * @var offKilter if the app selected is off the viewable area in any form, we use this variable to make sure when the ul is given overflow:hidden, the whole app is shown instead of cut off.
 */
 function appBackToggle(li){
-    console.log($(li).outerWidth());
-    console.log($(li).find('.load-bar').outerWidth());
     $('#apps li.app.active').toggleClass('load-state');
 
     if($('#apps li.app.active').hasClass('load-state')){    
             
         $('#apps li.app.active').addClass('show-load');
 
-        TweenMax.to($('#apps .apps-container'),0.5,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', delay:'0.5', ease:Back.easeOut, onComplete:function(){
+        TweenMax.to($('#apps-container'),0.5,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', delay:'0.5', ease:Back.easeOut, onComplete:function(){
             TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'1'});
         }});
 
         nodeTreeToggle();
     }
     else {
-        TweenMax.to($('#apps .apps-container'),0.2,{left:'0px'});
+        TweenMax.to($('#apps-container'),0.2,{left:'0px'});
 
         $('#apps li.app.active').removeClass('show-load');
         TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'0', onComplete:function(){
@@ -180,11 +178,11 @@ function appBackToggle(li){
 * This method is the simulated animation for the sliding in app list
 */
 function animApps(){
-    $('#apps .apps-container ul.apps').addClass('height-extra');
-    TweenMax.to($('#apps .apps-container ul.apps'),0,{top:'100%'});
+    $('#apps .app-list ul.apps').addClass('height-extra');
+    TweenMax.to($('#apps .app-list ul.apps'),0,{top:'100%'});
    
-    TweenMax.to($('#apps .apps-container ul.apps'),1,{top:'0', delay:'0.5', ease:Back.easeOut, onComplete:function(){
-        $('#apps .apps-container ul.apps').removeClass('height-extra');
+    TweenMax.to($('#apps .app-list ul.apps'),1,{top:'0', delay:'0.5', ease:Back.easeOut, onComplete:function(){
+        $('#apps .app-list ul.apps').removeClass('height-extra');
     }});
 }
 

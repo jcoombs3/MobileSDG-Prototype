@@ -3,7 +3,7 @@ function nodeTreeToggle() {
 
     if($('#node-tree').hasClass('inject-app')){
         // summary container 
-        var summaryHeight = $('#apps .apps-container ul').outerHeight()/2 - $('#apps .apps-container li').outerHeight()/2;
+        var summaryHeight = $('#apps .app-list ul').outerHeight()/2 - $('#apps .app-list li').outerHeight()/2;
         TweenMax.to($('#apps .summary-container'),1,{height:summaryHeight+'px'});
 
         // devices container 
