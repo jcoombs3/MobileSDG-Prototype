@@ -270,7 +270,8 @@
         <div class="main-container">
             <div id="apps">
                 <div id="apps-container">
-	                <div class='app-list' id="app-selection"></div>
+	                <div class='app-list' id="app-selection"> 
+                    </div>
 
 <!-- 	                <div id="node-tree">
 	                    <div class="container regular">
@@ -285,6 +286,7 @@
 
     <script id="app-selection-template" type="text/x-handlebars-template">
         {{#if apps}}
+            <div id="breadcrumb"></div>  
             <ul class="apps">
                 {{#each apps}}
                     <li class='app'>
@@ -293,16 +295,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            <img src="_img/icon/{{icon}}">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='title'>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <h2>{{name}}</h2>
+                                            <img src="_img/icon/{{icon}}" style="width:{{iconWidth}}">
                                         </td>
                                     </tr>
                                 </table>

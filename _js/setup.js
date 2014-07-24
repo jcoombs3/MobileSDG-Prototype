@@ -34,6 +34,8 @@ function setup(el){
             break;
 
         case ('#apps'):
+            TweenMax.to($('#apps ul'),0,{top:'+='+$('#breadcrumb').outerHeight()+'px'});
+            
             var order = 0;
 
             $('#apps li').each(function(){

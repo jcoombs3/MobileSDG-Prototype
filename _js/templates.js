@@ -24,8 +24,9 @@ var appTemplate = Handlebars.compile(appSource);
 var appData = {
     apps: [
         {
-            name: "Ganassi Timeline",
-            icon: "icon-ganassi.jpg",
+            name: "Levi's",
+            icon: "levis.png",
+            iconWidth: "70%",
             appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
             devices: [
                 {
@@ -60,7 +61,70 @@ var appData = {
         },
         {
             name: "Ganassi Timeline",
-            icon: "icon-ganassi.jpg",
+            icon: "ganassi.png",
+            iconWidth: "100%",
+            appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            devices: [
+                {
+                    device: 'Android'
+                }, 
+                {
+                    device: 'iPad'
+                }, 
+                {
+                    device: 'iPhone'
+                }, 
+                {
+                device: 'Kiosk'
+            }],
+            blocks: [
+                {
+                    type: 'intGrid',
+                    grid: 'int-grid-container',
+                },
+                {
+                    type: 'intThumbnail',
+                    thumbnail1: 'text',
+                    thumbnail2: 'text',
+                    thumbnail3: 'int-grid-container'
+                }
+            ]
+        },
+        {
+            name: "Hartford",
+            icon: "hartford.png",
+            iconWidth: "80%",
+            appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            devices: [
+                {
+                    device: 'Android'
+                }, 
+                {
+                    device: 'iPad'
+                }, 
+                {
+                    device: 'iPhone'
+                }, 
+                {
+                device: 'Kiosk'
+            }],
+            blocks: [
+                {
+                    type: 'intGrid',
+                    grid: 'int-grid-container',
+                },
+                {
+                    type: 'intThumbnail',
+                    thumbnail1: 'text',
+                    thumbnail2: 'text',
+                    thumbnail3: 'int-grid-container'
+                }
+            ]
+        },
+        {
+            name: "Bed Bath and Beyond",
+            icon: "bbb.png",
+            iconWidth: "100%",
             appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
             devices: [
                 {
