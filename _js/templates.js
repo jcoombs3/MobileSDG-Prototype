@@ -229,16 +229,16 @@ function peekApp(li) {
     TweenMax.to($('#app-detail'),0,{marginLeft:$('#apps ul').outerWidth()+'px',width:width+'px'});
     if(!$('#app-detail').hasClass('busy')){
         $('#app-detail').addClass('busy');
-        TweenMax.to($('#static'), 0.5, {delay: 0.05, left:'-100%'}); 
-        TweenMax.to($('#app-detail'), 0.5, {left: 0, onComplete:function(){
+        TweenMax.to($('#static'), 0.75, {left:'-100%'}); 
+        TweenMax.to($('#app-detail'), 0.4, {left: 0, onComplete:function(){
             $('#app-detail').removeClass('busy');
         }}); 
     }
     else{
         if(!$('#app-detail').hasClass('hover')){
             setTimeout(function(){
-                TweenMax.to($('#app-detail'), 0.5, {left: '0%'}); 
-                TweenMax.to($('#static'), 0.5, {left: '-100%'});
+                TweenMax.to($('#app-detail'), 0.4, {left: '0%'}); 
+                TweenMax.to($('#static'), 0.75, {left: '-100%'});
                 $('#app-detail').removeClass('busy');
             }, 250);  
         }
@@ -252,14 +252,14 @@ function peekApp(li) {
 
 function endPeek(){
     if(!$('#app-detail').hasClass('busy') && !$('#app-detail').hasClass('hover')){
-        TweenMax.to($('#app-detail'), 0.5, {left: '100%'}); 
-        TweenMax.to($('#static'), 0.5, {left: '0'});
+        TweenMax.to($('#app-detail'), 0.75, {left: '100%'}); 
+        TweenMax.to($('#static'), 0.4, {left: '0'});
     }
     else{
         if(!$('#app-detail').hasClass('hover')){
             setTimeout(function(){
-                TweenMax.to($('#app-detail'), 0.5, {left: '100%'}); 
-                TweenMax.to($('#static'), 0.5, {left: '0'});
+                TweenMax.to($('#app-detail'), 0.75, {left: '100%'}); 
+                TweenMax.to($('#static'), 0.4, {left: '0'});
                 $('#app-detail').removeClass('busy');
             }, 250);  
         }
