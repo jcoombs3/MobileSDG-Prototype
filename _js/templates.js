@@ -227,13 +227,43 @@ function peekApp(li) {
     var width = $(window).outerWidth() - $('#nav').outerWidth() - pad;
 
     TweenMax.to($('#app-detail'),0,{marginLeft:$('#apps ul').outerWidth()+'px',width:width+'px'});
-    TweenMax.to($('.working-title'), 1, {delay: 0.05, left:'-70%'});
-    TweenMax.to($('#app-detail'), 0.5, {left: 0}); 
+    if(!$('#app-detail').hasClass('busy')){
+        $('#app-detail').addClass('busy');
+        TweenMax.to($('#static'), 0.5, {delay: 0.05, left:'-100%'}); 
+        TweenMax.to($('#app-detail'), 0.5, {left: 0, onComplete:function(){
+            $('#app-detail').removeClass('busy');
+        }}); 
+    }
+    else{
+        if(!$('#app-detail').hasClass('hover')){
+            setTimeout(function(){
+                TweenMax.to($('#app-detail'), 0.5, {left: '0%'}); 
+                TweenMax.to($('#static'), 0.5, {left: '-100%'});
+                $('#app-detail').removeClass('busy');
+            }, 250);  
+        }
+    }
     
 
     var appDetail = document.getElementById('app-detail-template').innerHTML;
     var appDetailTemplate = Handlebars.compile(appDetail);
     document.getElementById('app-detail').innerHTML = appDetailTemplate(selectedApp);
+}//end of peekApp
+
+function endPeek(){
+    if(!$('#app-detail').hasClass('busy') && !$('#app-detail').hasClass('hover')){
+        TweenMax.to($('#app-detail'), 0.5, {left: '100%'}); 
+        TweenMax.to($('#static'), 0.5, {left: '0'});
+    }
+    else{
+        if(!$('#app-detail').hasClass('hover')){
+            setTimeout(function(){
+                TweenMax.to($('#app-detail'), 0.5, {left: '100%'}); 
+                TweenMax.to($('#static'), 0.5, {left: '0'});
+                $('#app-detail').removeClass('busy');
+            }, 250);  
+        }
+    }
 }
 
 
