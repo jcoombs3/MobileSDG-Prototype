@@ -13,7 +13,8 @@ $(window).load(function(){
     });
 
     $('#apps .app-list li').hover(function(e){
-        peekApp($(e.currentTarget));
+        TweenMax.to($(e.currentTarget),0.3,{background:$(e.currentTarget).find('img').data('hover')});
+        peekApp($(e.currentTarget)); 
     });
 
     $('#apps-anim').on('click',function(){
