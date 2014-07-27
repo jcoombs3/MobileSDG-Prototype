@@ -1,6 +1,7 @@
 $(window).load(function(){
 
     $('#apps .app-list .app-front').on('click',function(e){
+        $('#app-detail').addClass('locked');
         var parent = $(e.currentTarget).parent();
         if(!$('#apps ul').hasClass('sticky')){
             loadAppSummary(parent);
@@ -11,13 +12,25 @@ $(window).load(function(){
     $('#apps .back .button').on('click',function(){
         appBackToggle();
     });
+    
+    $('#apps .app-list ul').mouseenter(function(e){
+        $('#app-detail').addClass('hover');
+    });
+    $('#apps .app-list ul').mouseleave(function(e){
+        if(!$('#app-detail').hasClass('locked')){
+            $('#app-detail').removeClass('hover');
+            endPeek();
+        }
+    });
 
     $('#apps .app-list li').hover(function(e){
         peekApp($(e.currentTarget)); 
     });
 
     $('#apps .app-list li').mouseleave(function(e){
-        endPeek();
+        if(!$('#app-detail').hasClass('locked')){
+            endPeek();            
+        }
     });
 
     $('#apps-anim').on('click',function(){
@@ -26,6 +39,7 @@ $(window).load(function(){
 
     $('#apps li .app-load-btn').on('click',function(){
         appBackToggle();
+        $('#app-detail').removeClass('locked');
     });
     
 });
