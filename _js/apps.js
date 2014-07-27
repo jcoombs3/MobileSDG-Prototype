@@ -12,22 +12,12 @@ $(window).load(function(){
         appBackToggle();
     });
 
-    $('#apps .app-list ul').mouseenter(function(e){
-        $('#app-detail').addClass('hover');
-    });
-    $('#apps .app-list ul').mouseleave(function(e){
-        $('#app-detail').removeClass('hover');
-        endPeek();
-        
-    });
-
     $('#apps .app-list li').hover(function(e){
         peekApp($(e.currentTarget)); 
     });
 
     $('#apps .app-list li').mouseleave(function(e){
         endPeek();
-
     });
 
     $('#apps-anim').on('click',function(){
