@@ -3,6 +3,7 @@ $(window).load(function(){
     $('#apps .app-list .app-front').on('click',function(e){
         var parent = $(e.currentTarget).parent();
         if(!$('#apps ul').hasClass('sticky')){
+            $('#apps').addClass('locked');
             activateListeners(parent);
             stackDeck(parent);
         }
