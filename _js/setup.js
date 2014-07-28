@@ -111,5 +111,13 @@ function setup(el){
             });
 
             break;
+        case ('#app-detail .title'):
+            var iconWidth = 0;
+            $('#app-detail .title .device').each(function(){
+                iconWidth += $(this).outerWidth();
+            });
+            TweenMax.to($('#app-detail .title .icons'),0,{width:iconWidth+'px'});
+
+            break;
     }
 }

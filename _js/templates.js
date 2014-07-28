@@ -293,9 +293,8 @@ function activateListeners(li) {
 
 }
 
-function peekApp(li) {
-    var num = $(li).index();
-    selectedApp = appData.apps[num];
+function blockSetup(){
+    setup('#app-detail .title');
 
     var pad = 115 - ($('#apps ul').outerWidth()*0.02); // thinking that this wont change
     var width = $(window).outerWidth() - $('#nav').outerWidth() - pad;
@@ -317,11 +316,17 @@ function peekApp(li) {
             }, 250);  
         }
     }
-    
+}
+
+function peekApp(li) {
+    var num = $(li).index();
+    selectedApp = appData.apps[num];
 
     var appDetail = document.getElementById('app-detail-template').innerHTML;
     var appDetailTemplate = Handlebars.compile(appDetail);
     document.getElementById('app-detail').innerHTML = appDetailTemplate(selectedApp);
+
+    blockSetup();
 }//end of peekApp
 
 function endPeek(){
