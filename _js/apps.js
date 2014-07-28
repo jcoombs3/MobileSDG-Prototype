@@ -3,12 +3,7 @@ $(window).load(function(){
     $('#apps .app-list .app-front').on('click',function(e){
         var parent = $(e.currentTarget).parent();
         if(!$('#apps ul').hasClass('sticky')){
-<<<<<<< HEAD
-            $('#apps').addClass('locked');
-            loadAppSummary(parent);
-=======
             activateListeners(parent);
->>>>>>> FETCH_HEAD
             stackDeck(parent);
         }
     });
