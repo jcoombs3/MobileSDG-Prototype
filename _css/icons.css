@@ -1,64 +1,30 @@
-@charset "UTF-8";
-
-@font-face {
-  font-family: "icon";
-  src:url("fonts/icon.eot");
-  src:url("fonts/icon.eot?#iefix") format("embedded-opentype"),
-    url("fonts/icon.woff") format("woff"),
-    url("fonts/icon.ttf") format("truetype"),
-    url("fonts/icon.svg#icon") format("svg");
-  font-weight: normal;
-  font-style: normal;
-
+#apps .levis .app-icon {
+  width: 40%;
+  background: url('../_img/icon/levis.png') 0px 50% no-repeat;
+  background-size: 100% !important;
 }
-
-[data-icon]:before {
-  font-family: "icon" !important;
-  content: attr(data-icon);
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#apps .levis:hover .app-icon {
+  background: url('../_img/icon/blue_levis.png') 0px 50% no-repeat;
 }
-
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "icon" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#apps .bbb .app-icon {
+  background: url('../_img/icon/bbb.png') 0px 50% no-repeat;
+  background-size: 100% !important;
 }
-
-.icon-triangle-right:before {
-  content: "b";
+#apps .bbb:hover .app-icon {
+  background: url('../_img/icon/blue_bbb.png') 0px 50% no-repeat;
 }
-.icon-left-open:before {
-  content: "a";
+#apps .hartford .app-icon {
+  width: 38%;
+  background: url('../_img/icon/hartford.png') 0px 50% no-repeat;
+  background-size: 100% !important;
 }
-.icon-android:before {
-  content: "c";
+#apps .hartford:hover .app-icon {
+  background: url('../_img/icon/blue_hartford.png') 0px 50% no-repeat;
 }
-.icon-ios:before {
-  content: "d";
+#apps .ganassi .app-icon {
+  background: url('../_img/icon/ganassi.png') 0px 50% no-repeat;
+  background-size: 100% !important;
 }
-.icon-kiosk:before {
-  content: "e";
-}
-.icon-laptop:before {
-  content: "f";
-}
-.icon-phone:before {
-  content: "g";
-}
-.icon-tablet:before {
-  content: "h";
+#apps .ganassi:hover .app-icon {
+  background: url('../_img/icon/blue_ganassi.png') 0px 50% no-repeat;
 }
