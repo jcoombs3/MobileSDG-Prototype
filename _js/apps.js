@@ -1,7 +1,6 @@
 $(window).load(function(){
 
     $('#apps .app-list .app-front').on('click',function(e){
-        $('#app-detail').addClass('locked');
         var parent = $(e.currentTarget).parent();
         if(!$('#apps ul').hasClass('sticky')){
             loadAppSummary(parent);
@@ -12,25 +11,9 @@ $(window).load(function(){
     $('#apps .back .button').on('click',function(){
         appBackToggle();
     });
-    
-    $('#apps .app-list ul').mouseenter(function(e){
-        $('#app-detail').addClass('hover');
-    });
-    $('#apps .app-list ul').mouseleave(function(e){
-        if(!$('#app-detail').hasClass('locked')){
-            $('#app-detail').removeClass('hover');
-            endPeek();
-        }
-    });
 
     $('#apps .app-list li').hover(function(e){
         peekApp($(e.currentTarget)); 
-    });
-
-    $('#apps .app-list li').mouseleave(function(e){
-        if(!$('#app-detail').hasClass('locked')){
-            endPeek();            
-        }
     });
 
     $('#apps-anim').on('click',function(){
@@ -39,7 +22,6 @@ $(window).load(function(){
 
     $('#apps li .app-load-btn').on('click',function(){
         appBackToggle();
-        $('#app-detail').removeClass('locked');
     });
     
 });
@@ -103,7 +85,6 @@ function unstackDeck() {
     var delay = 0.03;
     
     $(target).removeClass('load-state');
-    TweenMax.to($('.description'), 0.5, {opacity: 0});
 
     TweenMax.to($('#apps .app-list ul.apps'),0.25,{top:'0', onComplete:function(){
 
@@ -170,15 +151,13 @@ function centerApp(li, maxDelay) {
 function appBackToggle(li){
     $('#apps li.app.active').toggleClass('load-state');
 
-    if($('#apps li.app.active').hasClass('load-state')){    
-            
+    if($('#apps li.app.active').hasClass('load-state')){  
+    
         $('#apps li.app.active').addClass('show-load');
 
-        TweenMax.to($('#apps-container'),0.5,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', delay:'0.5', ease:Back.easeOut, onComplete:function(){
+        TweenMax.to($('#apps-container'),0.5,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', ease:Back.easeOut, onComplete:function(){
             TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'1'});
         }});
-
-        nodeTreeToggle();
     }
     else {
         TweenMax.to($('#apps-container'),0.2,{left:'0px'});
@@ -187,8 +166,6 @@ function appBackToggle(li){
         TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'0', onComplete:function(){
             unstackDeck();
         }});
-
-        nodeTreeToggle();
     }
 }
 

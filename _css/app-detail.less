@@ -90,6 +90,184 @@
 		height:350px;
 	}
 
+	.title {
+		width:100%;
+		height:95%;
+
+		.container {
+			width:100%;
+			height:100%;
+			padding:17% 0% 8%;
+		}
+
+		.client, .appname, .description {
+			width:100%;
+			text-align:center;
+		}
+
+		.client {
+			font-size:18px;
+			font-style:italic;
+		}
+
+		.appname {
+			font-size:40px;
+			font-weight:bold;
+		}
+
+		.icons {
+			margin:40px 0px;
+			height:100px;
+			background:magenta;
+		}
+
+		.description {
+			font-size:18px;
+			padding:0px 15%;
+		}
+
+		.readmore {
+			margin-top:30px;
+			font-weight:bold;
+			color:@electric-blue;
+		}
+	}
+
+	.project-facts {
+		width:100%;
+		padding:50px 0px;
+
+		.facts-title {
+			width:100%;
+			text-align:center;
+			font-size:24px;
+		}
+
+		.span-title {
+			font-size:24px;
+			font-weight:bold;
+		}
+
+		.geography {
+			width:100%;
+			font-size:18px;
+			text-align:center;
+			padding:75px 0px;
+
+			span {
+				margin-right:5px;
+			}
+
+			.amp:nth-child(2) {
+				display:none;
+			}
+
+			.countries {
+				margin-top:25px;
+				width:100%;
+				background:white;
+				height:320px;
+
+				.country-container {
+					margin:0 auto;
+					min-width:320px;
+					max-width:640px;
+				}
+
+				.country-img {
+					width:320px;
+					height:320px;
+					float: left;
+
+					&.India {
+						background-position: 60% 50% !important;
+						background-size:50% !important;
+					}
+				}
+			}
+
+			.facts-section {
+				width:100%;
+
+				.section {
+					width:33.333%;
+					float: left;
+				}
+
+				.list-fact {
+					text-align:center;
+					font-size:18px;
+					margin-top:20px;
+				}
+
+				.sub {
+					margin-left:5px;
+					font-style:italic;
+				}
+			}
+		}
+
+		.meet-the-team {
+			background:@charcoal;
+			width:100%;
+			padding:30px 0px;
+
+			.team-title {
+				font-style:italic;
+				font-size:24px;
+				color:@ice-white;
+				text-align:center;
+			}
+
+			.team-container {
+				width:100%;
+				margin-top:30px;
+
+				.member {
+					width:33.333%;
+					float: left;
+					overflow:hidden;
+				}
+			}
+
+			.member-img {
+				width:100%;
+				float: left;
+
+				img {
+					width:100%;
+					vertical-align:bottom;
+				}
+			}
+
+			.member-overlay {
+				width:100%;
+				height:0px;
+				opacity:0.9;
+				background:@electric-blue;
+				float: left;
+				position:relative;
+
+				table {
+					width:100%;
+					height:100%;
+					text-align:center;
+					color:@ice-white;
+				}
+
+				.member-title {
+					font-style:italic;
+					font-size:18px;
+				}
+
+				.member-name {
+					font-size:30px;
+				}
+			}
+		}
+	}
+
+
 
 }
 

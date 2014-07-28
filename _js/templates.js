@@ -24,42 +24,6 @@ var appTemplate = Handlebars.compile(appSource);
 var appData = {
     apps: [
         {
-            name: "Levi's",
-            icon: "levis.png",
-            iconWidth: "70%",
-            appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-            devices: [
-                {
-                    device: 'Android'
-                }, 
-                {
-                    device: 'iPad'
-                }, 
-                {
-                    device: 'iPhone'
-                }, 
-                {
-                device: 'Kiosk'
-            }],
-            blocks: [
-                {
-                    type: 'intGridSB',
-                    gridB: 'int-grid-container',
-                    gridS: 'int-grid-container'
-                },
-                {
-                    type: 'intThumbnail',
-                    thumbnail1: 'int-grid-container',
-                    thumbnail2: 'text',
-                    thumbnail3: 'int-grid-container'
-                },
-                {
-                    type: 'intGrid',
-                    grid: 'int-grid-container',
-                },
-            ]
-        },
-        {
             name: "Ganassi Timeline",
             icon: "ganassi.png",
             iconWidth: "100%",
@@ -152,10 +116,99 @@ var appData = {
                 }
             ]
         },
+        {
+            name: "Levi's",
+            icon: "levis.png",
+            iconWidth: "70%",
+            appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            devices: [
+                {
+                    device: 'Android'
+                }, 
+                {
+                    device: 'iPad'
+                }, 
+                {
+                    device: 'iPhone'
+                }, 
+                {
+                device: 'Kiosk'
+            }],
+            blocks: [
+                {
+                    type: 'title',
+                    bgColor: '#fff',
+                    client: "Levi's",
+                    app: "Denim Discovery In-Store Experience",
+                    description: "We worked in partnership with Levi's to create a Macy's 'store within a store' concept that brings digital brand experiences to the physical space in connected ways. We worked with architects, merchandisers, brand and marketing creative, store operators and outside agencies to develop the creative, strategy, and overall evolution.",
+                },
+                {
+                    type: 'facts',
+                    bgColor: '#fff',
+                    geography: [
+                        {
+                            country: 'India',
+                            countryAb: 'India'
+                        }
+                    ],
+                    facts: [
+                        {
+                            title: 'Service Offerings',
+                            listItem: [
+                                {
+                                    fact: 'Design',
+                                },
+                                {
+                                    fact: 'Development',
+                                },
+                                {
+                                    fact: 'Deployment',
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Development Platform',
+                            listItem: [
+                                {
+                                    fact: 'Flex',
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Partner Roles',
+                            listItem: [
+                                {
+                                    fact: 'Iron Creative',
+                                    sub: 'Assets'
+                                }
+                            ]
+                        },
+                    ]
+                },
+                {
+                    type: 'meetTeam',
+                    team: [
+                        {
+                            name: 'John Coombs',
+                            title: 'Developer',
+                            img: 'John_Coombs'
+                        },
+                        {
+                            name: 'Aram Yang',
+                            title: 'Program Management',
+                            img: 'Aram_Yang'
+                        },
+                    ]
+                }
+            ]
+        },
     ]
 };
 
 var blocksData = {
+    title: "<div class='title' style='background:{{bgColor}}'><div class='container'><div class='client'>{{client}}</div><div class='appname'>{{app}}</div><div class='icons'></div><div class='description'>{{description}} <div class='readmore'>Read More</div></div></div></div>",
+    facts: "<div class='project-facts' style='background:{{bgColor}}'><div class='facts-title'>Project Facts</div><div class='geography'><div class='text'><span class='span-title'>Geography /</span>{{#each geography}}<span class='amp'>&</span><span>{{country}}</span>{{/each}}</div><div class='countries'><div class='country-container'>{{#each geography}}<div class='country-img {{countryAb}}' style='background:url(_img/{{countryAb}}.png) 30% no-repeat; background-size:100%;'></div>{{/each}}</div></div><div class='facts-section'>{{#each facts}}<div class='section'><span class='span-title'>{{title}}</span>{{#each listItem}}<div class='list-fact'>{{#if sub}}{{fact}}:<span class='sub'>{{sub}}</span>{{else}}{{fact}}{{/if}}</div>{{/each}}</div>{{/each}}<div class='clearfix'></div></div></div>",
+    meetTeam: "<div class='meet-the-team'><div class='team-title'>Meet the Team</div><div class='team-container'>{{#each team}}<div class='member'><div class='member-img'><img src='_img/sapient-employees/{{img}}.jpg'></div><div class='member-overlay'><table><tr><td><div class='member-title'>{{title}}</div><div class='member-name'>{{name}}</div></td></tr></table></div></div>{{/each}}<div class='clearfix'></div></div></div>",
     intGrid: "<div class='block grid-block'><ul><li class='double'><div class='sec'><div class='{{grid}}'></div></div><div class='clearfix'></div></li></ul></div>",
     intGridBS: "<div class='block grid-block'><ul><li class='single'><div class='sec big'><div class='{{gridB}}'></div></div><div class='sec small'><div class='{{gridS}}''></div></div><div class='clearfix'></div></li></ul></div>",
     intGridSB: "<div class='block grid-block'><ul><li class='single'><div class='sec small'><div class='int-grid-container'></div></div><div class='sec big'><div class='int-grid-container'></div></div><div class='clearfix'></div></li></ul></div>",
@@ -223,10 +276,10 @@ function peekApp(li) {
     var num = $(li).index();
     selectedApp = appData.apps[num];
 
-    var pad = 100 - ($('#apps ul').outerWidth()*0.02); // thinking that this wont change
+    var pad = 115 - ($('#apps ul').outerWidth()*0.02); // thinking that this wont change
     var width = $(window).outerWidth() - $('#nav').outerWidth() - pad;
 
-    TweenMax.to($('#app-detail'),0,{marginLeft:$('#apps ul').outerWidth()+'px',width:width+'px'});
+    TweenMax.to($('#app-detail'),0,{marginLeft:$('.app-list').outerWidth()+'px',width:width+'px'});
     if(!$('#app-detail').hasClass('busy')){
         $('#app-detail').addClass('busy');
         TweenMax.to($('#static'), 0.75, {left:'-100%'}); 
