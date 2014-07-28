@@ -1,13 +1,3 @@
-$(window).load(function(){
-
-    $('#app-detail .member').hover(function(e){
-        console.log('hovering over member');
-
-        hoverMember($(e.currentTarget));
-    });
-
-});
-
 function hoverMember(member) {
     $(member).toggleClass('active');
 
