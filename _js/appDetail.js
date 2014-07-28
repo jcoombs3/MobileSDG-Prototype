@@ -1,9 +1,13 @@
 $(window).load(function(){
 
-    $('#app-detail .member').hover(function(e){
+    $('#app-detail .project-facts').hover(function(e){
         console.log('hovering over member');
 
         hoverMember($(e.currentTarget));
+    });
+
+    $('#app-detail .project-facts').on('click', function(){
+        console.log('i did it');
     });
 
 });

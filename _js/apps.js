@@ -14,6 +14,8 @@ $(window).load(function(){
 
     $('#apps .app-list li').hover(function(e){
         peekApp($(e.currentTarget)); 
+    }, function(e){
+        endPeek();
     });
 
     $('#apps-anim').on('click',function(){
