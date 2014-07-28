@@ -3,6 +3,7 @@ $(window).load(function(){
     $('#apps .app-list .app-front').on('click',function(e){
         var parent = $(e.currentTarget).parent();
         if(!$('#apps ul').hasClass('sticky')){
+            $('#apps').addClass('locked');
             loadAppSummary(parent);
             stackDeck(parent);
         }
@@ -12,10 +13,14 @@ $(window).load(function(){
         appBackToggle();
     });
 
+    $('#apps ul.apps').hover(function(e){}, function(e){
+        if(!$('#apps').hasClass('locked')){
+            endPeek();
+        }
+    });
+
     $('#apps .app-list li').hover(function(e){
         peekApp($(e.currentTarget)); 
-    }, function(e){
-        endPeek();
     });
 
     $('#apps-anim').on('click',function(){
@@ -24,6 +29,7 @@ $(window).load(function(){
 
     $('#apps li .app-load-btn').on('click',function(){
         appBackToggle();
+        $('#apps').removeClass('locked');
     });
     
 });
