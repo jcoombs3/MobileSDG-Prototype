@@ -119,5 +119,13 @@ function setup(el){
             TweenMax.to($('#app-detail .title .icons'),0,{width:iconWidth+'px'});
 
             break;
+        case ('#app-detail .geography'):
+            var geoWidth = 0;
+            $('#app-detail .geography .country-img').each(function(){
+                geoWidth += $(this).outerWidth();
+            });
+            TweenMax.to($('#app-detail .geography .country-container'),0,{width:geoWidth+'px'});
+
+            break;
     }
 }
