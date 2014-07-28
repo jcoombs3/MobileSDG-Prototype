@@ -25,8 +25,8 @@ var appData = {
     apps: [
         {
             name: "Ganassi Timeline",
-            icon: "ganassi.png",
-            iconWidth: "100%",
+            icon: "ganassi",
+            iconWidth: "55%",
             appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
             devices: [
                 {
@@ -56,8 +56,8 @@ var appData = {
         },
         {
             name: "Hartford",
-            icon: "hartford.png",
-            iconWidth: "80%",
+            icon: "hartford",
+            iconWidth: "38%",
             appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
             devices: [
                 {
@@ -87,8 +87,8 @@ var appData = {
         },
         {
             name: "Bed Bath and Beyond",
-            icon: "bbb.png",
-            iconWidth: "100%",
+            icon: "bbb",
+            iconWidth: "55%",
             appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
             devices: [
                 {
@@ -118,8 +118,8 @@ var appData = {
         },
         {
             name: "Levi's",
-            icon: "levis.png",
-            iconWidth: "70%",
+            icon: "levis",
+            iconWidth: "40%",
             appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
             devices: [
                 {
@@ -211,9 +211,9 @@ var appData = {
                     type: 'meetTeam',
                     team: [
                         {
-                            name: 'John Coombs',
-                            title: 'Developer',
-                            img: 'John_Coombs'
+                            name: 'Brian Daviadoff',
+                            title: 'Cool Person YOYO',
+                            img: 'Brian_Daviadoff'
                         },
                         {
                             name: 'Aram Yang',
@@ -245,10 +245,19 @@ document.getElementById('app-selection').innerHTML = appTemplate(appData);
 
 function activateListeners(li) {
 
-    $('#app-detail').on('.title', 'mouseenter', function(e){
+    console.log('activating listeners');
 
-        // hoverMember($(e.currentTarget));
-    });
+    $('#app-detail .block.meet-the-team').on({
+        mouseenter: function(e) {
+            var width = $('.member-img').outerWidth();
+            TweenMax.to($(e.currentTarget).find('.member-overlay'),0,{height:width+'px', width:width+'px', onComplete:function(){
+                TweenMax.to($(e.currentTarget).find('.member-overlay'),0.5,{opacity:'0.8'});
+            }});
+        },
+        mouseleave: function(e) {
+            TweenMax.to($(e.currentTarget).find('.member-overlay'),0.5,{opacity:'0'});
+        }
+    }, '.member');
 
 }
 

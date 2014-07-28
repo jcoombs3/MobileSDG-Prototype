@@ -289,20 +289,14 @@
 
     <script id="app-selection-template" type="text/x-handlebars-template">
         {{#if apps}}
-            <div id="breadcrumb"></div>  
+            <div id="breadcrumb">
+                <div class='sapient-logo'></div>
+            </div>  
             <ul class="apps">
                 {{#each apps}}
                     <li class='app'>
-                        <div class='app-front'>
-                            <div class='app-icon'>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <img src="_img/icon/{{icon}}" style="width:{{iconWidth}}" data-hover="_img/icon/blue_{{icon}}">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                        <div class='app-front {{icon}}'>
+                            <div class='app-icon' style='width:{{iconWidth}}'></div>
                         </div>
 
                         <div class='load-bar'>
@@ -328,9 +322,6 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-
-            <div id="app-summary">
             </div>
     
         {{/if}}
