@@ -171,10 +171,6 @@ var appData = {
                         {
                             country: 'North America',
                             countryAb: 'NA'
-                        },
-                        {
-                            country: 'India',
-                            countryAb: 'India'
                         }
                     ],
                     facts: [
@@ -242,49 +238,12 @@ var blocksData = {
 };
 
 var selectedApp = {
-            name: "Ganassi Timeline",
-            icon: "icon-ganassi.jpg",
-            appSummary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-            devices: [
-                {
-                    device: 'Android'
-                }, 
-                {
-                    device: 'iPad'
-                }, 
-                {
-                    device: 'iPhone'
-                }, 
-                {
-                device: 'Kiosk'
-            }],
-            blocks: [
-
-            // intGrid BS SB
-            // grid gridB gridS
-
-            // intThumbnail 
-            // thumbnail1 2 3
-
-                {
-                    type: 'intThumbnail',
-                    thumbnail1: 'int-grid-container',
-                    thumbnail2: 'text',
-                    thumbnail3: 'int-grid-container'
-                },
-                {
-                    type: 'intGrid',
-                    grid: 'int-grid-container',
-                },
-            ]
 };
 
 // Process Template with Data
 document.getElementById('app-selection').innerHTML = appTemplate(appData);
 
 function activateListeners(li) {
-
-    console.log('activating listeners');
 
     $('#app-detail').on('.title', 'mouseenter', function(e){
 
@@ -295,6 +254,7 @@ function activateListeners(li) {
 
 function blockSetup(){
     setup('#app-detail .title');
+    setup('#app-detail .geography');
 
     var pad = 115 - ($('#apps ul').outerWidth()*0.02); // thinking that this wont change
     var width = $(window).outerWidth() - $('#nav').outerWidth() - pad;
