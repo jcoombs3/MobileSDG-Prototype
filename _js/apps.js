@@ -20,7 +20,9 @@ $(window).load(function(){
     });
 
     $('#apps .app-list li').hover(function(e){
-        peekApp($(e.currentTarget)); 
+        if(!$('#apps').hasClass('locked')){
+            peekApp($(e.currentTarget)); 
+        }
     });
 
     $('#apps-anim').on('click',function(){
