@@ -21,11 +21,13 @@ $(window).load(function(){
 
     $('#apps .app-list li').hover(function(e){
         if(!$('#apps').hasClass('locked')){
-            peekApp($(e.currentTarget)); 
+            detailCheck($(e.currentTarget)); 
         }
     },function(e){
-        $('#apps').addClass('switching');
-        endPeek();
+        if(!$('#apps').hasClass('locked')){
+            $('#apps').addClass('switching');
+            endPeek();
+        }
     });
 
     $('#apps-anim').on('click',function(){
