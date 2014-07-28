@@ -23,6 +23,9 @@ $(window).load(function(){
         if(!$('#apps').hasClass('locked')){
             peekApp($(e.currentTarget)); 
         }
+    },function(e){
+        $('#apps').addClass('switching');
+        endPeek();
     });
 
     $('#apps-anim').on('click',function(){
@@ -31,7 +34,7 @@ $(window).load(function(){
 
     $('#apps li .app-load-btn').on('click',function(){
         appBackToggle();
-        $('#apps').removeClass('locked');
+        endPeek();
     });
     
 });
@@ -104,6 +107,7 @@ function unstackDeck() {
             
             TweenMax.to($(this),0.2,{top:'0', opacity:'1', delay:delayDelta, ease:Back.easeIn, onComplete:function(){
                 $(target).removeClass('active');
+                setTimeout(function(){$('#apps').removeClass('locked')}, 250);
             }});
         });
     }});
