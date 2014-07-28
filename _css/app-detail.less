@@ -117,8 +117,30 @@
 
 		.icons {
 			margin:40px 0px;
-			height:100px;
-			background:magenta;
+			text-align:center;
+		}
+
+		.icons-container {
+			margin: 0 auto;
+		}
+
+		.device {
+			float: left;
+
+			.icon {
+				vertical-align:bottom;
+				font-size:85px;
+			}
+
+		}
+
+		.os-container .device:first-child {
+			border-left:1px solid @charcoal;
+			padding-left:20px;
+		}
+
+		.device-container .device:last-child {
+			padding-right:20px;
 		}
 
 		.description {

@@ -44,3 +44,21 @@
 .icon-left-open:before {
   content: "a";
 }
+.icon-android:before {
+  content: "c";
+}
+.icon-ios:before {
+  content: "d";
+}
+.icon-kiosk:before {
+  content: "e";
+}
+.icon-laptop:before {
+  content: "f";
+}
+.icon-phone:before {
+  content: "g";
+}
+.icon-tablet:before {
+  content: "h";
+}

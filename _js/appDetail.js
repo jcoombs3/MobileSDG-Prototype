@@ -1,17 +1,3 @@
-$(window).load(function(){
-
-    $('#app-detail .project-facts').hover(function(e){
-        console.log('hovering over member');
-
-        hoverMember($(e.currentTarget));
-    });
-
-    $('#app-detail .project-facts').on('click', function(){
-        console.log('i did it');
-    });
-
-});
-
 function hoverMember(member) {
     $(member).toggleClass('active');
 
