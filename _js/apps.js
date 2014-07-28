@@ -61,6 +61,8 @@ function stackDeck(li) {
 
         $(li).addClass('active');
 
+        $('#breadcrumb').addClass('closed');
+
         $('#apps li.app').each(function(){
             var orderDelta = Math.abs($(this).data('order') - order);
             var delayDelta = delay * orderDelta;
@@ -111,6 +113,8 @@ function unstackDeck() {
             }});
         });
     }});
+
+    $('#breadcrumb').removeClass('closed');
 
     $('#apps .app-list ul.apps').removeClass('sticky');
 }
@@ -169,17 +173,23 @@ function appBackToggle(li){
     
         $('#apps li.app.active').addClass('show-load');
 
-        TweenMax.to($('#apps-container'),0.5,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', ease:Back.easeOut, onComplete:function(){
-            TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'1'});
+        TweenMax.to($('#apps li.app.active .app-load-btn'),0,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', onComplete:function(){
+            TweenMax.to($('#apps-container'),0.5,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', ease:Back.easeOut, onComplete:function(){
+                TweenMax.to($('#apps li.app.active .app-load-btn'),0.25,{delay:'0.25', opacity:'1', left:'18px'});
+                TweenMax.to($('#breadcrumb'),0.25,{left:($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', ease:Back.easeOut});
+            }});
         }});
+    
     }
     else {
-        TweenMax.to($('#apps-container'),0.2,{left:'0px'});
 
         $('#apps li.app.active').removeClass('show-load');
         TweenMax.to($('#apps li.app.active .app-load-btn'),0.5,{opacity:'0', onComplete:function(){
             unstackDeck();
         }});
+        
+        TweenMax.to($('#apps-container'),0.2,{left:'0px'});
+        TweenMax.to($('#breadcrumb'),0.2,{left:'0px'});
     }
 }
 
