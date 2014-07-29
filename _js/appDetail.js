@@ -4,7 +4,7 @@ function activateListeners() {
         click: function(e) {
             var offset = $('#app-detail .title .description').offset();
 
-            if($(window).outerWidth() > 480){
+            if($(window).width() > 480){
             	$("#app-detail").animate({scrollTop: offset.top - 30}, 1000);
             }
 

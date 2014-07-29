@@ -19,7 +19,7 @@ function setup(el){
 
             break;
         case ('#loading'):
-            var width = $(window).outerWidth() * .10;
+            var width = $(window).width() * .10;
             TweenMax.to($('#loading .tile'),0,{height:width+'px'});
 
             var order = 1;
@@ -35,7 +35,7 @@ function setup(el){
             break;
 
         case ('#apps'):
-            TweenMax.to($('#apps ul'),0,{top:'+='+$('#breadcrumb').outerHeight()+'px', height:$(window).outerHeight() - $('#breadcrumb').outerHeight()});
+            TweenMax.to($('#apps ul'),0,{top:'+='+$('#breadcrumb').outerHeight()+'px', height:$(window).height() - $('#breadcrumb').outerHeight()});
             
             var order = 0;
 
@@ -132,7 +132,13 @@ function setup(el){
 
                 TweenMax.to($(this).find('ul'),0,{width:ulWidth + 'px'});
                 TweenMax.to($(this).find('li'),0,{width:liWidth + 'px'});
-                TweenMax.to($(this).find('img'),0,{maxWidth:tableWidth + 'px', maxHeight:tableHeight + 'px'});
+
+                if($(window).width() < 480){
+                    TweenMax.to($(this).find('img'),0,{maxWidth:tableWidth + 'px'});
+                }
+                else {
+                    TweenMax.to($(this).find('img'),0,{maxWidth:tableWidth + 'px', maxHeight:tableHeight + 'px'});
+                }
 
                 $(this).find('li:first-child').addClass('target');
 

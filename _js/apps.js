@@ -135,14 +135,14 @@ function unstackDeck() {
 */
 function centerApp(li, maxDelay) {
     var liHeight = $(li).outerHeight()/2;
-    var windowHeight = $(window).outerHeight()/2;
+    var windowHeight = $(window).height()/2;
     var offset = $(li).offset();
     var posY = offset.top;
     var offKilter = 0;
 
 
 
-    if($(window).outerWidth() <= 480){
+    if($(window).width() <= 480){
         var loadBarWidth = 50 - ($(li).find('.app-front').outerWidth()*0.02); // thinking that this wont change 
     }
     else {
@@ -155,8 +155,8 @@ function centerApp(li, maxDelay) {
         TweenMax.to($(li),0.1,{top:-1*posY});
         offKilter = posY;
     }
-    else if(posY+liHeight*2 > $(window).outerHeight()){
-        var delta = $(window).outerHeight() - posY;
+    else if(posY+liHeight*2 > $(window).height()){
+        var delta = $(window).height() - posY;
         var posTop = liHeight*2 - delta; 
         TweenMax.to($(li),0.1,{top:-posTop});
         offKilter = posTop;
@@ -186,10 +186,10 @@ function appBackToggle(li){
     
         $('#apps li.app.active').addClass('show-load');
 
-            if($(window).outerWidth() <= 480){
+            if($(window).width() <= 480){
 
                 TweenMax.to($('#apps li.app.active .app-load-btn'),0,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', onComplete:function(){
-                    TweenMax.to($('#apps-container'),0.5,{left:'-'+$(window).outerWidth()*0.85 + 'px', ease:Back.easeOut, onComplete:function(){
+                    TweenMax.to($('#apps-container'),0.5,{left:'-'+$(window).width()*0.85 + 'px', ease:Back.easeOut, onComplete:function(){
                         TweenMax.to($('#apps li.app.active .app-load-btn'),0.25,{delay:'0.25', opacity:'1', left:'18px'});
                         TweenMax.to($('#breadcrumb'),0.25,{left:($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', ease:Back.easeOut});
                         TweenMax.to($('#app-detail'),0.5,{opacity:'1'});
@@ -246,7 +246,7 @@ function animApps(){
 function apps_loadAnim() {
     $('#apps .loading-anim .load-bar').each(function(i){
 
-        var posY = (Math.random() * $(window).outerHeight() * .16667) + (i*$(window).outerHeight()*.16667);
+        var posY = (Math.random() * $(window).height() * .16667) + (i*$(window).height()*.16667);
 
         //var posY = (Math.random() * ($(window).outerHeight()*.16667*(i+1)));
 
