@@ -192,6 +192,7 @@ function appBackToggle(li){
                     TweenMax.to($('#apps-container'),0.5,{left:'-'+$(window).outerWidth()*0.85 + 'px', ease:Back.easeOut, onComplete:function(){
                         TweenMax.to($('#apps li.app.active .app-load-btn'),0.25,{delay:'0.25', opacity:'1', left:'18px'});
                         TweenMax.to($('#breadcrumb'),0.25,{left:($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', ease:Back.easeOut});
+                        TweenMax.to($('#app-detail'),0.5,{opacity:'1'});
                         TweenMax.to($('#breadcrumb .mobile-back-table'),0,{left:'0', opacity:'0', onComplete:function(){
                             TweenMax.to($('#breadcrumb .mobile-back-table'),1.5,{opacity:'1'});
                         }});
@@ -203,7 +204,8 @@ function appBackToggle(li){
 
                 TweenMax.to($('#apps li.app.active .app-load-btn'),0,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', onComplete:function(){
                     TweenMax.to($('#apps-container'),0.5,{left:'-'+($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', ease:Back.easeOut, onComplete:function(){
-                        TweenMax.to($('#apps li.app.active .app-load-btn'),0.25,{delay:'0.25', opacity:'1', left:'18px'});
+                        TweenMax.to($('#apps li.app.active .app-load-btn'),0.25,{delay:'0.25', opacity:'1', left:'18px'});                       
+                        TweenMax.to($('#app-detail'),0.5,{opacity:'1'});
                         TweenMax.to($('#breadcrumb'),0.25,{left:($(li).outerWidth() - $(li).find('.load-bar').outerWidth()) + 'px', ease:Back.easeOut});
                         activateListeners();
                     }});
@@ -222,7 +224,8 @@ function appBackToggle(li){
         }});
         
         TweenMax.to($('#apps-container'),0.2,{left:'0px', onComplete:function(){
-            $("#app-detail").animate({scrollTop: '0'}, 500);
+            $("#app-detail").animate({scrollTop: '0'}, 500);                        
+            TweenMax.to($('#app-detail'),0,{opacity:'0.1'});
         }});
         TweenMax.to($('#breadcrumb'),0.2,{left:'0px'});
     }
