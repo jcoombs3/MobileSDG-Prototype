@@ -35,7 +35,7 @@ function setup(el){
             break;
 
         case ('#apps'):
-            TweenMax.to($('#apps ul'),0,{top:'+='+$('#breadcrumb').outerHeight()+'px'});
+            TweenMax.to($('#apps ul'),0,{top:'+='+$('#breadcrumb').outerHeight()+'px', height:$(window).outerHeight() - $('#breadcrumb').outerHeight()});
             
             var order = 0;
 
@@ -124,7 +124,7 @@ function setup(el){
             $('#app-detail .img-slider').each(function(){
                 var length = $(this).find('ul').children().length - 1; // due to clearfix
                 var liWidth = $('#app-detail').outerWidth() - (parseInt($(this).css('padding-right')) * 2);
-                var ulWidth = (liWidth + parseInt($(this).css('padding-right'))) * length;
+                var ulWidth = (liWidth + parseInt($(this).find('li:nth-child(2)').css('margin-left'))) * length;
 
                 TweenMax.to($(this).find('ul'),0,{width:ulWidth + 'px'});
                 TweenMax.to($(this).find('li'),0,{width:liWidth + 'px'});
