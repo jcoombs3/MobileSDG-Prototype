@@ -4,7 +4,9 @@ function activateListeners() {
         click: function(e) {
             var offset = $('#app-detail .title .description').offset();
 
-            $("#app-detail").animate({scrollTop: offset.top - 30}, 1000);
+            if($(window).outerWidth() > 480){
+            	$("#app-detail").animate({scrollTop: offset.top - 30}, 1000);
+            }
 
             TweenMax.to($('#app-detail .title .readmore'),0.5,{opacity:'0'});
             TweenMax.to($('#app-detail .title .more-content'),0,{display:'block', onComplete:function(){
