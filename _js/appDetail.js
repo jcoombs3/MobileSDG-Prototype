@@ -23,7 +23,26 @@ function activateListeners() {
             }});
         },
         mouseleave: function(e) {
-            TweenMax.to($(e.currentTarget).find('.member-overlay'),0.5,{opacity:'0'});
+            if(!$(e.currentTarget).hasClass('clicked')){
+                TweenMax.to($(e.currentTarget).find('.member-overlay'),0.5,{opacity:'0'});
+            }
+        },
+        click: function(e){
+            var width = $('.member-img').outerWidth();
+            if($(e.currentTarget).hasClass('clicked')){
+                $(e.currentTarget).removeClass('clicked');
+                    TweenMax.to($(e.currentTarget).find('.member-overlay'),0.5,{opacity:'0'});   
+            }
+            else{
+                $('#app-detail .meet-the-team .team-container .member').each(function(){
+                    $(this).removeClass('clicked');
+                    TweenMax.to($(this).find('.member-overlay'),0.5,{opacity:'0'}); 
+                });
+                $(e.currentTarget).addClass('clicked'); 
+                TweenMax.to($(e.currentTarget).find('.member-overlay'),0,{height:width+'px', width:width+'px', onComplete:function(){
+                    TweenMax.to($(e.currentTarget).find('.member-overlay'),0.5,{opacity:'0.8'});
+                }});
+            }
         }
     }, '.member');
 
