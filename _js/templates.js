@@ -27,19 +27,6 @@ var appData = {
             name: "Levi's",
             icon: "levis",
             iconWidth: "40%",
-            devices: [
-                {
-                    device: 'Android'
-                }, 
-                {
-                    device: 'iPad'
-                }, 
-                {
-                    device: 'iPhone'
-                }, 
-                {
-                device: 'Kiosk'
-            }],
             blocks: [
                 {
                     type: 'title',
@@ -48,31 +35,26 @@ var appData = {
                     app: "Denim Discovery In-Store Experience",
                     devices: [
                         {
-                            device: 'phone'
-                        },
-                        {
-                            device: 'tablet'
-                        },
-                        {
-                            device: 'laptop'
-                        },
-                        {
                             device: 'kiosk'
-                        }
-                    ],
-                    os: [
-                        {
-                            platform: 'ios',
-                        },
-                        {
-                            platform: 'android',
                         }
                     ],
                     description: "We worked in partnership with Levi's to create a Macy's 'store within a store' concept that brings digital brand experiences to the physical space in connected ways. We worked with architects, merchandisers, brand and marketing creative, store operators and outside agencies to develop the creative, strategy, and overall evolution.",
                     moreContent: [
                         {
                             type: 'text',
-                            text: 'This is text when we have more content to show. There will also be the ability to post pictures with descriptions on the sides at a later release.'
+                            text: 'At the core of this concept is a large, touch experience titled "Denim Discovery". We designed and built this experience to complete 2 tasks; serve as a merchandising, storytelling tool and as a utility and education for associates and customers.'
+                        },
+                        {
+                            type: 'text',
+                            text: "Some highlights are 'Fit Finder', an interactive way to find the fit that suits you, or 'Fit Compare', a way to evaluate fit details and engage in side-by-side comparisons. It has ways for consumers to shop by color, fabric, learn about the Levi's brand, and can serve as a clienteling and educational tool for associates."
+                        },
+                        {
+                            type: 'text',
+                            text: "We also worked with the clients to design a new way to market themselves. We encourage customers to submit the way they wear their Levi's through a hashtag campaign that then gets used on product detail pages. We created broadcast channels at the fixture level that are used to help inspire and connect the product to the campaign. We re-imagined the product and brand expression in-store in an integrated way."
+                        },
+                        {
+                            type: 'text',
+                            text: "We did all of this on shoestring budget with a crack-team of specialists with no issues."
                         }
                     ],
                 },
@@ -82,16 +64,32 @@ var appData = {
                     imgs: [
                         {
                             folder: 'levis',
-                            img: 'levis_indevice2.png'
+                            img: 'levis_inDevice1.png'
                         },
                         {
                             folder: 'levis',
-                            img: 'levis_indevice2.png'
+                            img: 'levis_inDevice2.png'
                         },
                         {
                             folder: 'levis',
-                            img: 'levis_indevice2.png'
+                            img: 'levis_inDevice3.png'
                         },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice4.png'
+                        },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice5.png'
+                        },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice6.png'
+                        },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice7.png'
+                        }
                     ]
                 },
                 {
@@ -101,11 +99,7 @@ var appData = {
                         {
                             country: 'North America',
                             countryAb: 'NA'
-                        },
-                        {
-                            country: 'India',
-                            countryAb: 'India'
-                        },
+                        }
                     ],
                     facts: [
                         {
@@ -145,43 +139,18 @@ var appData = {
                     type: 'meetTeam',
                     team: [
                         {
-                            name: 'Brian Daviadoff',
-                            title: 'Developer',
-                            img: 'Brian_Daviadoff'
+                            name: 'Chris Cobb',
+                            title: 'Creative Director',
+                            img: 'Chris_Cobb'
+                        },
+                        {
+                            name: 'Matt Lewis',
+                            title: 'Technology Lead',
+                            img: 'Matt_Lewis'
                         },
                         {
                             name: 'Aram Yang',
-                            title: 'Program Management',
-                            img: 'Aram_Yang'
-                        },
-                        {
-                            name: 'Brian Daviadoff',
-                            title: 'Developer',
-                            img: 'Brian_Daviadoff'
-                        },
-                        {
-                            name: 'Aram Yang',
-                            title: 'Program Management',
-                            img: 'Aram_Yang'
-                        },
-                        {
-                            name: 'Brian Daviadoff',
-                            title: 'Developer',
-                            img: 'Brian_Daviadoff'
-                        },
-                        {
-                            name: 'Aram Yang',
-                            title: 'Program Management',
-                            img: 'Aram_Yang'
-                        },
-                        {
-                            name: 'Brian Daviadoff',
-                            title: 'Developer',
-                            img: 'Brian_Daviadoff'
-                        },
-                        {
-                            name: 'Aram Yang',
-                            title: 'Program Management',
+                            title: 'Program Manager',
                             img: 'Aram_Yang'
                         },
                     ]
@@ -285,10 +254,9 @@ var appData = {
 };
 
 var blocksData = {
-    title: "<div class='block title' style='background:{{bgColor}}'><div class='container'><div class='client'>{{client}}</div><div class='appname'>{{app}}</div><div class='icons'><div class='device-container'>{{#each devices}}<div class='device'><table><tr><td><span class='icon icon-{{device}}'></span></td></tr></table></div>{{/each}}</div>{{#if os}}<div class='os-container'>{{#each os}}<div class='device'><table><tr><td><span class='icon icon-{{platform}}'></span></td></tr></table></div>{{/each}}</div>{{/if}}<div class='clearfix'></div></div><div class='description'>{{description}}</div>{{#if moreContent}}<div class='readmore'>Read More</div>{{#each moreContent}}<div class='more-content'>{{text}}</div>{{/each}}{{/if}}</div></div>",
+    title: "<div class='block title' style='background:{{bgColor}}'><div class='container'><div class='client'>{{client}}</div><div class='appname'>{{app}}</div><div class='icons'><div class='device-container'>{{#each devices}}<div class='device'><table><tr><td><span class='icon icon-{{device}}'></span></td></tr></table></div>{{/each}}</div>{{#if os}}<div class='os-container'>{{#each os}}<div class='device'><table><tr><td><span class='icon icon-{{platform}}'></span></td></tr></table></div>{{/each}}</div>{{/if}}<div class='clearfix'></div></div><div class='description'>{{description}}</div>{{#if moreContent}}<div class='readmore'>Read More</div>{{#each moreContent}}<div class='more-content'><p>{{text}}</p></div>{{/each}}{{/if}}</div></div>",
     imgSlider: "<div class='block img-slider' style='background:{{bgColor}}'><div class='slider-container'><ul>{{#each imgs}}<li><table><tr><td><img src='_img/apps-images/{{folder}}/{{img}}'></td></tr></table></li>{{/each}}<div class='clearfix'></div></ul><div class='arrow arrow-left'><img src='_img/slider-arrow-left.png'></div><div class='arrow arrow-right'><img src='_img/slider-arrow-right.png'></div></div></div>",
     facts: "<div class='block project-facts' style='background:{{bgColor}}'><div class='facts-title'>Project Facts</div><div class='geography'><div class='text'><div class='geo-title'><span class='span-title'>Geography</span></div>{{#each geography}}<span class='amp'>&</span><span>{{country}}</span>{{/each}}</div><div class='countries'><div class='country-container'>{{#each geography}}<div class='country-img {{countryAb}}' style='background:url(_img/{{countryAb}}.png) 30% no-repeat; background-size:100%;'></div>{{/each}}</div></div><div class='facts-section'>{{#each facts}}<div class='section'><span class='span-title'>{{title}}</span>{{#each listItem}}<div class='list-fact'>{{#if sub}}{{fact}}:<span class='sub'>{{sub}}</span>{{else}}{{fact}}{{/if}}</div>{{/each}}</div>{{/each}}<div class='clearfix'></div></div></div></div>",
-
     meetTeam: "<div class='block meet-the-team'><div class='team-title'>Meet the Team</div><div class='team-container'>{{#each team}}<div class='member'><div class='member-img'><img src='_img/sapient-employees/{{img}}.jpg'></div><div class='member-overlay'><table><tr><td><div class='member-title'>{{title}}</div><div class='member-name'>{{name}}</div></td></tr></table></div></div>{{/each}}<div class='clearfix'></div></div></div>",
     intGrid: "<div class='block grid-block'><ul><li class='double'><div class='sec'><div class='{{grid}}'></div></div><div class='clearfix'></div></li></ul></div>",
     intGridBS: "<div class='block grid-block'><ul><li class='single'><div class='sec big'><div class='{{gridB}}'></div></div><div class='sec small'><div class='{{gridS}}''></div></div><div class='clearfix'></div></li></ul></div>",
