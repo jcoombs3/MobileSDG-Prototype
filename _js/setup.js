@@ -127,8 +127,12 @@ function setup(el){
                 var liWidth = $('#app-detail').outerWidth() - (parseInt($(this).css('padding-right')) * 2);
                 var ulWidth = (liWidth + parseInt($(this).find('li:nth-child(2)').css('margin-left'))) * length;
 
+                var tableWidth = liWidth - (parseInt($(this).find('li').css('padding')) * 2);
+                var tableHeight = $(this).find('li').outerHeight() - (parseInt($(this).find('li').css('padding')) * 2);
+
                 TweenMax.to($(this).find('ul'),0,{width:ulWidth + 'px'});
                 TweenMax.to($(this).find('li'),0,{width:liWidth + 'px'});
+                TweenMax.to($(this).find('img'),0,{maxWidth:tableWidth + 'px', maxHeight:tableHeight + 'px'});
 
                 $(this).find('li:first-child').addClass('target');
 
