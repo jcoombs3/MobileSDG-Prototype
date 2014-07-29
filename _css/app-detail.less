@@ -8,15 +8,12 @@
 	position: relative;
 	overflow:hidden;
 	overflow-y:auto;
+	border-left:1px solid @border-gray;
 
 	.block{
 		width:100%;
 		position: relative;
 		background: @aluminum-gray;
-
-		&:first-child {
-			padding-top:1%;
-		}
 	}
 
 	.grid-block {
@@ -94,6 +91,7 @@
 	.title {
 		width:100%;
 		height:95%;
+		min-height:670px;
 
 		.container {
 			width:100%;
@@ -101,7 +99,7 @@
 			padding:17% 0% 8%;
 		}
 
-		.client, .appname, .description {
+		.client, .appname, .description, .more-content {
 			width:100%;
 			text-align:center;
 		}
@@ -129,10 +127,21 @@
 
 		.device {
 			float: left;
+			width:91px;
+			height:104px;
+
+			table {
+				width:100%;
+				height:100%;
+			}
 
 			.icon {
 				vertical-align:bottom;
 				font-size:85px;
+			}
+
+			.icon-phone, .icon-ios, .icon-android {
+				font-size:4em;
 			}
 
 		}
@@ -140,10 +149,18 @@
 		.os-container .device:first-child {
 			border-left:1px solid @charcoal;
 			padding-left:20px;
+
+			table {
+				text-align: right;
+			}
 		}
 
 		.device-container .device:last-child {
 			padding-right:20px;
+
+			table {
+				text-align: left;
+			}
 		}
 
 		.description {
@@ -154,7 +171,84 @@
 		.readmore {
 			margin-top:30px;
 			font-weight:bold;
+			text-align:center;
 			color:@electric-blue;
+		}
+
+		.more-content {
+			font-size:18px;
+			padding:0px 15%;
+			display:none;
+			opacity:0;
+		}
+	}
+
+	@imgSliderPad: 50px;
+	@imgSliderPadTwo: 100px;
+	@imgKilter: 35px;
+	@imgArrows: 25px;
+
+	.img-slider {
+		width:100%;
+		height:70%;
+		max-height:615px;
+		padding:@imgSliderPad @imgSliderPadTwo;
+
+		.slider-container {
+			width:100%;
+			height:100%;
+		}
+
+		ul {
+			width:100%;
+			height:100%;
+			overflow:hidden;
+			margin:0;
+			padding:0;
+			list-style-type: none;
+			position:relative;
+	
+			li {
+				width:100%;
+				height:100%;
+				margin:0;
+				padding:20px;
+				background:url('../_img/BGrects.jpg')0px 0px;
+				float: left;
+				margin-left:@imgKilter;
+				text-align:center;
+
+				&:first-child {
+					margin-left:0;
+				}
+			}
+
+			img {
+				height:100%;
+				max-width:100%;
+			}
+		}
+
+		.arrow {
+			width:@imgSliderPad;
+			height:@imgSliderPad;
+			position:absolute;
+			bottom:0;
+			background:magenta;
+			opacity:1;
+			.transition(all 300ms ease);
+
+			&.disabled {
+				opacity:0;
+			}
+		}
+
+		.arrow-left {	
+			left:0;
+		}
+
+		.arrow-right {
+			right:0;
 		}
 	}
 
@@ -229,65 +323,77 @@
 				}
 			}
 		}
+	}
 
-		.meet-the-team {
-			background:@charcoal;
+	.meet-the-team {
+		background:@charcoal;
+		width:100%;
+
+		.member:nth-child(n+7) {
+			display:none;
+		}
+
+		.team-title {
+			font-style:italic;
+			font-size:24px;
+			color:@ice-white;
+			text-align:center;
+			padding-top:30px;
+		}
+
+		.team-container {
 			width:100%;
-			padding:30px 0px;
+			margin-top:30px;
 
-			.team-title {
-				font-style:italic;
-				font-size:24px;
-				color:@ice-white;
+			.member {
+				width:33.333%;
+				float: left;
+				overflow:hidden;
+			}
+		}
+
+		.member-img {
+			width:100%;
+			float: left;
+
+			img {
+				width:100%;
+				vertical-align:bottom;
+			}
+		}
+
+		.member-overlay {
+			width:0px;
+			height:0px;
+			background:@electric-blue;
+			float: left;
+			position:absolute;
+			opacity:0;
+			cursor:default;
+
+			table {
+				width:100%;
+				height:100%;
 				text-align:center;
+				color:@ice-white;
 			}
 
-			.team-container {
-				width:100%;
-				margin-top:30px;
-
-				.member {
-					width:33.333%;
-					float: left;
-					overflow:hidden;
-				}
+			.member-title {
+				font-style:italic;
+				font-size:18px;
 			}
 
-			.member-img {
-				width:100%;
-				float: left;
-
-				img {
-					width:100%;
-					vertical-align:bottom;
-				}
+			.member-name {
+				font-size:30px;
 			}
+		}
 
-			.member-overlay {
-				width:0px;
-				height:0px;
-				background:@electric-blue;
-				float: left;
-				position:absolute;
-				opacity:0;
-				cursor:default;
-
-				table {
-					width:100%;
-					height:100%;
-					text-align:center;
-					color:@ice-white;
-				}
-
-				.member-title {
-					font-style:italic;
-					font-size:18px;
-				}
-
-				.member-name {
-					font-size:30px;
-				}
-			}
+		.full-team {
+			color:@electric-blue;
+			font-size:18px;
+			margin-top:30px;
+			padding-bottom:30px;
+			text-align:center;
 		}
 	}
 }

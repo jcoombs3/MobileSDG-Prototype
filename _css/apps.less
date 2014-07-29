@@ -32,6 +32,26 @@
 		border-right:1px solid @border-gray;
 		.transition(all 300ms ease);
 
+		.mobile-back-table {
+			display:none;
+			width:15%;
+			height:100%;
+			position:fixed;
+			left:-15%;
+			top:0;
+
+			table {
+				width:100%;
+				height:100%;
+				text-align:center;
+			}
+
+			.mobile-back-btn {
+				font-size:40px;
+				color:@sapient-heat;
+			}
+		}
+
 		.sapient-logo {
 			width:109px;
 			height:100%;
@@ -359,6 +379,17 @@
 { 
 
 	#apps {
+
+		#breadcrumb.mobile .sapient-logo {
+			background-position: 35% 35% !important;
+		}
+
+		#breadcrumb {
+			.mobile-back-table {
+				display:block;
+			}
+		}
+
 		.app-list {
 			width:100%;
 			border-right:none;
@@ -382,6 +413,10 @@
 				opacity:1 !important;
 				top:-30% !important;
 			}
+		}
+
+		.app-load-btn {
+			display:none;
 		}
 	}
 

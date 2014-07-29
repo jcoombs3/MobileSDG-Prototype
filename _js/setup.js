@@ -4,6 +4,7 @@ $(window).load(function(){
     setup('#loading');
     setup('#apps');
     setup('#node-tree');
+    setup('#breadcrumb');
 
 });
 
@@ -119,12 +120,40 @@ function setup(el){
             TweenMax.to($('#app-detail .title .icons'),0,{width:iconWidth+'px'});
 
             break;
+        case ('#app-detail .img-slider'):
+            $('#app-detail .img-slider').each(function(){
+                var length = $(this).find('ul').children().length - 1; // due to clearfix
+                var liWidth = $('#app-detail').outerWidth() - (parseInt($(this).css('padding-right')) * 2);
+                var ulWidth = (liWidth + parseInt($(this).css('padding-right'))) * length;
+
+                TweenMax.to($(this).find('ul'),0,{width:ulWidth + 'px'});
+                TweenMax.to($(this).find('li'),0,{width:liWidth + 'px'});
+
+                $(this).find('li:first-child').addClass('target');
+
+                $(this).find('.arrow-right').addClass('disabled');
+
+                var order = 1;
+                $(this).find('li').each(function(){
+                    $(this).data('order',order);
+                    order++;
+                });
+            });
+
+            break;
         case ('#app-detail .geography'):
             var geoWidth = 0;
             $('#app-detail .geography .country-img').each(function(){
                 geoWidth += $(this).outerWidth();
             });
             TweenMax.to($('#app-detail .geography .country-container'),0,{width:geoWidth+'px'});
+
+            break;
+        case ('#app-detail .meet-the-team'):
+            var length = $('#app-detail .meet-the-team .team-container').children().length - 1; // due to clearfix
+            if (length > 6){
+                $('#app-detail .meet-the-team').append('<div class="full-team">View Full Team</div>');
+            }
 
             break;
     }
