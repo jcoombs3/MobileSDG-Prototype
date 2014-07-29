@@ -115,7 +115,8 @@ function setup(el){
         case ('#app-detail .title'):
             var iconWidth = 0;
             $('#app-detail .title .device').each(function(){
-                iconWidth += $(this).outerWidth();
+                var str =  $(this).css('marginRight')
+                iconWidth += ($(this).outerWidth() + parseInt(str.slice(0, str.length - 2)));
             });
             TweenMax.to($('#app-detail .title .icons'),0,{width:iconWidth+'px'});
 
