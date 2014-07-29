@@ -156,7 +156,7 @@
 		}
 
 		.device-container .device:last-child {
-			padding-right:20px;
+			margin-right:20px;
 
 			table {
 				text-align: left;
@@ -425,6 +425,96 @@
 	img{
 		width: 100%;
 	}
+}
 
-	
+
+
+
+
+/*Landscape Mode*/
+
+@media screen and (max-device-width: 480px) 
+{ 
+
+	#app-detail {
+
+		.title {
+			height: auto !important;
+
+			.appname {
+				font-size:25px !important;
+			}
+
+			.device {
+				width:16% !important;
+			}
+
+			.icon {
+				font-size:33px !important;
+			}
+
+			.device-container .device:last-child {
+				margin-right:5px !important;
+			}
+
+			.os-container .device:first-child {
+				padding-left:5px !important;
+			}
+
+			.description {
+				padding: 0 5% !important;
+			}
+		}
+
+		.img-slider {
+			padding:50px 20px !important;
+		}
+
+		.project-facts {
+
+			.geography {
+				padding:0px !important;
+				padding-top:30px !important;
+
+				.geo-title {
+					width:100%;
+					float:none;
+				}
+
+				.country-container {
+					width:100% !important;
+				}
+
+				.country-img {
+					background-size: 85% !important;
+					width:100% !important;
+					max-height:150px !important; 
+					background-position:50% !important;
+				}
+
+				.section {
+					width:100% !important;
+					margin-top:50px;
+
+					&:first-child {
+						margin-top:0;
+					}
+				}
+			}
+		}	
+
+		.meet-the-team {
+			.member {
+				width:100% !important;
+			}
+		}
+
+	}
+
+}
+/* Portrait Mode */
+
+@media screen and (max-device-width: 320px) 
+{ 
+
 }
