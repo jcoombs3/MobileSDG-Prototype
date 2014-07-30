@@ -48,21 +48,27 @@ function activateListeners() {
 
     $('#app-detail .block.img-slider').on({
         click: function(e) {
-            $(e.currentTarget).parents('.img-slider').find('.arrow-right').removeClass('disabled');
+            if(!$(e.currentTarget).hasClass('busy')){
+                if(!$(e.currentTarget).hasClass('disabled')) {
+                    $(e.currentTarget).addClass('busy');
+                }     
+                $(e.currentTarget).parents('.img-slider').find('.arrow-right').removeClass('disabled');
+                var ul = $(e.currentTarget).parents('.img-slider').find('ul');
+                var order = $(ul).find('li.target').data('order');
+                var width = $(ul).find('li').outerWidth() + parseInt($(ul).find('li:nth-child(2)').css('margin-left'));
 
-            var ul = $(e.currentTarget).parents('.img-slider').find('ul');
-            var order = $(ul).find('li.target').data('order');
-            var width = $(ul).find('li').outerWidth() + parseInt($(ul).find('li:nth-child(2)').css('margin-left'));
+                if(order < ($(ul).children().length - 1)) { // due to clearfix
+                    order++;
+                    TweenMax.to($(ul),0.75,{left:'-='+width+'px', ease:Back.easeInOut, onComplete:function(){
+                        $(e.currentTarget).removeClass('busy');
+                    }});
+                    $(ul).find('li.target').removeClass('target');
+                    $(ul).find('li:nth-child('+order+')').addClass('target');
 
-            if(order < ($(ul).children().length - 1)) { // due to clearfix
-                order++;
-                TweenMax.to($(ul),0.75,{left:'-='+width+'px', ease:Back.easeInOut});
-                $(ul).find('li.target').removeClass('target');
-                $(ul).find('li:nth-child('+order+')').addClass('target');
-
-                if(order == ($(ul).children().length - 1))
-                {
-                	$(e.currentTarget).parents('.img-slider').find('.arrow-left').addClass('disabled');
+                    if(order == ($(ul).children().length - 1))
+                    {
+                    	$(e.currentTarget).parents('.img-slider').find('.arrow-left').addClass('disabled');
+                    }
                 }
             }
         },
@@ -70,21 +76,28 @@ function activateListeners() {
 
     $('#app-detail .block.img-slider').on({
         click: function(e) {
-            $(e.currentTarget).parents('.img-slider').find('.arrow-left').removeClass('disabled');
-            
-            var ul = $(e.currentTarget).parents('.img-slider').find('ul');
-            var order = $(ul).find('li.target').data('order');
-            var width = $(ul).find('li').outerWidth() + parseInt($(ul).find('li:nth-child(2)').css('margin-left'));
+            if(!$(e.currentTarget).hasClass('busy')){
+                if(!$(e.currentTarget).hasClass('disabled')) {
+                    $(e.currentTarget).addClass('busy');
+                }
+                $(e.currentTarget).parents('.img-slider').find('.arrow-left').removeClass('disabled');
+                
+                var ul = $(e.currentTarget).parents('.img-slider').find('ul');
+                var order = $(ul).find('li.target').data('order');
+                var width = $(ul).find('li').outerWidth() + parseInt($(ul).find('li:nth-child(2)').css('margin-left'));
 
-            if(order > 1){
-                order--;
-                TweenMax.to($(ul),0.75,{left:'+='+width+'px', ease:Back.easeInOut});
-                $(ul).find('li.target').removeClass('target');
-                $(ul).find('li:nth-child('+order+')').addClass('target');
+                if(order > 1){
+                    order--;
+                    TweenMax.to($(ul),0.75,{left:'+='+width+'px', ease:Back.easeInOut, onComplete:function(){
+                        $(e.currentTarget).removeClass('busy');
+                    }});
+                    $(ul).find('li.target').removeClass('target');
+                    $(ul).find('li:nth-child('+order+')').addClass('target');
 
-                if(order == 1)
-                {
-                	$(e.currentTarget).parents('.img-slider').find('.arrow-right').addClass('disabled');
+                    if(order == 1)
+                    {
+                    	$(e.currentTarget).parents('.img-slider').find('.arrow-right').addClass('disabled');
+                    }
                 }
             }
         },
