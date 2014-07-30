@@ -151,9 +151,9 @@ function centerApp(li, maxDelay) {
 
     TweenMax.to($('#apps .app-list li.app.active .load-bar'),0,{width:loadBarWidth+'px'});
 
-    if(posY < 0) {
-        TweenMax.to($(li),0.1,{top:-1*posY});
-        offKilter = posY;
+    if(posY < $('#breadcrumb').outerHeight()) {
+        TweenMax.to($(li),0.1,{top:$('#breadcrumb').outerHeight() - posY});
+        offKilter = -1*($('#breadcrumb').outerHeight() - posY);
     }
     else if(posY+liHeight*2 > $(window).height()){
         var delta = $(window).height() - posY;
