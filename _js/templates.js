@@ -12,8 +12,6 @@ Handlebars.registerHelper("xif", function (type, block) {
     return txt;
 });
 
-
-
 // Grab the HTML source that needs to be compiled
 var appSource = document.getElementById('app-selection-template').innerHTML;
 
@@ -562,19 +560,19 @@ var appData = {
                     type: 'meetTeam',
                     team: [
                         {
-                            name: 'Asthon Grosz',
-                            title: 'Designer',
-                            img: 'Ashton_Grosz'
-                        },
-                        {
-                            name: 'John Coombs',
-                            title: 'Developer',
-                            img: 'John_Coombs'
-                        },
-                        {
-                            name: 'Aram Yang',
+                            name: 'Matt Mills',
                             title: 'Program Manager',
-                            img: 'Aram_Yang'
+                            img: 'Matt_Mills'
+                        },
+                        {
+                            name: 'Alice Jankowski',
+                            title: 'Copywriter',
+                            img: 'Alice_Jankowski'
+                        },
+                        {
+                            name: 'Jae Lingberg Shah',
+                            title: 'Senior Manager Technology',
+                            img: 'Jae_Shah'
                         },
                     ]
                 }
@@ -583,7 +581,7 @@ var appData = {
         {
             name: "Hartford",
             icon: "hartford",
-            iconWidth: "40%",
+            iconWidth: "33%",
             blocks: [
                 {
                     type: 'title',
