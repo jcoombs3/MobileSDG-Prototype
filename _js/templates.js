@@ -396,7 +396,7 @@ var appData = {
                     team: [
                         {
                             name: 'Jon Mittelbronn',
-                            title: 'Technical Lead',
+                            title: 'Technical Legend',
                             img: 'Jon_Mittelbronn'
                         },
                         {
