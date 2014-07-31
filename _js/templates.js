@@ -31,6 +31,10 @@ var appData = {
                 {
                     type: 'title',
                     bgColor: '#fff',
+                    gradient: {
+                        start: '#fff',
+                        finish: '#dedede'
+                    },
                     client: "Levi's",
                     app: "Denim Discovery In-Store Experience",
                     devices: [
@@ -60,7 +64,7 @@ var appData = {
                 },
                 {
                     type: 'imgSlider',
-                    bgColor: '#21addd',
+                    bgColor: '#dedede',
                     imgs: [
                         {
                             folder: 'levis',
@@ -165,6 +169,10 @@ var appData = {
                 {
                     type: 'title',
                     bgColor: '#1d1d1d',
+                    gradient: {
+                        start: '#0d0d0d',
+                        finish: '#1d1d1d'
+                    },
                     txtColor: '#DfE5E6',
                     client: "Chip Ganassi Racing",
                     app: "Chip Ganassi Racing - Mobile App",
@@ -257,6 +265,24 @@ var appData = {
                     ]
                 },
                 {
+                    type: 'imgSlider',
+                    bgColor: '#000',
+                    imgs: [
+                        {
+                            folder: 'ganassi',
+                            img: 'ganassi_1.png'
+                        },
+                        {
+                            folder: 'ganassi',
+                            img: 'ganassi_2.jpg'
+                        },
+                        {
+                            folder: 'ganassi',
+                            img: 'ganassi_3.jpg'
+                        }
+                    ]
+                },
+                {
                     type: 'meetTeam',
                     team: [
                         {
@@ -275,24 +301,6 @@ var appData = {
                             img: 'Aram_Yang'
                         },
                     ]
-                },
-                {
-                    type: 'imgSlider',
-                    bgColor: '#000',
-                    imgs: [
-                        {
-                            folder: 'ganassi',
-                            img: 'ganassi_1.png'
-                        },
-                        {
-                            folder: 'ganassi',
-                            img: 'ganassi_2.jpg'
-                        },
-                        {
-                            folder: 'ganassi',
-                            img: 'ganassi_3.jpg'
-                        }
-                    ]
                 }
             ]
         },
@@ -304,6 +312,10 @@ var appData = {
                 {
                     type: 'title',
                     bgColor: '#613769',
+                    gradient: {
+                        start: '#7b3f86',
+                        finish: '#613769'
+                    },
                     txtColor: '#DfE5E6',
                     client: "Maybelline",
                     app: "Maybelline NY Mobile Website",
@@ -411,6 +423,10 @@ var appData = {
                 {
                     type: 'title',
                     bgColor: '#E8583E',
+                    gradient: {
+                        start:'#f14729',
+                        finish:'#E8583E'
+                    },
                     txtColor: '#fff',
                     client: "United States Census Bureau",
                     app: "dweller",
@@ -716,6 +732,10 @@ var appData = {
                 {
                     type: 'title',
                     bgColor: '#2E3E8E',
+                    gradient: {
+                        start:'#243cb2',
+                        finish:'#2E3E8E'
+                    },
                     txtColor: '#fff',
                     client: "Bed Bath and Beyond",
                     app: "Bed Bath and Beyond Mobile Application",
@@ -820,9 +840,9 @@ var appData = {
 };
 
 var blocksData = {
-    title: "<div class='block title' style='{{#if bgColor}}background:{{bgColor}};{{/if}} {{#if txtColor}}color:{{txtColor}};{{/if}}'><div class='container'><div class='client'>{{client}}</div><div class='appname'>{{app}}</div><div class='icons'><div class='device-container'>{{#each devices}}<div class='device {{device}}-container'><table><tr><td><span class='icon icon-{{device}}'></span></td></tr></table></div>{{/each}}</div>{{#if os}}<div class='os-container'>{{#each os}}<div class='device' {{#if ../../txtColor}}style='border-color:{{../../txtColor}}'{{/if}}><table><tr><td><span class='icon icon-{{platform}}'></span></td></tr></table></div>{{/each}}</div>{{/if}}<div class='clearfix'></div></div><div class='description'>{{description}}</div>{{#if moreContent}}<div class='readmore'>Read More</div>{{#each moreContent}}<div class='more-content'><p>{{text}}</p></div>{{/each}}{{/if}}</div></div>",
-    imgSlider: "<div class='block img-slider' style='{{#if bgColor}}background:{{bgColor}};{{/if}} {{#if txtColor}}color:{{txtColor}};{{/if}}''><div class='slider-container'><ul>{{#each imgs}}<li><table><tr><td><img src='_img/apps-images/{{folder}}/{{img}}'></td></tr></table></li>{{/each}}<div class='clearfix'></div></ul><div class='arrow arrow-left'><img src='_img/slider-arrow-left.png'></div><div class='arrow arrow-right'><img src='_img/slider-arrow-right.png'></div></div></div>",
-    facts: "<div class='block project-facts' style='{{#if bgColor}}background:{{bgColor}};{{/if}} {{#if txtColor}}color:{{txtColor}};{{/if}}''><div class='facts-title'>Project Facts</div><div class='geography'><div class='text'><div class='geo-title'><span class='span-title'>Geography</span></div>{{#each geography}}<span class='amp'>&</span><span>{{country}}</span>{{/each}}</div><div class='countries'><div class='country-container'>{{#each geography}}<div class='country-img {{countryAb}}' style='background:url(_img/{{countryAb}}.png) 30% no-repeat; background-size:100%;'></div>{{/each}}</div></div><div class='facts-section'>{{#each facts}}<div class='section'><span class='span-title'>{{title}}</span>{{#each listItem}}<div class='list-fact'>{{#if sub}}{{fact}}:<span class='sub'>{{sub}}</span>{{else}}{{fact}}{{/if}}</div>{{/each}}</div>{{/each}}<div class='clearfix'></div></div></div></div>",
+    title: "<div class='block title' style='{{#if gradient}}background-image: -webkit-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -o-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -moz-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -ms-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: linear-gradient(to bottom, {{gradient.start}} 0%, {{gradient.finish}} 100%);{{else}}{{#if bgColor}}background:{{bgColor}};{{/if}}{{/if}}{{#if txtColor}}color:{{txtColor}};{{/if}}'><div class='container'><div class='client'>{{client}}</div><div class='appname'>{{app}}</div><div class='icons'><div class='device-container'>{{#each devices}}<div class='device {{device}}-container'><table><tr><td><span class='icon icon-{{device}}'></span></td></tr></table></div>{{/each}}</div>{{#if os}}<div class='os-container'>{{#each os}}<div class='device' {{#if ../../txtColor}}style='border-color:{{../../txtColor}}'{{/if}}><table><tr><td><span class='icon icon-{{platform}}'></span></td></tr></table></div>{{/each}}</div>{{/if}}<div class='clearfix'></div></div><div class='description'>{{description}}</div>{{#if moreContent}}<div class='readmore'>Read More</div>{{#each moreContent}}<div class='more-content'><p>{{text}}</p></div>{{/each}}{{/if}}</div></div>",
+    imgSlider: "<div class='block img-slider' style='{{#if gradient}}background-image: -webkit-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -o-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -moz-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -ms-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: linear-gradient(to bottom, {{gradient.start}} 0%, {{gradient.finish}} 100%);{{else}}{{#if bgColor}}background:{{bgColor}};{{/if}}{{/if}}{{#if txtColor}}color:{{txtColor}};{{/if}}''><div class='slider-container'><ul>{{#each imgs}}<li><table><tr><td><img src='_img/apps-images/{{folder}}/{{img}}'></td></tr></table></li>{{/each}}<div class='clearfix'></div></ul><div class='arrow arrow-left'><img src='_img/slider-arrow-left.png'></div><div class='arrow arrow-right'><img src='_img/slider-arrow-right.png'></div></div></div>",
+    facts: "<div class='block project-facts' style='{{#if gradient}}background-image: -webkit-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -o-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -moz-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -ms-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: linear-gradient(to bottom, {{gradient.start}} 0%, {{gradient.finish}} 100%);{{else}}{{#if bgColor}}background:{{bgColor}};{{/if}}{{/if}}{{#if txtColor}}color:{{txtColor}};{{/if}}''><div class='facts-title'>Project Facts</div><div class='geography'><div class='text'><div class='geo-title'><span class='span-title'>Geography</span></div>{{#each geography}}<span class='amp'>&</span><span>{{country}}</span>{{/each}}</div><div class='countries'><div class='country-container'>{{#each geography}}<div class='country-img {{countryAb}}' style='background:url(_img/{{countryAb}}.png) 30% no-repeat; background-size:100%;'></div>{{/each}}</div></div><div class='facts-section'>{{#each facts}}<div class='section'><span class='span-title'>{{title}}</span>{{#each listItem}}<div class='list-fact'>{{#if sub}}{{fact}}:<span class='sub'>{{sub}}</span>{{else}}{{fact}}{{/if}}</div>{{/each}}</div>{{/each}}<div class='clearfix'></div></div></div></div>",
     meetTeam: "<div class='block meet-the-team'><div class='team-title'>Meet the Team</div><div class='team-container'>{{#each team}}<div class='member'><div class='member-img'><img src='_img/sapient-employees/{{img}}.jpg'></div><div class='member-overlay'><table><tr><td><div class='member-title'>{{title}}</div><div class='member-name'>{{name}}</div></td></tr></table></div></div>{{/each}}<div class='clearfix'></div></div></div>",
     intGrid: "<div class='block grid-block'><ul><li class='double'><div class='sec'><div class='{{grid}}'></div></div><div class='clearfix'></div></li></ul></div>",
     intGridBS: "<div class='block grid-block'><ul><li class='single'><div class='sec big'><div class='{{gridB}}'></div></div><div class='sec small'><div class='{{gridS}}''></div></div><div class='clearfix'></div></li></ul></div>",
