@@ -161,8 +161,7 @@ function setup(el){
                         $(this).data('order',order);
                         order++;
                     }
-                });
-                   
+                });       
                 if($(window).outerWidth() < 480){
                     // check for imgs in mobile. if none, remove 
                     var hasImg = false;
@@ -175,8 +174,9 @@ function setup(el){
                         $(this).remove();
                     }
                 }
-
+            $(this).find('li:first-child').addClass('target');
             });
+
 
             break;
         case ('#app-detail .geography'):

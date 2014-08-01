@@ -55,17 +55,25 @@ function activateListeners() {
                 $(e.currentTarget).parents('.img-slider').find('.arrow-right').removeClass('disabled');
                 var ul = $(e.currentTarget).parents('.img-slider').find('ul');
                 var order = $(ul).find('li.target').data('order');
+                console.log(order);
                 var width = $(ul).find('li').outerWidth() + parseInt($(ul).find('li:nth-child(2)').css('margin-left'));
 
-                if(order < ($(ul).children().length - 1)) { // due to clearfix
+                if($(window).outerWidth() > 480){
+                    var searchCrit = '';
+                }
+                else{
+                    var searchCrit = '.mobile-img';
+                }
+
+                if(order < ($(ul).children(searchCrit).length - 1)) { // due to clearfix
                     order++;
                     TweenMax.to($(ul),0.75,{left:'-='+width+'px', ease:Back.easeInOut, onComplete:function(){
                         $(e.currentTarget).removeClass('busy');
                     }});
                     $(ul).find('li.target').removeClass('target');
                     $(ul).find('li:nth-child('+order+')').addClass('target');
-
-                    if(order == ($(ul).children().length - 1))
+                    //console.log($(ul).children('img').length);
+                    if(order == ($(ul).children(searchCrit).length - 1))
                     {
                     	$(e.currentTarget).parents('.img-slider').find('.arrow-left').addClass('disabled');
                     }
