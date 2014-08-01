@@ -869,9 +869,6 @@ function blockSetup(){
     TweenMax.to($('#app-detail'),0,{width:width+'px'});
 
     setup('#app-detail .title');
-    setup('#app-detail .img-slider');
-    setup('#app-detail .geography');
-    setup('#app-detail .meet-the-team');
 }
 
 function detailCheck(li) {

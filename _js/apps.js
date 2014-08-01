@@ -5,6 +5,10 @@ $(window).load(function(){
         if(!$('#apps ul').hasClass('sticky')){
             $('#apps').addClass('locked');
             stackDeck(parent);
+
+            setup('#app-detail .img-slider');
+            setup('#app-detail .geography');
+            setup('#app-detail .meet-the-team');
         }
     });
 
@@ -226,6 +230,7 @@ function appBackToggle(li){
         TweenMax.to($('#apps-container'),0.2,{left:'0px', onComplete:function(){
             $("#app-detail").animate({scrollTop: '0'}, 500);                        
             TweenMax.to($('#app-detail'),0,{opacity:'0.1'});
+            $('#app-detail').empty();
         }});
         TweenMax.to($('#breadcrumb'),0.2,{left:'0px'});
     }
@@ -284,3 +289,4 @@ function centerDevices() {
 
     TweenMax.to($('#app-summary .device'),0,{marginLeft:delta+'px'});
 }
+

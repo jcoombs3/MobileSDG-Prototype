@@ -124,6 +124,8 @@ function setup(el){
         case ('#app-detail .img-slider'):
             $('#app-detail .img-slider').each(function(){
                 var length = $(this).find('ul').children().length - 1; // due to clearfix
+
+
                 var liWidth = $('#app-detail').outerWidth() - (parseInt($(this).css('padding-right')) * 2);
                 var ulWidth = (liWidth + parseInt($(this).find('li:nth-child(2)').css('margin-left'))) * length;
 
@@ -146,8 +148,21 @@ function setup(el){
 
                 var order = 1;
                 $(this).find('li').each(function(){
-                    $(this).data('order',order);
-                    order++;
+                    var img = $(this).find('img');
+                    console.log(img.width(), img.height());
+                    if($(window).outerWidth() < 480){
+                        if(img.height() > img.width()){
+                            $(this).data('order',order);
+                            order++;
+                        }
+                        else{//img is bad
+                            $(this).addClass('bad-dog');
+                        }
+                    }
+                    else{
+                        $(this).data('order',order);
+                        order++;
+                    }
                 });
             });
 
