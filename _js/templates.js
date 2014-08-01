@@ -172,6 +172,7 @@ var appData = {
                         finish: '#1d1d1d'
                     },
                     txtColor: '#DfE5E6',
+                    borderColor: '#ffffff',
                     client: "Chip Ganassi Racing",
                     app: "Chip Ganassi Racing - Mobile App",
                     devices: [
@@ -192,27 +193,27 @@ var appData = {
                         },
                         {
                             type: 'list',
-                            text: "Up close and personal information about all of the CGRT drivers including: bios, stats, photos and racing resumes"
+                            bullet: "Up close and personal information about all of the CGRT drivers including: bios, stats, photos and racing resumes"
                         },
                         {
                             type: 'list',
-                            text: "Real-time breaking news straight from the team"
+                            bullet: "Real-time breaking news straight from the team"
                         },
                         {
                             type: 'list',
-                            text: "Aggregated Twitter feeds from CGRT drivers, live tweets from the track and links to the official team and driver Facebook and Instagram pages"
+                            bullet: "Aggregated Twitter feeds from CGRT drivers, live tweets from the track and links to the official team and driver Facebook and Instagram pages"
                         },
                         {
                             type: 'list',
-                            text: "Behind-the-scenes video on Ganassi TV and photography from race tracks, interviews and special eventsSocial media integration"
+                            bullet: "Behind-the-scenes video on Ganassi TV and photography from race tracks, interviews and special eventsSocial media integration"
                         },
                         {
                             type: 'list',
-                            text: "Upcoming race event details including series calendars, event dates and locales"
+                            bullet: "Upcoming race event details including series calendars, event dates and locales"
                         },
                         {
                             type: 'list',
-                            text: "Current driver statistics and points standings after every race"
+                            bullet: "Current driver statistics and points standings after every race"
                         }
                     ],
                 },
@@ -328,27 +329,35 @@ var appData = {
                             device: 'laptop'
                         }, 
                     ],
-                    description: "Maybelline New York wanted to extend their brand experience and product offerings to their on-the-go customers, who are growing in numbers, by making the Maybelline brand present and available anywhere, anytime. The newly launched site is the first phase of a two-phase project and represents Maybelline’s first foray into mobile.  The delivery includes product browse, product lessons and how-to videos.  The visual brand was persistent and consistent with their website, and provided a top-notch mobile resence, not just an out of the box mobile experience. With development and implementation on the Netbiscuits platform, the site promotes the latest in technology on all smart phones (Android and iOS) and majority of mobile phones.",
+                    description: "Maybelline New York wanted to extend their brand experience and product offerings to their on-the-go customers, who are growing in numbers, by making the Maybelline brand present and available anywhere, anytime. The newly launched site is the first phase of a two-phase project and represents Maybelline’s first foray into mobile.",
                     moreContent: [
+                        {
+                            type: 'text',
+                            text: 'The delivery includes product browse, product lessons and how-to videos.  The visual brand was persistent and consistent with their website, and provided a top-notch mobile resence, not just an out of the box mobile experience. With development and implementation on the Netbiscuits platform, the site promotes the latest in technology on all smart phones (Android and iOS) and majority of mobile phones.'
+                        },
                         {
                             type: 'text',
                             text: 'The mobile experience is a further extension of the current web experience and strategically provides a subset of the web content that is most be relevant on-the-go: product information and lessons/how-to videos.'
                         },
                         {
                             type: 'list',
-                            text: "Ability to offer the same level of product assortment to the customer, either by shopping through a specific brand or by browsing the product categories."
+                            bullet: "Ability to offer the same level of product assortment to the customer, either by shopping through a specific brand or by browsing the product categories.",
+                            borderColor: '#eee'
                         },
                         {
                             type: 'list',
-                            text: "Elevate more of the on-the-go functionality of mobile and make it easier to quickly search for products."
+                            bullet: "Elevate more of the on-the-go functionality of mobile and make it easier to quickly search for products.",
+                            borderColor: '#eee'
                         },
                         {
                             type: 'list',
-                            text: "Leveraged the existing UX and Visual system of the main website to minimize effort and provide a consistent experience for the customer in both channels."
+                            bullet: "Leveraged the existing UX and Visual system of the main website to minimize effort and provide a consistent experience for the customer in both channels.",
+                            borderColor: '#eee'
                         },
                         {
                             type: 'list',
-                            text: "Devised a solution within a Product Detail page where the products shine through rich imagery and the canvas of shade options are showcased prominently within each product, including textured shade swatches that allows user to digitally feel the product through their phones."
+                            bullet: "Devised a solution within a Product Detail page where the products shine through rich imagery and the canvas of shade options are showcased prominently within each product, including textured shade swatches that allows user to digitally feel the product through their phones.",
+                            borderColor: '#eee'
                         }
                     ],
                 },
@@ -448,7 +457,7 @@ var appData = {
                             text: 'In 2010, the United States Census Bureau began a multi-year, multi-phase program (the Web Transformation Project) to bring a renewed focus on what the Bureau does and how consumers can utilize the wealth of data the Census collects, measures, and monitors.  Everyone knows what the Bureau does once every 10 years, but did you know they also track over a dozen economic indicators that measure the health of the US Economy?  The Census Bureau partnered with Sapient to help take this message to the public in the form of several mobile apps, the second of which is called "dwellr"'
                         },
                         {
-                            type: 'list',
+                            type: 'text',
                             text: "After completing a fusion workshop in January 2012, the Census decided to move forward with 3 mobile apps. The second of these, dwellr, lets the user explore American Community Survey statistics about communities that fit his or her preferences and interests. Through a series of questions, dwellr can determine each user’s ideal location. It will then show them statistics about their location as well as anywhere else they visit. The app matches more than 200 American Community Survey data points with thousands of places across the nation to create a list of top 25 locations matching the user’s preferences."
                         }
                     ],
@@ -613,11 +622,13 @@ var appData = {
                         },
                         {
                             type: 'list',
-                            text: "SapientNitro proposed the solution through simplification of UX and addressing core customer needs."
+                            bullet: "SapientNitro proposed the solution through simplification of UX and addressing core customer needs.",
+                            borderColor: '#1d1d1d'
                         },
                         {
                             type: 'list',
-                            text: "Engagement Objectives included: Broadening and deepening customer engagement, help support customers with managing their insurance accounts, payments, accident reporting, roadside assistance and claims, etc. and unify products and services experience."
+                            bullet: "Engagement Objectives included: Broadening and deepening customer engagement, help support customers with managing their insurance accounts, payments, accident reporting, roadside assistance and claims, etc. and unify products and services experience.",
+                            borderColor: '#1d1d1d'
                         }
                     ],
                 },
@@ -758,19 +769,19 @@ var appData = {
                         },
                         {
                             type: 'list',
-                            text: "In both the form factors the imagery is heavy therefore performance of the app was to be considered as the app with heavy images running 24x7 could break the app to come down. Therefore we came up with two level of caching strategy where all big images will be cached in local folders on device and images related to products will be cached on caching server as a result the download process became so fast that a user could hardly see a lag or delay in loading the content. "
+                            bullet: "In both the form factors the imagery is heavy therefore performance of the app was to be considered as the app with heavy images running 24x7 could break the app to come down. Therefore we came up with two level of caching strategy where all big images will be cached in local folders on device and images related to products will be cached on caching server as a result the download process became so fast that a user could hardly see a lag or delay in loading the content. "
                         },
                         {
                             type: 'list',
-                            text: "Bed Bath and Beyond has a plan to expand this app to various platforms later on therefore while deciding development technologies we made sure that we were covered from that perspective so in future if BBB would want these apps to go to platforms like OSx, Linux, Android etc. we should be able to use same code base and deploy the app. "
+                            bullet: "Bed Bath and Beyond has a plan to expand this app to various platforms later on therefore while deciding development technologies we made sure that we were covered from that perspective so in future if BBB would want these apps to go to platforms like OSx, Linux, Android etc. we should be able to use same code base and deploy the app. "
                         },
                         {
                             type: 'list',
-                            text: "One of the biggest challenges we have faced in integrating this app with radio link hardware devices so a call could be made to associates on their walkie-talkie devices. To provide a solution on this first Sapient had to work collaboratively with Motorola (the RLS provider) to find out the way the app could talk to these devices, BBB infra team was also heavily involved in designing this solution from network perspective. As development team was setup in India therefore we had to setup this complete hardware in India and that was proved as right decision to make it possible to let app talk to these devices. "
+                            bullet: "One of the biggest challenges we have faced in integrating this app with radio link hardware devices so a call could be made to associates on their walkie-talkie devices. To provide a solution on this first Sapient had to work collaboratively with Motorola (the RLS provider) to find out the way the app could talk to these devices, BBB infra team was also heavily involved in designing this solution from network perspective. As development team was setup in India therefore we had to setup this complete hardware in India and that was proved as right decision to make it possible to let app talk to these devices. "
                         },
                         {
                             type: 'list',
-                            text: "One of the important objectives was to speed up the selling process without much hassle for a customer. Recently one of the feedbacks came from a customer “Very helpful. I am purchasing something different than what I thought I wanted but better” itself says how effectively the system was able to cater their needs and reduced the amount of effort they were spending to finding out a product in the store. "
+                            bullet: "One of the important objectives was to speed up the selling process without much hassle for a customer. Recently one of the feedbacks came from a customer “Very helpful. I am purchasing something different than what I thought I wanted but better” itself says how effectively the system was able to cater their needs and reduced the amount of effort they were spending to finding out a product in the store. "
                         },
                     ],
                 },
@@ -838,7 +849,7 @@ var appData = {
 };
 
 var blocksData = {
-    title: "<div class='block title' style='{{#if gradient}}background-image: -webkit-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -o-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -moz-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -ms-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: linear-gradient(to bottom, {{gradient.start}} 0%, {{gradient.finish}} 100%);{{else}}{{#if bgColor}}background:{{bgColor}};{{/if}}{{/if}}{{#if txtColor}}color:{{txtColor}};{{/if}}'><div class='container'><div class='client'>{{client}}</div><div class='appname'>{{app}}</div><div class='icons'><div class='device-container'>{{#each devices}}<div class='device {{device}}-container'><table><tr><td><span class='icon icon-{{device}}'></span></td></tr></table></div>{{/each}}</div>{{#if os}}<div class='os-container'>{{#each os}}<div class='device' {{#if ../../txtColor}}style='border-color:{{../../txtColor}}'{{/if}}><table><tr><td><span class='icon icon-{{platform}}'></span></td></tr></table></div>{{/each}}</div>{{/if}}<div class='clearfix'></div></div><div class='description'>{{description}}</div>{{#if moreContent}}<div class='readmore'>Read More</div>{{#each moreContent}}<div class='more-content'><p>{{text}}</p></div>{{/each}}{{/if}}</div></div>",
+    title: "<div class='block title' style='{{#if gradient}}background-image: -webkit-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -o-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -moz-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -ms-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: linear-gradient(to bottom, {{gradient.start}} 0%, {{gradient.finish}} 100%);{{else}}{{#if bgColor}}background:{{bgColor}};{{/if}}{{/if}}{{#if txtColor}}color:{{txtColor}};{{/if}}'><div class='container'><div class='client'>{{client}}</div><div class='appname'>{{app}}</div><div class='icons'><div class='device-container'>{{#each devices}}<div class='device {{device}}-container'><table><tr><td><span class='icon icon-{{device}}'></span></td></tr></table></div>{{/each}}</div>{{#if os}}<div class='os-container'>{{#each os}}<div class='device' {{#if ../../txtColor}}style='border-color:{{../../txtColor}}'{{/if}}><table><tr><td><span class='icon icon-{{platform}}'></span></td></tr></table></div>{{/each}}</div>{{/if}}<div class='clearfix'></div></div><div class='description'>{{description}}</div>{{#if moreContent}}<div class='readmore'>Read More</div>{{#each moreContent}}<div class='more-content'>{{#if text}}<p>{{text}}</p>{{/if}}{{#if bullet}}<div class='bullet' {{#if borderColor}}style='border-color:{{borderColor}}'{{/if}}>{{bullet}}</div>{{/if}}</div>{{/each}}{{/if}}</div></div>",
     imgSlider: "<div class='block img-slider' style='{{#if gradient}}background-image: -webkit-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -o-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -moz-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -ms-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: linear-gradient(to bottom, {{gradient.start}} 0%, {{gradient.finish}} 100%);{{else}}{{#if bgColor}}background:{{bgColor}};{{/if}}{{/if}}{{#if txtColor}}color:{{txtColor}};{{/if}}''><div class='slider-container'><ul>{{#each imgs}}<li><table><tr><td><img src='_img/apps-images/{{folder}}/{{img}}'></td></tr></table></li>{{/each}}<div class='clearfix'></div></ul><div class='arrow arrow-left'><img src='_img/slider-arrow-left.png'></div><div class='arrow arrow-right'><img src='_img/slider-arrow-right.png'></div></div></div>",
     facts: "<div class='block project-facts' style='{{#if gradient}}background-image: -webkit-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -o-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -moz-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: -ms-linear-gradient(bottom, {{gradient.finish}} 0%, {{gradient.start}} 100%);background-image: linear-gradient(to bottom, {{gradient.start}} 0%, {{gradient.finish}} 100%);{{else}}{{#if bgColor}}background:{{bgColor}};{{/if}}{{/if}}{{#if txtColor}}color:{{txtColor}};{{/if}}''><div class='facts-title'>Project Facts</div><div class='geography'><div class='text'><div class='geo-title'><span class='span-title'>Geography</span></div>{{#each geography}}<span class='amp'>&</span><span>{{country}}</span>{{/each}}</div><div class='countries'><div class='country-container'>{{#each geography}}<div class='country-img {{countryAb}}' style='background:url(_img/{{countryAb}}.png) 30% no-repeat; background-size:100%;'></div>{{/each}}</div></div><div class='facts-section'>{{#each facts}}<div class='section'><span class='span-title'>{{title}}</span>{{#each listItem}}<div class='list-fact'>{{#if sub}}{{fact}}:<span class='sub'>{{sub}}</span>{{else}}{{fact}}{{/if}}</div>{{/each}}</div>{{/each}}<div class='clearfix'></div></div></div></div>",
     meetTeam: "<div class='block meet-the-team'><div class='team-title'>Meet the Team</div><div class='team-container'>{{#each team}}<div class='member'><div class='member-img'><img src='_img/sapient-employees/{{img}}.jpg'></div><div class='member-overlay'><table><tr><td><div class='member-title'>{{title}}</div><div class='member-name'>{{name}}</div></td></tr></table></div></div>{{/each}}<div class='clearfix'></div></div></div>",
