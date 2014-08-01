@@ -5,10 +5,6 @@ $(window).load(function(){
         if(!$('#apps ul').hasClass('sticky')){
             $('#apps').addClass('locked');
             stackDeck(parent);
-
-            setup('#app-detail .img-slider');
-            setup('#app-detail .geography');
-            setup('#app-detail .meet-the-team');
         }
     });
 
@@ -143,7 +139,6 @@ function centerApp(li, maxDelay) {
     var offset = $(li).offset();
     var posY = offset.top;
     var offKilter = 0;
-
 
 
     if($(window).width() <= 480){

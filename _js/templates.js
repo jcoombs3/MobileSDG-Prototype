@@ -866,9 +866,12 @@ function blockSetup(){
         var width = $(window).outerWidth() - $('#nav').outerWidth() - pad;
     }
 
-    TweenMax.to($('#app-detail'),0,{width:width+'px'});
-
-    setup('#app-detail .title');
+    TweenMax.to($('#app-detail'),0,{width:width+'px', onComplete:function(){
+        setup('#app-detail .title');
+        setup('#app-detail .img-slider');
+        setup('#app-detail .geography');
+        setup('#app-detail .meet-the-team');
+    }});
 }
 
 function detailCheck(li) {
