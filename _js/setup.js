@@ -142,21 +142,18 @@ function setup(el){
                     TweenMax.to($(this).find('img'),0,{maxWidth:tableWidth + 'px', maxHeight:tableHeight + 'px'});
                 }
 
-                $(this).find('li:first-child').addClass('target');
-
                 $(this).find('.arrow-right').addClass('disabled');
 
                 var order = 1;
                 $(this).find('li').each(function(){
                     var img = $(this).find('img');
-                    console.log(img.width(), img.height());
                     if($(window).outerWidth() < 480){
                         if(img.height() > img.width()){
                             $(this).data('order',order);
                             order++;
                         }
                         else{//img is bad
-                            $(this).addClass('bad-dog');
+                            $(this).remove();
                         }
                     }
                     else{
