@@ -149,6 +149,7 @@ function setup(el){
                     var img = $(this).find('img');
                     if($(window).outerWidth() < 480){
                         if(img.height() > img.width()){
+                            $(this).addClass('mobile-img');
                             $(this).data('order',order);
                             order++;
                         }
@@ -161,6 +162,20 @@ function setup(el){
                         order++;
                     }
                 });
+                   
+                if($(window).outerWidth() < 480){
+                    // check for imgs in mobile. if none, remove 
+                    var hasImg = false;
+                    $(this).find('li').each(function(){
+                        if($(this).hasClass('mobile-img')){
+                            hasImg = true;
+                        }
+                    });
+                    if(!hasImg){
+                        $(this).remove();
+                    }
+                }
+
             });
 
             break;
