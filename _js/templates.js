@@ -22,81 +22,73 @@ var appTemplate = Handlebars.compile(appSource);
 var appData = {
     apps: [
         {
-            name: "Levi's",
-            icon: "levis",
-            iconWidth: "40%",
+            name: "dweller",
+            icon: "dweller",
+            iconWidth: "45%",
             blocks: [
                 {
                     type: 'title',
-                    bgColor: '#fff',
+                    bgColor: '#E8583E',
                     gradient: {
-                        start: '#fff',
-                        finish: '#dedede'
+                        start:'#f14729',
+                        finish:'#E8583E'
                     },
-                    client: "Levi's",
-                    app: "Denim Discovery In-Store Experience",
+                    txtColor: '#fff',
+                    client: "United States Census Bureau",
+                    app: "dweller",
                     devices: [
                         {
-                            device: 'kiosk'
+                            device: 'phone'
+                        },
+                    ],
+                    os: [
+                        {
+                            platform: 'ios'
+                        },
+                        {
+                            platform: 'android'
                         }
                     ],
-                    description: "We worked in partnership with Levi's to create a Macy's 'store within a store' concept that brings digital brand experiences to the physical space in connected ways. We worked with architects, merchandisers, brand and marketing creative, store operators and outside agencies to develop the creative, strategy, and overall evolution.",
+                    description: "dwellr is one of the ways the Census Bureau is working to make its statistics more available anywhere, anytime, and in any place in line with the Digital Government Strategy. Powered by the American Community Survey statistics, the users are introduced to a wealth of information, which provides estimates for every neighborhood in the nation on topics ranging from education to commuting.",
                     moreContent: [
                         {
                             type: 'text',
-                            text: 'At the core of this concept is a large, touch experience titled "Denim Discovery". We designed and built this experience to complete 2 tasks; serve as a merchandising, storytelling tool and as a utility and education for associates and customers.'
+                            text: 'In 2010, the United States Census Bureau began a multi-year, multi-phase program (the Web Transformation Project) to bring a renewed focus on what the Bureau does and how consumers can utilize the wealth of data the Census collects, measures, and monitors.  Everyone knows what the Bureau does once every 10 years, but did you know they also track over a dozen economic indicators that measure the health of the US Economy?  The Census Bureau partnered with Sapient to help take this message to the public in the form of several mobile apps, the second of which is called "dwellr"'
                         },
                         {
                             type: 'text',
-                            text: "Some highlights are 'Fit Finder', an interactive way to find the fit that suits you, or 'Fit Compare', a way to evaluate fit details and engage in side-by-side comparisons. It has ways for consumers to shop by color, fabric, learn about the Levi's brand, and can serve as a clienteling and educational tool for associates."
-                        },
-                        {
-                            type: 'text',
-                            text: "We also worked with the clients to design a new way to market themselves. We encourage customers to submit the way they wear their Levi's through a hashtag campaign that then gets used on product detail pages. We created broadcast channels at the fixture level that are used to help inspire and connect the product to the campaign. We re-imagined the product and brand expression in-store in an integrated way."
-                        },
-                        {
-                            type: 'text',
-                            text: "We did all of this on shoestring budget with a crack-team of specialists with no issues."
+                            text: "After completing a fusion workshop in January 2012, the Census decided to move forward with 3 mobile apps. The second of these, dwellr, lets the user explore American Community Survey statistics about communities that fit his or her preferences and interests. Through a series of questions, dwellr can determine each user’s ideal location. It will then show them statistics about their location as well as anywhere else they visit. The app matches more than 200 American Community Survey data points with thousands of places across the nation to create a list of top 25 locations matching the user’s preferences."
                         }
                     ],
                 },
                 {
                     type: 'imgSlider',
-                    bgColor: '#dedede',
+                    bgColor: '#E8583E',
                     imgs: [
                         {
-                            folder: 'levis',
-                            img: 'levis_inDevice1.png'
+                            folder: 'dweller',
+                            img: 'dweller_5.jpeg'
                         },
                         {
-                            folder: 'levis',
-                            img: 'levis_inDevice2.png'
+                            folder: 'dweller',
+                            img: 'dweller_1.jpeg'
                         },
                         {
-                            folder: 'levis',
-                            img: 'levis_inDevice3.png'
+                            folder: 'dweller',
+                            img: 'dweller_2.jpeg'
                         },
                         {
-                            folder: 'levis',
-                            img: 'levis_inDevice4.png'
+                            folder: 'dweller',
+                            img: 'dweller_3.jpeg'
                         },
                         {
-                            folder: 'levis',
-                            img: 'levis_inDevice5.png'
+                            folder: 'dweller',
+                            img: 'dweller_5.jpeg'
                         },
-                        {
-                            folder: 'levis',
-                            img: 'levis_inDevice6.png'
-                        },
-                        {
-                            folder: 'levis',
-                            img: 'levis_inDevice7.png'
-                        }
                     ]
                 },
                 {
                     type: 'facts',
-                    bgColor: '#fff',
                     geography: [
                         {
                             country: 'North America',
@@ -105,16 +97,10 @@ var appData = {
                     ],
                     facts: [
                         {
-                            title: 'Service Offerings',
+                            title: 'Engagement Model',
                             listItem: [
                                 {
-                                    fact: 'Design',
-                                },
-                                {
-                                    fact: 'Development',
-                                },
-                                {
-                                    fact: 'Deployment',
+                                    fact: 'T&M'
                                 }
                             ]
                         },
@@ -122,7 +108,49 @@ var appData = {
                             title: 'Development Platform',
                             listItem: [
                                 {
-                                    fact: 'Flex',
+                                    fact: 'Flex'
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Industry',
+                            listItem: [
+                                {
+                                    fact: 'Education'
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Service Offerings',
+                            listItem: [
+                                {
+                                    fact: 'Mobile Strategy',
+                                },
+                                {
+                                    fact: 'In Store Strategy',
+                                },
+                                {
+                                    fact: 'Design',
+                                },
+                                {
+                                    fact: 'Development',
+                                },
+                                {
+                                    fact: 'Support',
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Project Information',
+                            listItem: [
+                                {
+                                    fact: 'US Census',
+                                },
+                                {
+                                    fact: '3+ Years',
+                                },
+                                {
+                                    fact: 'Date of Execution: 04/11',
                                 }
                             ]
                         },
@@ -130,8 +158,7 @@ var appData = {
                             title: 'Partner Roles',
                             listItem: [
                                 {
-                                    fact: 'Iron Creative',
-                                    sub: 'Assets'
+                                    fact: 'US Census'
                                 }
                             ]
                         },
@@ -141,19 +168,19 @@ var appData = {
                     type: 'meetTeam',
                     team: [
                         {
-                            name: 'Brian Daviadoff',
-                            title: 'Developer',
-                            img: 'Brian_Daviadoff'
-                        },
-                        {
-                            name: 'John Coombs',
-                            title: 'Developer',
-                            img: 'John_Coombs'
-                        },
-                        {
-                            name: 'Aram Yang',
+                            name: 'Matt Mills',
                             title: 'Program Manager',
-                            img: 'Aram_Yang'
+                            img: 'Matt_Mills'
+                        },
+                        {
+                            name: 'Alice Jankowski',
+                            title: 'Copywriter',
+                            img: 'Alice_Jankowski'
+                        },
+                        {
+                            name: 'Jae Lingberg Shah',
+                            title: 'Senior Manager Technology',
+                            img: 'Jae_Shah'
                         },
                     ]
                 }
@@ -423,171 +450,6 @@ var appData = {
             ]
         },
         {
-            name: "dweller",
-            icon: "dweller",
-            iconWidth: "45%",
-            blocks: [
-                {
-                    type: 'title',
-                    bgColor: '#E8583E',
-                    gradient: {
-                        start:'#f14729',
-                        finish:'#E8583E'
-                    },
-                    txtColor: '#fff',
-                    client: "United States Census Bureau",
-                    app: "dweller",
-                    devices: [
-                        {
-                            device: 'phone'
-                        },
-                    ],
-                    os: [
-                        {
-                            platform: 'ios'
-                        },
-                        {
-                            platform: 'android'
-                        }
-                    ],
-                    description: "dwellr is one of the ways the Census Bureau is working to make its statistics more available anywhere, anytime, and in any place in line with the Digital Government Strategy. Powered by the American Community Survey statistics, the users are introduced to a wealth of information, which provides estimates for every neighborhood in the nation on topics ranging from education to commuting.",
-                    moreContent: [
-                        {
-                            type: 'text',
-                            text: 'In 2010, the United States Census Bureau began a multi-year, multi-phase program (the Web Transformation Project) to bring a renewed focus on what the Bureau does and how consumers can utilize the wealth of data the Census collects, measures, and monitors.  Everyone knows what the Bureau does once every 10 years, but did you know they also track over a dozen economic indicators that measure the health of the US Economy?  The Census Bureau partnered with Sapient to help take this message to the public in the form of several mobile apps, the second of which is called "dwellr"'
-                        },
-                        {
-                            type: 'text',
-                            text: "After completing a fusion workshop in January 2012, the Census decided to move forward with 3 mobile apps. The second of these, dwellr, lets the user explore American Community Survey statistics about communities that fit his or her preferences and interests. Through a series of questions, dwellr can determine each user’s ideal location. It will then show them statistics about their location as well as anywhere else they visit. The app matches more than 200 American Community Survey data points with thousands of places across the nation to create a list of top 25 locations matching the user’s preferences."
-                        }
-                    ],
-                },
-                {
-                    type: 'imgSlider',
-                    bgColor: '#E8583E',
-                    imgs: [
-                        {
-                            folder: 'dweller',
-                            img: 'dweller_5.jpeg'
-                        },
-                        {
-                            folder: 'dweller',
-                            img: 'dweller_1.jpeg'
-                        },
-                        {
-                            folder: 'dweller',
-                            img: 'dweller_2.jpeg'
-                        },
-                        {
-                            folder: 'dweller',
-                            img: 'dweller_3.jpeg'
-                        },
-                        {
-                            folder: 'dweller',
-                            img: 'dweller_5.jpeg'
-                        },
-                    ]
-                },
-                {
-                    type: 'facts',
-                    geography: [
-                        {
-                            country: 'North America',
-                            countryAb: 'NA'
-                        }
-                    ],
-                    facts: [
-                        {
-                            title: 'Engagement Model',
-                            listItem: [
-                                {
-                                    fact: 'T&M'
-                                }
-                            ]
-                        },
-                        {
-                            title: 'Development Platform',
-                            listItem: [
-                                {
-                                    fact: 'Flex'
-                                }
-                            ]
-                        },
-                        {
-                            title: 'Industry',
-                            listItem: [
-                                {
-                                    fact: 'Education'
-                                }
-                            ]
-                        },
-                        {
-                            title: 'Service Offerings',
-                            listItem: [
-                                {
-                                    fact: 'Mobile Strategy',
-                                },
-                                {
-                                    fact: 'In Store Strategy',
-                                },
-                                {
-                                    fact: 'Design',
-                                },
-                                {
-                                    fact: 'Development',
-                                },
-                                {
-                                    fact: 'Support',
-                                }
-                            ]
-                        },
-                        {
-                            title: 'Project Information',
-                            listItem: [
-                                {
-                                    fact: 'US Census',
-                                },
-                                {
-                                    fact: '3+ Years',
-                                },
-                                {
-                                    fact: 'Date of Execution: 04/11',
-                                }
-                            ]
-                        },
-                        {
-                            title: 'Partner Roles',
-                            listItem: [
-                                {
-                                    fact: 'US Census'
-                                }
-                            ]
-                        },
-                    ]
-                },
-                {
-                    type: 'meetTeam',
-                    team: [
-                        {
-                            name: 'Matt Mills',
-                            title: 'Program Manager',
-                            img: 'Matt_Mills'
-                        },
-                        {
-                            name: 'Alice Jankowski',
-                            title: 'Copywriter',
-                            img: 'Alice_Jankowski'
-                        },
-                        {
-                            name: 'Jae Lingberg Shah',
-                            title: 'Senior Manager Technology',
-                            img: 'Jae_Shah'
-                        },
-                    ]
-                }
-            ]
-        },
-        {
             name: "Hartford",
             icon: "hartford",
             iconWidth: "33%",
@@ -709,6 +571,144 @@ var appData = {
                                 },
                             ]
                         }
+                    ]
+                },
+                {
+                    type: 'meetTeam',
+                    team: [
+                        {
+                            name: 'Brian Daviadoff',
+                            title: 'Developer',
+                            img: 'Brian_Daviadoff'
+                        },
+                        {
+                            name: 'John Coombs',
+                            title: 'Developer',
+                            img: 'John_Coombs'
+                        },
+                        {
+                            name: 'Aram Yang',
+                            title: 'Program Manager',
+                            img: 'Aram_Yang'
+                        },
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Levi's",
+            icon: "levis",
+            iconWidth: "40%",
+            blocks: [
+                {
+                    type: 'title',
+                    bgColor: '#fff',
+                    gradient: {
+                        start: '#fff',
+                        finish: '#dedede'
+                    },
+                    client: "Levi's",
+                    app: "Denim Discovery In-Store Experience",
+                    devices: [
+                        {
+                            device: 'kiosk'
+                        }
+                    ],
+                    description: "We worked in partnership with Levi's to create a Macy's 'store within a store' concept that brings digital brand experiences to the physical space in connected ways. We worked with architects, merchandisers, brand and marketing creative, store operators and outside agencies to develop the creative, strategy, and overall evolution.",
+                    moreContent: [
+                        {
+                            type: 'text',
+                            text: 'At the core of this concept is a large, touch experience titled "Denim Discovery". We designed and built this experience to complete 2 tasks; serve as a merchandising, storytelling tool and as a utility and education for associates and customers.'
+                        },
+                        {
+                            type: 'text',
+                            text: "Some highlights are 'Fit Finder', an interactive way to find the fit that suits you, or 'Fit Compare', a way to evaluate fit details and engage in side-by-side comparisons. It has ways for consumers to shop by color, fabric, learn about the Levi's brand, and can serve as a clienteling and educational tool for associates."
+                        },
+                        {
+                            type: 'text',
+                            text: "We also worked with the clients to design a new way to market themselves. We encourage customers to submit the way they wear their Levi's through a hashtag campaign that then gets used on product detail pages. We created broadcast channels at the fixture level that are used to help inspire and connect the product to the campaign. We re-imagined the product and brand expression in-store in an integrated way."
+                        },
+                        {
+                            type: 'text',
+                            text: "We did all of this on shoestring budget with a crack-team of specialists with no issues."
+                        }
+                    ],
+                },
+                {
+                    type: 'imgSlider',
+                    bgColor: '#dedede',
+                    imgs: [
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice1.png'
+                        },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice2.png'
+                        },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice3.png'
+                        },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice4.png'
+                        },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice5.png'
+                        },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice6.png'
+                        },
+                        {
+                            folder: 'levis',
+                            img: 'levis_inDevice7.png'
+                        }
+                    ]
+                },
+                {
+                    type: 'facts',
+                    bgColor: '#fff',
+                    geography: [
+                        {
+                            country: 'North America',
+                            countryAb: 'NA'
+                        }
+                    ],
+                    facts: [
+                        {
+                            title: 'Service Offerings',
+                            listItem: [
+                                {
+                                    fact: 'Design',
+                                },
+                                {
+                                    fact: 'Development',
+                                },
+                                {
+                                    fact: 'Deployment',
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Development Platform',
+                            listItem: [
+                                {
+                                    fact: 'Flex',
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Partner Roles',
+                            listItem: [
+                                {
+                                    fact: 'Iron Creative',
+                                    sub: 'Assets'
+                                }
+                            ]
+                        },
                     ]
                 },
                 {
